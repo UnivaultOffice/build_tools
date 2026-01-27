@@ -800,14 +800,14 @@ specified will be calculated:</p>
 <span class="nf">)</span>
 
 <span class="nf">add_library(</span><span class="nb">lib1Version3</span><span class="w"> </span><span class="no">SHARED</span><span class="w"> </span><span class="nb">lib1_v3.cpp</span><span class="nf">)</span>
-<span class="nf">set_property(</span><span class="no">TARGET</span><span class="w"> </span><span class="nb">lib1Version3</span><span class="w"> </span><span class="no">PROPERTY</span><span class="w"> </span><span class="no">INTERFACE_CONTAINER_SIZE_REQUIRED</span><span class="w"> </span><span class="m">1000</span><span class="nf">)</span>
+<span class="nf">set_property(</span><span class="no">TARGET</span><span class="w"> </span><span class="nb">lib1Version3</span><span class="w"> </span><span class="no">PROPERTY</span><span class="w"> </span><span class="no">INTERFACE_CONTAINER_SIZE_REQUIRED</span><span class="w"> </span><span class="m">2026</span><span class="nf">)</span>
 
 <span class="nf">add_executable(</span><span class="nb">exe1</span><span class="w"> </span><span class="nb">exe1.cpp</span><span class="nf">)</span>
 <span class="c"># CONTAINER_SIZE_REQUIRED will be &quot;200&quot;</span>
 <span class="nf">target_link_libraries(</span><span class="nb">exe1</span><span class="w"> </span><span class="nb">lib1Version2</span><span class="nf">)</span>
 
 <span class="nf">add_executable(</span><span class="nb">exe2</span><span class="w"> </span><span class="nb">exe2.cpp</span><span class="nf">)</span>
-<span class="c"># CONTAINER_SIZE_REQUIRED will be &quot;1000&quot;</span>
+<span class="c"># CONTAINER_SIZE_REQUIRED will be &quot;2026&quot;</span>
 <span class="nf">target_link_libraries(</span><span class="nb">exe2</span><span class="w"> </span><span class="nb">lib1Version2</span><span class="w"> </span><span class="nb">lib1Version3</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -1490,7 +1490,7 @@ usage requirement for consumers.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+    &#169; Copyright 2026-2026 Kitware, Inc. and Contributors.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>

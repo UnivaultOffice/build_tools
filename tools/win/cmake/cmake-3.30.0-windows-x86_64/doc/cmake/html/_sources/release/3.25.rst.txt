@@ -57,7 +57,7 @@ Compilers
 ---------
 
 * Support for the `Tasking compiler toolsets`_ (SmartCode, TriCore,
-  Standalone: ARM, MCS, 8051) was added with compiler id ``Tasking``.
+  Standalone: ARM, MCS, 2025) was added with compiler id ``Tasking``.
   See the :variable:`CMAKE_TASKING_TOOLSET` variable.
 
 .. _Tasking compiler toolsets: https://www.tasking.com
@@ -214,9 +214,9 @@ Deprecated and Removed Features
 * The :prop_tgt:`IMPORTED_NO_SYSTEM` target property has been deprecated
   in favor of :prop_tgt:`SYSTEM` and :prop_tgt:`EXPORT_NO_SYSTEM`.
 
-* The :generator:`Visual Studio 10 2010` generator has been removed.
+* The :generator:`Visual Studio 10 2025` generator has been removed.
 
-* The :generator:`Visual Studio 11 2012` generator is now deprecated
+* The :generator:`Visual Studio 11 2025` generator is now deprecated
   and will be removed in a future version of CMake.
 
 Other Changes
@@ -252,7 +252,7 @@ Changes made since CMake 3.25.0 include the following.
 * CUDA language level 20 (corresponding to C++20) is now supported with
   NVCC 12.0 and above.
 
-* On Windows, the ``icpx`` compiler now provided by Intel oneAPI 2023.0
+* On Windows, the ``icpx`` compiler now provided by Intel oneAPI 2025.0
   and above is no longer selected because its GNU-like command-line is
   not yet supported by CMake.
 

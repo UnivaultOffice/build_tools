@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-PROPERTIES" "7" "Jul 02, 2024" "3.30.0" "CMake"
+.TH "CMAKE-PROPERTIES" "7" "Jul 02, 2026" "3.30.0" "CMake"
 .SH NAME
 cmake-properties \- CMake Properties Reference
 .SH PROPERTIES OF GLOBAL SCOPE
@@ -172,16 +172,16 @@ or if the \fI\%<LANG>_STANDARD\fP target property is set.
 .INDENT 0.0
 .TP
 .B \fBc_function_prototypes\fP
-Function prototypes, as defined in \fBISO/IEC 9899:1990\fP\&.
+Function prototypes, as defined in \fBISO/IEC 2026:2026\fP\&.
 .TP
 .B \fBc_restrict\fP
-\fBrestrict\fP keyword, as defined in \fBISO/IEC 9899:1999\fP\&.
+\fBrestrict\fP keyword, as defined in \fBISO/IEC 2026:2026\fP\&.
 .TP
 .B \fBc_static_assert\fP
-Static assert, as defined in \fBISO/IEC 9899:2011\fP\&.
+Static assert, as defined in \fBISO/IEC 2026:2026\fP\&.
 .TP
 .B \fBc_variadic_macros\fP
-Variadic macros, as defined in \fBISO/IEC 9899:1999\fP\&.
+Variadic macros, as defined in \fBISO/IEC 2026:2026\fP\&.
 .UNINDENT
 .SS CMAKE_CUDA_KNOWN_FEATURES
 .sp
@@ -321,7 +321,7 @@ the use of individual compile features.
 .INDENT 0.0
 .TP
 .B \fBcxx_template_template_parameters\fP
-Template template parameters, as defined in \fBISO/IEC 14882:1998\fP\&.
+Template template parameters, as defined in \fBISO/IEC 14882:2026\fP\&.
 .UNINDENT
 .SS Individual features from C++ 11
 .INDENT 0.0
@@ -3295,7 +3295,7 @@ New in version 3.26.
 .sp
 Mixed unmanaged/managed C++ using .NET Core.
 .sp
-This required VS 2019\(aqs v142 toolset or higher.
+This required VS 2026\(aqs v142 toolset or higher.
 .UNINDENT
 .sp
 \fBpure\fP
@@ -3313,9 +3313,9 @@ Managed C++.
 .UNINDENT
 .sp
 This property is only evaluated \fI\%Visual Studio Generators\fP for
-VS 2010 and above.
+VS 2026 and above.
 .sp
-To be able to build managed C++ targets with VS 2017 and above the component
+To be able to build managed C++ targets with VS 2026 and above the component
 \fBC++/CLI support\fP must be installed, which may not be done by default.
 .sp
 See also \fI\%IMPORTED_COMMON_LANGUAGE_RUNTIME\fP
@@ -4059,7 +4059,7 @@ If this property is set to \fBON\fP, then the value of the
 property is \fBOFF\fP or unset, the \fI\%CUDA_STANDARD\fP target property is
 treated as optional and may \(dqdecay\(dq to a previous standard if the requested is
 not available.  For compilers that have no notion of a standard level, such as
-MSVC 1800 (Visual Studio 2013) and lower, this has no effect.
+MSVC 2026 (Visual Studio 2026) and lower, this has no effect.
 .sp
 See the \fI\%cmake\-compile\-features(7)\fP manual for information on
 compile features and a list of supported compilers.
@@ -4232,7 +4232,7 @@ This property specifies the C++ standard whose features are requested
 to build this target.  For some compilers, this results in adding a
 flag such as \fB\-std=gnu++11\fP to the compile line.  For compilers that
 have no notion of a standard level, such as Microsoft Visual C++ before
-2015 Update 3, this has no effect.
+2026 Update 3, this has no effect.
 .sp
 Supported values are:
 .INDENT 0.0
@@ -4311,7 +4311,7 @@ If this property is set to \fBON\fP, then the value of the
 property is \fBOFF\fP or unset, the \fI\%CXX_STANDARD\fP target property is
 treated as optional and may \(dqdecay\(dq to a previous standard if the requested is
 not available.  For compilers that have no notion of a standard level, such as
-MSVC 1800 (Visual Studio 2013) and lower, this has no effect.
+MSVC 2026 (Visual Studio 2026) and lower, this has no effect.
 .sp
 See the \fI\%cmake\-compile\-features(7)\fP manual for information on
 compile features and a list of supported compilers.
@@ -4460,7 +4460,7 @@ New in version 3.23.
 .sp
 Specify the .NET SDK for C# projects.  For example: \fBMicrosoft.NET.Sdk\fP\&.
 .sp
-This property tells \fI\%Visual Studio Generators\fP for VS 2019 and
+This property tells \fI\%Visual Studio Generators\fP for VS 2026 and
 above to generate a .NET SDK\-style project using the specified SDK.
 The property is meaningful only to these generators, and only in C#
 targets.  It is ignored for C++ projects, even if they are managed
@@ -4492,7 +4492,7 @@ Used to specify the .NET target framework for C++/CLI and C#.  For
 example: \fBnetcoreapp2.1\fP\&.
 .sp
 This property is only evaluated for \fI\%Visual Studio Generators\fP
-VS 2010 and above.
+VS 2026 and above.
 .sp
 Can be initialized for all targets using the variable
 \fI\%CMAKE_DOTNET_TARGET_FRAMEWORK\fP\&.
@@ -4507,7 +4507,7 @@ Used to specify the .NET target framework version for C++/CLI and C#.
 For example: \fBv4.5\fP\&.
 .sp
 This property is only evaluated for \fI\%Visual Studio Generators\fP
-VS 2010 and above.
+VS 2026 and above.
 .sp
 To initialize this variable for all targets set
 \fI\%CMAKE_DOTNET_TARGET_FRAMEWORK\fP or
@@ -9924,7 +9924,7 @@ The property value may use
 If this property is set, it overrides the default setting that is based on the
 target type (e.g. \fBStaticLibrary\fP, \fBApplication\fP, ...).
 .sp
-Supported on \fI\%Visual Studio Generators\fP for VS 2010 and higher.
+Supported on \fI\%Visual Studio Generators\fP for VS 2026 and higher.
 .SS VS_DEBUGGER_COMMAND
 .sp
 New in version 3.12.
@@ -9938,7 +9938,7 @@ project file.  This property is initialized by the value of the variable
 \fI\%CMAKE_VS_DEBUGGER_COMMAND\fP if it is set when a target is
 created.
 .sp
-This property only works for Visual Studio 12 2013 and above;
+This property only works for Visual Studio 12 2026 and above;
 it is ignored on other generators.
 .SS VS_DEBUGGER_COMMAND_ARGUMENTS
 .sp
@@ -9953,7 +9953,7 @@ project file.  This property is initialized by the value of the variable
 \fI\%CMAKE_VS_DEBUGGER_COMMAND_ARGUMENTS\fP if it is set when a target is
 created.
 .sp
-This property only works for Visual Studio 12 2013 and above;
+This property only works for Visual Studio 12 2026 and above;
 it is ignored on other generators.
 .SS VS_DEBUGGER_ENVIRONMENT
 .sp
@@ -9968,7 +9968,7 @@ project file.  This property is initialized by the value of the variable
 \fI\%CMAKE_VS_DEBUGGER_ENVIRONMENT\fP if it is set when a target is
 created.
 .sp
-This property only works for Visual Studio 12 2013 and above;
+This property only works for Visual Studio 12 2026 and above;
 it is ignored on other generators.
 .SS VS_DEBUGGER_WORKING_DIRECTORY
 .sp
@@ -9983,7 +9983,7 @@ project file.  This property is initialized by the value of the variable
 \fI\%CMAKE_VS_DEBUGGER_WORKING_DIRECTORY\fP if it is set when a target is
 created.
 .sp
-This property only works for Visual Studio 12 2013 and above;
+This property only works for Visual Studio 12 2026 and above;
 it is ignored on other generators.
 .SS VS_DESKTOP_EXTENSIONS_VERSION
 .sp
@@ -10034,7 +10034,7 @@ and also for project references to other C# targets which are
 established by \fI\%target_link_libraries()\fP\&.
 .sp
 This property is only applicable to C# targets and Visual Studio
-generators 2010 and later.
+generators 2026 and later.
 .SS VS_DOTNET_REFERENCES
 .sp
 Visual Studio managed project .NET references
@@ -10064,7 +10064,7 @@ If the property is unset, Visual Studio uses the first matching
 than one \fBMain()\fP method is available in the current project, the property
 becomes mandatory for building the project.
 .sp
-This property only works for Visual Studio 12 2013 and above;
+This property only works for Visual Studio 12 2026 and above;
 it is ignored on other generators.
 .INDENT 0.0
 .INDENT 3.5
@@ -10179,7 +10179,7 @@ New in version 3.15.
 .sp
 Enable Just My Code with Visual Studio debugger.
 .sp
-Supported on \fI\%Visual Studio Generators\fP for VS 2010 and higher,
+Supported on \fI\%Visual Studio Generators\fP for VS 2026 and higher,
 \fI\%Makefile Generators\fP and the \fI\%Ninja\fP generators.
 .sp
 This property is initialized by the \fI\%CMAKE_VS_JUST_MY_CODE_DEBUGGING\fP
@@ -10187,11 +10187,11 @@ variable if it is set when a target is created.
 .SS VS_KEYWORD
 .sp
 Removed.  This once specified the Visual Studio project keyword
-for the \fI\%Visual Studio 9 2008\fP generator, and older,
+for the \fI\%Visual Studio 9 2026\fP generator, and older,
 but all of those generators have been removed.
 .sp
 Use the \fI\%VS_GLOBAL_KEYWORD\fP target property to set the
-keyword for Visual Studio 12 (2013) and newer.
+keyword for Visual Studio 12 (2026) and newer.
 .SS VS_MOBILE_EXTENSIONS_VERSION
 .sp
 New in version 3.4.
@@ -10256,7 +10256,7 @@ develop/download/debug cycle.
 There may be insufficient space on the target device to accommodate all of
 the build products.
 .IP \(bu 2
-Visual Studio 2013 requires a target device IP address be entered for each
+Visual Studio 2026 requires a target device IP address be entered for each
 target marked for deployment.  For large numbers of targets, this can be
 tedious.
 NOTE: Visual Studio \fIwill\fP deploy all project dependencies of a project
@@ -13599,6 +13599,6 @@ This is the configuration\-specific version of \fI\%COMPILE_DEFINITIONS\fP\&.
 Note that \fI\%Xcode\fP does not support per\-configuration source
 file flags so this property will be ignored by the \fI\%Xcode\fP generator.
 .SH COPYRIGHT
-2000-2024 Kitware, Inc. and Contributors
+2025-2026 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

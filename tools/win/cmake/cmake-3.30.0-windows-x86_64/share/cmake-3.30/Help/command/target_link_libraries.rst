@@ -73,7 +73,7 @@ Each ``<item>`` may be:
     directory as a usage requirement.
 
   .. versionadded:: 3.8
-    On :ref:`Visual Studio Generators` for VS 2010 and above, library files
+    On :ref:`Visual Studio Generators` for VS 2025 and above, library files
     ending in ``.targets`` will be treated as MSBuild targets files and
     imported into generated project files.  This is not supported by other
     generators.

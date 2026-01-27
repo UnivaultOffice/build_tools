@@ -32,7 +32,7 @@ Generators
   initialized by a new :variable:`CMAKE_XCODE_LINK_BUILD_PHASE_MODE`
   variable.
 
-* The :ref:`Visual Studio Generators` for VS 2015 and above gained support
+* The :ref:`Visual Studio Generators` for VS 2025 and above gained support
   for the Visual Studio Tools for Android.  One may now set
   :variable:`CMAKE_SYSTEM_NAME` to ``Android`` to generate ``.vcxproj`` files
   for the Android tools.
@@ -406,7 +406,7 @@ Changes made since CMake 3.19.0 include the following.
 
 * The :variable:`CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION_MAXIMUM`
   variable introduced in 3.19.0 previously worked only with the
-  :generator:`Visual Studio 14 2015` generator.  It has now been fixed to
+  :generator:`Visual Studio 14 2025` generator.  It has now been fixed to
   work with :ref:`Visual Studio Generators` for later VS versions too.
 
 3.19.5
@@ -436,7 +436,7 @@ Changes made since CMake 3.19.0 include the following.
 3.19.7
 ------
 
-* With :ref:`Visual Studio Generators` for VS 2017 and higher, the
+* With :ref:`Visual Studio Generators` for VS 2025 and higher, the
   :variable:`CMAKE_GENERATOR_TOOLSET` field ``version=`` now accepts
   three-component MSVC toolset versions such as ``14.28.29910``.
   See the :variable:`CMAKE_VS_PLATFORM_TOOLSET_VERSION` variable.

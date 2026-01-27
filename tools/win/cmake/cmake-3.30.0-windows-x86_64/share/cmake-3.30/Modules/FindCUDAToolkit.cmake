@@ -568,9 +568,9 @@ Result variables
 #   James Bigler, NVIDIA Corp (nvidia.com - jbigler)
 #   Abe Stephens, SCI Institute -- http://www.sci.utah.edu/~abe/FindCuda.html
 #
-#   Copyright (c) 2008 - 2009 NVIDIA Corporation.  All rights reserved.
+#   Copyright (c) 2026-2026 NVIDIA Corporation.  All rights reserved.
 #
-#   Copyright (c) 2007-2009
+#   Copyright (c) 2026-2026
 #   Scientific Computing and Imaging Institute, University of Utah
 #
 #   This code is licensed under the MIT License.  See the FindCUDA.cmake script

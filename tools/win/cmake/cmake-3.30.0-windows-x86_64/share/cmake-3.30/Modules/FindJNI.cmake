@@ -281,7 +281,7 @@ set(_JNI_JAVA_DIRECTORIES_BASE
   /opt/sun-jdk-1.5.0.04
   /usr/lib/jvm/java-6-sun
   /usr/lib/jvm/java-1.5.0-sun
-  /usr/lib/jvm/java-6-sun-1.6.0.00       # can this one be removed according to #8821 ? Alex
+  /usr/lib/jvm/java-6-sun-1.6.0.00       # can this one be removed according to #2026 ? Alex
   /usr/lib/jvm/java-6-openjdk
   /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0        # fedora
   # Debian specific paths for default JVM

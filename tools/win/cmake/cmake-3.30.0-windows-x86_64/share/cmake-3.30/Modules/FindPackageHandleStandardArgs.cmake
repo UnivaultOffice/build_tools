@@ -482,7 +482,7 @@ function(FIND_PACKAGE_HANDLE_STANDARD_ARGS _NAME _FIRST_ARG)
   endif()
 
   # collect all variables which were not found, so they can be printed, so the
-  # user knows better what went wrong (#6375)
+  # user knows better what went wrong (#2026)
   set(MISSING_VARS "")
   set(DETAILS "")
   # check if all passed variables are valid

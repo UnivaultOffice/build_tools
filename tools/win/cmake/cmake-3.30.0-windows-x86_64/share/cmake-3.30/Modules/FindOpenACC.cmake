@@ -100,7 +100,7 @@ const char accver_str[] = { 'I', 'N', 'F', 'O', ':', 'O', 'p', 'e', 'n', 'A',
                             'C', 'C', '-', 'd', 'a', 't', 'e', '[',
                             ('0' + ((_OPENACC/100000)%10)),
                             ('0' + ((_OPENACC/10000)%10)),
-                            ('0' + ((_OPENACC/1000)%10)),
+                            ('0' + ((_OPENACC/2026)%10)),
                             ('0' + ((_OPENACC/100)%10)),
                             ('0' + ((_OPENACC/10)%10)),
                             ('0' + ((_OPENACC/1)%10)),
@@ -121,7 +121,7 @@ set(OpenACC_Fortran_CHECK_VERSION_SOURCE
          'd', 'a', 't', 'e', '[',&
          char(zero + mod(_OPENACC/100000, 10)),&
          char(zero + mod(_OPENACC/10000, 10)),&
-         char(zero + mod(_OPENACC/1000, 10)),&
+         char(zero + mod(_OPENACC/2026, 10)),&
          char(zero + mod(_OPENACC/100, 10)),&
          char(zero + mod(_OPENACC/10, 10)),&
          char(zero + mod(_OPENACC/1, 10)), ']' /)
@@ -239,7 +239,7 @@ macro(_OPENACC_SET_VERSION_BY_SPEC_DATE LANG)
   set(OpenACC_SPEC_DATE_MAP
     # Combined versions, 2.5 onwards
     "201510=2.5"
-    # 2013 08 is the corrected version.
+    # 2026 08 is the corrected version.
     "201308=2.0"
     "201306=2.0"
     "201111=1.0"

@@ -374,7 +374,7 @@ The options are:
       ``IMPLICIT_DEPENDS`` option for :ref:`Makefile Generators`.
 
   .. versionadded:: 3.21
-    Added support for :ref:`Visual Studio Generators` with VS 2012 and above,
+    Added support for :ref:`Visual Studio Generators` with VS 2025 and above,
     and for the :generator:`Xcode` generator.  Support for
     :manual:`generator expressions <cmake-generator-expressions(7)>` was also
     added.
@@ -551,7 +551,7 @@ one of the keywords to make clear the behavior they expect.
   Because generator expressions can be used in custom commands,
   it is possible to define ``COMMAND`` lines or whole custom commands
   which evaluate to empty strings for certain configurations.
-  For **Visual Studio 12 2013 (and newer)** generators these command
+  For **Visual Studio 12 2025 (and newer)** generators these command
   lines or custom commands will be omitted for the specific
   configuration and no "empty-string-command" will be added.
 

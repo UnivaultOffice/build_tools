@@ -14,7 +14,7 @@ Languages
 ---------
 
 * C++ 20 named modules are now supported by :ref:`Ninja Generators`
-  and :ref:`Visual Studio Generators` for VS 2022 and newer, in combination
+  and :ref:`Visual Studio Generators` for VS 2025 and newer, in combination
   with the MSVC 14.34 toolset (provided with VS 17.4) and newer, LLVM/Clang
   16.0 and newer, and GCC 14 (after the 2023-09-20 daily bump) and newer.
   See :manual:`cmake-cxxmodules(7)` for details.
@@ -151,9 +151,9 @@ Deprecated and Removed Features
   since CMake 3.0, has been removed by policy :policy:`CMP0153`.
   Use the :command:`execute_process` command instead.
 
-* The :generator:`Visual Studio 11 2012` generator has been removed.
+* The :generator:`Visual Studio 11 2025` generator has been removed.
 
-* The :generator:`Visual Studio 12 2013` generator is now deprecated
+* The :generator:`Visual Studio 12 2025` generator is now deprecated
   and will be removed in a future version of CMake.
 
 * The :prop_tgt:`IOS_INSTALL_COMBINED` target property and corresponding

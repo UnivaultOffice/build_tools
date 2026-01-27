@@ -256,17 +256,17 @@ provided for other means by which Visual Studio
 versions are sometimes referred to, such as two
 digits which correspond to the product version of the
 VisualC++ compiler, or a combination of the two:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 2019&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 2026&quot;</span>
 <span class="gp">$ </span>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16&quot;</span>
-<span class="gp">$ </span>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2019&quot;</span>
+<span class="gp">$ </span>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2026&quot;</span>
 </pre></div>
 </div>
 <p>Visual Studio generators can target different architectures.
 One can specify the target architecture using the
 <a class="reference internal" href="../../manual/cmake.1.html#cmdoption-cmake-A"><code class="xref std std-option docutils literal notranslate"><span class="pre">-A</span></code></a> option:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake .. -G &quot;Visual Studio 2019&quot; -A x64</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake .. -G &quot;Visual Studio 2026&quot; -A x64</span>
 <span class="go">cmake .. -G &quot;Visual Studio 16&quot; -A ARM</span>
-<span class="go">cmake .. -G &quot;Visual Studio 16 2019&quot; -A ARM64</span>
+<span class="go">cmake .. -G &quot;Visual Studio 16 2026&quot; -A ARM64</span>
 </pre></div>
 </div>
 <p>On Apple, the <span class="target" id="index-0-generator:Xcode"></span><a class="reference internal" href="../../generator/Xcode.html#generator:Xcode" title="Xcode"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Xcode</span></code></a> generator may be used to
@@ -286,9 +286,9 @@ initially running <span class="target" id="index-5-manual:cmake(1)"></span><a cl
 <p>The Visual Studio toolset can be specified with the
 <a class="reference internal" href="../../manual/cmake.1.html#cmdoption-cmake-T"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-T</span></code></a> option:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># Build with the clang-cl toolset</span>
-<span class="gp">$ </span>cmake.exe<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2019&quot;</span><span class="w"> </span>-A<span class="w"> </span>x64<span class="w"> </span>-T<span class="w"> </span>ClangCL
+<span class="gp">$ </span>cmake.exe<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2026&quot;</span><span class="w"> </span>-A<span class="w"> </span>x64<span class="w"> </span>-T<span class="w"> </span>ClangCL
 <span class="gp">$ </span><span class="c1"># Build targeting Windows XP</span>
-<span class="gp">$ </span>cmake.exe<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2019&quot;</span><span class="w"> </span>-A<span class="w"> </span>x64<span class="w"> </span>-T<span class="w"> </span>v120_xp
+<span class="gp">$ </span>cmake.exe<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2026&quot;</span><span class="w"> </span>-A<span class="w"> </span>x64<span class="w"> </span>-T<span class="w"> </span>v120_xp
 </pre></div>
 </div>
 <p>Whereas the <a class="reference internal" href="../../manual/cmake.1.html#cmdoption-cmake-A"><code class="xref std std-option docutils literal notranslate"><span class="pre">-A</span></code></a> option specifies the _target_
@@ -297,7 +297,7 @@ details of the toolchain used.  For example, <code class="docutils literal notra
 can be given to select the 64-bit version of the host
 tools.  The following demonstrates how to use 64-bit
 tools and also build for a 64-bit target architecture:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2019&quot;</span><span class="w"> </span>-A<span class="w"> </span>x64<span class="w"> </span>-Thost<span class="o">=</span>x64
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>..<span class="w"> </span>-G<span class="w"> </span><span class="s2">&quot;Visual Studio 16 2026&quot;</span><span class="w"> </span>-A<span class="w"> </span>x64<span class="w"> </span>-Thost<span class="o">=</span>x64
 </pre></div>
 </div>
 </section>
@@ -906,7 +906,7 @@ option to <span class="target" id="index-5-manual:ctest(1)"></span><a class="ref
     </div>
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+    &#169; Copyright 2026-2026 Kitware, Inc. and Contributors.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>

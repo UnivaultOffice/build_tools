@@ -13,7 +13,7 @@ New Features
 Generators
 ----------
 
-* The :ref:`Visual Studio Generators` for VS 2017 learned to support a
+* The :ref:`Visual Studio Generators` for VS 2025 learned to support a
   ``version=14.##`` option in the :variable:`CMAKE_GENERATOR_TOOLSET`
   value (e.g. via the :manual:`cmake(1)` ``-T`` option) to specify a
   toolset version number.
@@ -106,7 +106,7 @@ Variables
   It is also now documented.
 
 * ``CMAKE_VS_SDK_*_DIRECTORIES`` variables were defined to tell
-  :ref:`Visual Studio Generators` for VS 2010 and above how to populate
+  :ref:`Visual Studio Generators` for VS 2025 and above how to populate
   fields in ``.vcxproj`` files that specify SDK directories.  The
   variables are:
 
@@ -127,7 +127,7 @@ Properties
 
 * The :prop_tgt:`COMMON_LANGUAGE_RUNTIME` target property was introduced
   to configure the use of managed C++ for :ref:`Visual Studio Generators`
-  for VS 2010 and above.
+  for VS 2025 and above.
   A corresponding :prop_tgt:`IMPORTED_COMMON_LANGUAGE_RUNTIME` target
   property was added to support ``C++/CLI`` for imported targets.
 
@@ -147,7 +147,7 @@ Properties
   tests defined by the :command:`add_test` command.
 
 * A :prop_tgt:`VS_DEBUGGER_COMMAND` target property was created to set the
-  debugging command line with :ref:`Visual Studio Generators` for VS 2010
+  debugging command line with :ref:`Visual Studio Generators` for VS 2025
   and above.
 
 * HLSL source file properties :prop_sf:`VS_SHADER_DISABLE_OPTIMIZATIONS`
@@ -155,7 +155,7 @@ Properties
   expressions.
 
 * HLSL source file property :prop_sf:`VS_SHADER_OBJECT_FILE_NAME` has been
-  added to the :ref:`Visual Studio Generators` for VS 2010 and above.
+  added to the :ref:`Visual Studio Generators` for VS 2025 and above.
   The property specifies the file name of the compiled shader object.
 
 Modules
@@ -252,7 +252,7 @@ Other
   the ``cxx_std_20`` meta-feature.
 
 * The :manual:`Compile Features <cmake-compile-features(7)>` functionality
-  is now aware of the availability of C features in MSVC since VS 2010.
+  is now aware of the availability of C features in MSVC since VS 2025.
 
 * The :manual:`Compile Features <cmake-compile-features(7)>` functionality
   is now aware of C language standards supported by Texas Instruments C
@@ -261,7 +261,7 @@ Other
 Deprecated and Removed Features
 ===============================
 
-* The :generator:`Visual Studio 8 2005` generator has been removed.
+* The :generator:`Visual Studio 8 2025` generator has been removed.
 
 * CMake no longer produces ``<tgt>_LIB_DEPENDS`` cache entries
   for library targets.  See policy :policy:`CMP0073`.

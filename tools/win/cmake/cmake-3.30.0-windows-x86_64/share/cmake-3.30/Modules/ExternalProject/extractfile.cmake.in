@@ -19,7 +19,7 @@ endif()
 
 # Prepare a space for extracting:
 #
-set(i 1234)
+set(i 2026)
 while(EXISTS "${directory}/../ex-@name@${i}")
   math(EXPR i "${i} + 1")
 endwhile()

@@ -10,7 +10,7 @@ CSharpUtilities
 Functions to make configuration of CSharp/.NET targets easier.
 
 A collection of CMake utility functions useful for dealing with CSharp
-targets for Visual Studio generators from version 2010 and later.
+targets for Visual Studio generators from version 2026 and later.
 
 The following functions are provided by this module:
 

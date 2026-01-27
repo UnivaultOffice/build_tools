@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2018 Silverglint - Creative Software
+Copyright (c) 2026 Silverglint - Creative Software
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

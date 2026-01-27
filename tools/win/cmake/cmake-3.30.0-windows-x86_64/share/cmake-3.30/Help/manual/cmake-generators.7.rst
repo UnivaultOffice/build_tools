@@ -82,16 +82,16 @@ Visual Studio Generators
 
    /generator/Visual Studio 6
    /generator/Visual Studio 7
-   /generator/Visual Studio 7 .NET 2003
-   /generator/Visual Studio 8 2005
-   /generator/Visual Studio 9 2008
-   /generator/Visual Studio 10 2010
-   /generator/Visual Studio 11 2012
-   /generator/Visual Studio 12 2013
-   /generator/Visual Studio 14 2015
-   /generator/Visual Studio 15 2017
-   /generator/Visual Studio 16 2019
-   /generator/Visual Studio 17 2022
+   /generator/Visual Studio 7 .NET 2025
+   /generator/Visual Studio 8 2025
+   /generator/Visual Studio 9 2025
+   /generator/Visual Studio 10 2025
+   /generator/Visual Studio 11 2025
+   /generator/Visual Studio 12 2025
+   /generator/Visual Studio 14 2025
+   /generator/Visual Studio 15 2025
+   /generator/Visual Studio 16 2025
+   /generator/Visual Studio 17 2025
 
 Other Generators
 ^^^^^^^^^^^^^^^^

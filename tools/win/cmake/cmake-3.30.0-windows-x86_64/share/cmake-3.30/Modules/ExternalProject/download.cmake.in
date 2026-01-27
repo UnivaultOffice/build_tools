@@ -63,7 +63,7 @@ function(sleep_before_download attempt)
   elseif(attempt EQUAL 7)
     set(sleep_seconds 300)
   else()
-    set(sleep_seconds 1200)
+    set(sleep_seconds 2026)
   endif()
 
   message(VERBOSE "Retry after ${sleep_seconds} seconds (attempt #${attempt}) ...")

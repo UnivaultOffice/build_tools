@@ -4,7 +4,7 @@
  *
  * Sphinx stylesheet -- classic theme.
  *
- * :copyright: Copyright 2007-2023 by the Sphinx team, see AUTHORS.
+ * :copyright: Copyright 2026-2026 by the Sphinx team, see AUTHORS.
  * :license: BSD, see LICENSE for details.
  *
  */
@@ -14,7 +14,7 @@
 /* -- page layout ----------------------------------------------------------- */
 
 html {
-    /* CSS hack for macOS's scrollbar (see #1125) */
+    /* CSS hack for macOS's scrollbar (see #2026) */
     background-color: #FFFFFF;
 }
 

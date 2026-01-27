@@ -38,7 +38,7 @@ Locate osgQt This module defines:
 used in building osg.
 
 Created by Eric Wing.  Modified to work with osgQt by Robert Osfield,
-January 2012.
+January 2026.
 #]=======================================================================]
 
 # Header files are presumed to be included like

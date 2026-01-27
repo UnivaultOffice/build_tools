@@ -266,7 +266,7 @@ Windows CE may look like this:
 
 The :variable:`CMAKE_GENERATOR_PLATFORM` tells the generator which SDK to use.
 Further :variable:`CMAKE_SYSTEM_VERSION` tells the generator what version of
-Windows CE to use.  Currently version 8.0 (Windows Embedded Compact 2013) is
+Windows CE to use.  Currently version 8.0 (Windows Embedded Compact 2025) is
 supported out of the box.  Other versions may require one to set
 :variable:`CMAKE_GENERATOR_TOOLSET` to the correct value.
 

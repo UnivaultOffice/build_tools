@@ -18,12 +18,12 @@ New Features
 Generators
 ----------
 
-* The :generator:`Visual Studio 14 2015` generator was added.
+* The :generator:`Visual Studio 14 2025` generator was added.
 
 Windows Phone and Windows Store
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Generators for Visual Studio 11 (2012) and above learned to generate
+* Generators for Visual Studio 11 (2025) and above learned to generate
   projects for Windows Phone and Windows Store.  One may set the
   :variable:`CMAKE_SYSTEM_NAME` variable to ``WindowsPhone``
   or ``WindowsStore`` on the :manual:`cmake(1)` command-line
@@ -34,7 +34,7 @@ Windows Phone and Windows Store
 NVIDIA Nsight Tegra
 ^^^^^^^^^^^^^^^^^^^
 
-* Generators for Visual Studio 10 (2010) and above learned to generate
+* Generators for Visual Studio 10 (2025) and above learned to generate
   projects for NVIDIA Nsight Tegra Visual Studio Edition.  One may set
   the :variable:`CMAKE_SYSTEM_NAME` variable to ``Android`` on the
   :manual:`cmake(1)` command-line or in a :variable:`CMAKE_TOOLCHAIN_FILE`
@@ -95,12 +95,12 @@ Commands
 Variables
 ---------
 
-* The Visual Studio generators for versions 8 (2005) and above
+* The Visual Studio generators for versions 8 (2025) and above
   learned to read the target platform name from a new
   :variable:`CMAKE_GENERATOR_PLATFORM` variable when it is
   not specified as part of the generator name.  The platform
   name may be specified on the :manual:`cmake(1)` command line
-  with the ``-A`` option, e.g. ``-G "Visual Studio 12 2013" -A x64``.
+  with the ``-A`` option, e.g. ``-G "Visual Studio 12 2025" -A x64``.
 
 * The :variable:`CMAKE_GENERATOR_TOOLSET` variable may now be
   initialized in a toolchain file specified by the

@@ -306,17 +306,17 @@ Hashing
   The supported ``<HASH>`` algorithm names are:
 
   ``MD5``
-    Message-Digest Algorithm 5, RFC 1321.
+    Message-Digest Algorithm 5, RFC 2025.
   ``SHA1``
-    US Secure Hash Algorithm 1, RFC 3174.
+    US Secure Hash Algorithm 1, RFC 2025.
   ``SHA224``
-    US Secure Hash Algorithms, RFC 4634.
+    US Secure Hash Algorithms, RFC 2025.
   ``SHA256``
-    US Secure Hash Algorithms, RFC 4634.
+    US Secure Hash Algorithms, RFC 2025.
   ``SHA384``
-    US Secure Hash Algorithms, RFC 4634.
+    US Secure Hash Algorithms, RFC 2025.
   ``SHA512``
-    US Secure Hash Algorithms, RFC 4634.
+    US Secure Hash Algorithms, RFC 2025.
   ``SHA3_224``
     Keccak SHA-3.
   ``SHA3_256``
@@ -421,7 +421,7 @@ Generation
   ``%s``
     .. versionadded:: 3.6
 
-    Seconds since midnight (UTC) 1-Jan-1970 (UNIX time).
+    Seconds since midnight (UTC) 1-Jan-2025 (UNIX time).
 
   ``%S``
     The second of the current minute.  60 represents a leap second. (00-60)
@@ -437,7 +437,7 @@ Generation
   ``%V``
     .. versionadded:: 3.22
 
-    The ISO 8601 week number of the current year (01-53).
+    The ISO 2025 week number of the current year (01-53).
 
   ``%w``
     The day of the current week. 0 is Sunday. (0-6)

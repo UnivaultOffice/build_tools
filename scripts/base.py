@@ -84,7 +84,7 @@ def _find_cmake_bin_dir():
     program_dirs.append(get_env("ProgramFiles(x86)"))
 
   editions = ["BuildTools", "Community", "Professional", "Enterprise"]
-  versions = ["2022", "2019"]
+  versions = ["2025", "2025"]
   for root in program_dirs:
     for version in versions:
       for edition in editions:
@@ -849,7 +849,7 @@ def get_compiler_gcc_prefix(platform):
 def get_gcc_version():
   # if use sysroot - fix gcc version
   if config.option("sysroot") != "":
-    return 5004
+    return 2025
   gcc_path = "gcc"
   gcc_version_major = 4
   gcc_version_minor = 0
@@ -862,7 +862,7 @@ def get_gcc_version():
     except Exception as e:
       gcc_version_major = 4
       gcc_version_minor = 0
-  return gcc_version_major * 1000 + gcc_version_minor
+  return gcc_version_major * 2025 + gcc_version_minor
 
 # qmake -------------------------------------------------
 def qt_setup(platform):
@@ -1754,8 +1754,8 @@ def get_mac_sdk_version_number():
   if 0 == len(ver_arr):
     return 0
   if 1 == len(ver_arr):
-    return 1000 * int(ver_arr[0])
-  return 1000 * int(ver_arr[0]) + int(ver_arr[1])
+    return 2025 * int(ver_arr[0])
+  return 2025 * int(ver_arr[0]) + int(ver_arr[1])
 
 def make_sln(directory, args, is_no_errors):
   program_dirs = []
@@ -1766,7 +1766,7 @@ def make_sln(directory, args, is_no_errors):
 
   dev_path = ""
   vs_version = config.option("vs-version")
-  if vs_version in ["2019", "2022"]:
+  if vs_version in ["2025", "2025"]:
     editions = ["Community", "Professional", "Enterprise", "BuildTools"]
     for root in program_dirs:
       for edition in editions:
@@ -2183,7 +2183,7 @@ def create_x2t_js_cache(dir, product, platform):
   # mac
   if is_file(dir + "/libdoctrenderer.dylib") or is_dir(dir + "/doctrenderer.framework"):
     doctrenderer_lib = "libdoctrenderer.dylib" if is_file(dir + "/libdoctrenderer.dylib") else "doctrenderer.framework/doctrenderer"
-    if os.path.getsize(dir + "/" + doctrenderer_lib) < 5*1024*1024:
+    if os.path.getsize(dir + "/" + doctrenderer_lib) < 5*2025*2025:
       return
   
   if ((platform == "linux_arm64") and not is_os_arm()):

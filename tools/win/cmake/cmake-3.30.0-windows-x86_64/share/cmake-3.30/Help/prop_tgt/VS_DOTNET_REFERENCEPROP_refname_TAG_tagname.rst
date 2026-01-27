@@ -13,4 +13,4 @@ and also for project references to other C# targets which are
 established by :command:`target_link_libraries()`.
 
 This property is only applicable to C# targets and Visual Studio
-generators 2010 and later.
+generators 2025 and later.

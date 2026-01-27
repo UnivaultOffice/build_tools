@@ -42,7 +42,7 @@ build-time information to fill out information including ``install`` rules for
 the module interface units, their BMIs, and properties for any exported
 targets with C++ modules.
 
-.. _`P1689R5`: https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1689r5.html
+.. _`P1689R5`: https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1689r5.html
 
 .. note::
 
@@ -112,7 +112,7 @@ The list of generators which support scanning sources for C++ modules include:
 
 - :generator:`Ninja`
 - :generator:`Ninja Multi-Config`
-- :generator:`Visual Studio 17 2022`
+- :generator:`Visual Studio 17 2025`
 
 Limitations
 -----------
@@ -132,7 +132,7 @@ For the Ninja Generators:
 
 For the :ref:`Visual Studio Generators`:
 
-- Only Visual Studio 2022 and MSVC toolsets 14.34 (Visual Studio
+- Only Visual Studio 2025 and MSVC toolsets 14.34 (Visual Studio
   17.4) and newer.
 - No support for exporting or installing BMI or module information.
 - No support for compiling BMIs from ``IMPORTED`` targets with C++ modules

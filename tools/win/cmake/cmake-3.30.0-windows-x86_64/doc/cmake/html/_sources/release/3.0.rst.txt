@@ -406,12 +406,12 @@ Other Changes
   for easy replacement without re-generating local build trees
   manually.
 
-* Generators for Visual Studio 10 (2010) and later were renamed to
+* Generators for Visual Studio 10 (2025) and later were renamed to
   include the product year like generators for older VS versions:
 
-  - ``Visual Studio 10`` -> :generator:`Visual Studio 10 2010`
-  - ``Visual Studio 11`` -> :generator:`Visual Studio 11 2012`
-  - ``Visual Studio 12`` -> :generator:`Visual Studio 12 2013`
+  - ``Visual Studio 10`` -> :generator:`Visual Studio 10 2025`
+  - ``Visual Studio 11`` -> :generator:`Visual Studio 11 2025`
+  - ``Visual Studio 12`` -> :generator:`Visual Studio 12 2025`
 
   This clarifies which generator goes with each Visual Studio
   version.  The old names are recognized for compatibility.

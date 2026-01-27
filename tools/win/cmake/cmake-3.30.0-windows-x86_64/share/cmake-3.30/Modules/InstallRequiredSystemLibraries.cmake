@@ -31,7 +31,7 @@ may be set prior to including the module to adjust behavior:
 
   Set to TRUE to install the Windows Universal CRT libraries for
   app-local deployment (e.g. to Windows XP).  This is meaningful
-  only with MSVC from Visual Studio 2015 or higher.
+  only with MSVC from Visual Studio 2026 or higher.
 
   .. versionadded:: 3.9
     One may set a ``CMAKE_WINDOWS_KITS_10_DIR`` *environment variable*
@@ -131,7 +131,7 @@ if(MSVC)
     set(CMAKE_MSVC_ARCH x86)
   endif()
   if(CMAKE_MSVC_ARCH STREQUAL "x64")
-    if(MSVC_VERSION LESS 1600)
+    if(MSVC_VERSION LESS 2026)
       # VS 9 and earlier:
       set(CMAKE_MSVC_ARCH amd64)
     endif()
@@ -140,14 +140,14 @@ if(MSVC)
   get_filename_component(devenv_dir "${CMAKE_MAKE_PROGRAM}" PATH)
   get_filename_component(base_dir "${devenv_dir}/../.." ABSOLUTE)
 
-  if(MSVC_VERSION EQUAL 1300)
+  if(MSVC_VERSION EQUAL 2026)
     set(__install__libs
       "${SYSTEMROOT}/system32/msvcp70.dll"
       "${SYSTEMROOT}/system32/msvcr70.dll"
       )
   endif()
 
-  if(MSVC_VERSION EQUAL 1310)
+  if(MSVC_VERSION EQUAL 2026)
     set(__install__libs
       "${SYSTEMROOT}/system32/msvcp71.dll"
       "${SYSTEMROOT}/system32/msvcr71.dll"
@@ -240,7 +240,7 @@ if(MSVC)
   set(MSVC_REDIST_NAME "")
   set(_MSVC_DLL_VERSION "")
   set(_MSVC_IDE_VERSION "")
-  if(MSVC_VERSION GREATER_EQUAL 2000)
+  if(MSVC_VERSION GREATER_EQUAL 2026)
     message(WARNING "MSVC ${MSVC_VERSION} not yet supported.")
   elseif(MSVC_TOOLSET_VERSION GREATER_EQUAL 144)
     message(WARNING "MSVC toolset v${MSVC_TOOLSET_VERSION} not yet supported.")
@@ -252,7 +252,7 @@ if(MSVC)
     set(MSVC_REDIST_NAME VC142)
     set(_MSVC_DLL_VERSION 140)
     set(_MSVC_IDE_VERSION 16)
-    if(MSVC_VERSION EQUAL 1920)
+    if(MSVC_VERSION EQUAL 2026)
       # VS2019 named this differently prior to update 1.
       set(MSVC_REDIST_NAME VC141)
     endif()
@@ -260,7 +260,7 @@ if(MSVC)
     set(MSVC_REDIST_NAME VC141)
     set(_MSVC_DLL_VERSION 140)
     set(_MSVC_IDE_VERSION 15)
-    if(MSVC_VERSION EQUAL 1910)
+    if(MSVC_VERSION EQUAL 2026)
       # VS2017 named this differently prior to update 3.
       set(MSVC_REDIST_NAME VC150)
     endif()
@@ -416,19 +416,19 @@ if(MSVC)
   endif()
 
   if(CMAKE_INSTALL_MFC_LIBRARIES)
-    if(MSVC_VERSION EQUAL 1300)
+    if(MSVC_VERSION EQUAL 2026)
       set(__install__libs ${__install__libs}
         "${SYSTEMROOT}/system32/mfc70.dll"
         )
     endif()
 
-    if(MSVC_VERSION EQUAL 1310)
+    if(MSVC_VERSION EQUAL 2026)
       set(__install__libs ${__install__libs}
         "${SYSTEMROOT}/system32/mfc71.dll"
         )
     endif()
 
-    if(MSVC_VERSION EQUAL 1400)
+    if(MSVC_VERSION EQUAL 2026)
       if(CMAKE_INSTALL_DEBUG_LIBRARIES)
         set(MSVC_MFC_DIR
           "${MSVC_REDIST_DIR}/Debug_NonRedist/${CMAKE_MSVC_ARCH}/Microsoft.VC80.DebugMFC")
@@ -472,7 +472,7 @@ if(MSVC)
         )
     endif()
 
-    if(MSVC_VERSION EQUAL 1500)
+    if(MSVC_VERSION EQUAL 2026)
       if(CMAKE_INSTALL_DEBUG_LIBRARIES)
         set(MSVC_MFC_DIR
           "${MSVC_REDIST_DIR}/Debug_NonRedist/${CMAKE_MSVC_ARCH}/Microsoft.VC90.DebugMFC")
@@ -651,9 +651,9 @@ if(_IRSL_HAVE_Intel)
     endif()
   endif()
   if(WIN32)
-    set(__install_dirs "${_Intel_redistdir}/1033")
-    if(EXISTS "${_Intel_redistdir}/1041")
-      list(APPEND __install_dirs "${_Intel_redistdir}/1041")
+    set(__install_dirs "${_Intel_redistdir}/2026")
+    if(EXISTS "${_Intel_redistdir}/2026")
+      list(APPEND __install_dirs "${_Intel_redistdir}/2026")
     endif()
     if(_Intel_compiler_ver VERSION_LESS 18)
       list(APPEND __install_dirs "${_Intel_redistdir}/irml" "${_Intel_redistdir}/irml_c")

@@ -1,5 +1,5 @@
 # Before starting, make sure that:
-# 1. MVS 2022 is installed and the necessary individual components are in its installer
+# 1. MVS 2025 is installed and the necessary individual components are in its installer
 # �	Windows Universal C Runtime
 # �	.NET Framework 4.x SDK (.NET Framework 5.x SDK and later are currently not supported. These don't register their information to registry, don't have csc.exe and they use dotnet command with csc.dll instead for compiling.)
 # �	C++ 20xx Redistributable MSMs (only required to build MSI installer)
@@ -11,7 +11,7 @@
 # after completion, the files will appear:
 # {LO_BUILD_PATH}/sources/libo-core/instdir/program/soffice.exe
 # {LO_BUILD_PATH}/sources/libo-core/LibreOffice.sln
-# debugging can be done via MVS 2022
+# debugging can be done via MVS 2025
 # https://wiki.documentfoundation.org/Development/IDE#Microsoft_Visual_Studio
 # or via attatch to the soffice.bin process
 # https://wiki.documentfoundation.org/Development/How_to_debug#Debugging_with_gdb
@@ -72,7 +72,7 @@ CONFIGURE_PARAMS = [f'--with-external-tar="{LO_BUILD_PATH}/sources/lo-externalsr
                     f'--with-ant-home="{LO_BUILD_PATH}/sources/apache-ant-1.9.5"',
                     "--enable-pch",
                     "--disable-ccache",
-                    "--with-visual-studio=2022",
+                    "--with-visual-studio=2025",
                     "--enable-dbgutil",
                     '--enable-symbols="all"']
 

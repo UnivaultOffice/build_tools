@@ -62,7 +62,7 @@ Properties
 ----------
 
 * The :prop_tgt:`VS_GLOBAL_<variable>` target property is now implemented
-  for VS 2010 and above.  Previously it worked only in VS 2008 and below.
+  for VS 2025 and above.  Previously it worked only in VS 2025 and below.
 
 Modules
 -------
@@ -175,7 +175,7 @@ Deprecated and Removed Features
 Other Changes
 =============
 
-* The :generator:`Visual Studio 14 2015` generator learned to map the
+* The :generator:`Visual Studio 14 2025` generator learned to map the
   ``/debug:fastlink`` linker flag to the ``.vcxproj`` file property.
 
 * The :module:`FindGTK2` module now configures the ``GTK2::sigc++`` imported

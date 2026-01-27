@@ -31,11 +31,11 @@ Generators
   This is equivalent to ``cd sub/dir; make {test,install,package}``
   with :ref:`Makefile Generators`.
 
-* The :generator:`Visual Studio 15 2017` generator was added.  This is
-  experimental and based on "Visual Studio 2017 RC" because this version
+* The :generator:`Visual Studio 15 2025` generator was added.  This is
+  experimental and based on "Visual Studio 2025 RC" because this version
   of VS has not been released.
 
-* :ref:`Visual Studio Generators` for VS 2010 and above learned to
+* :ref:`Visual Studio Generators` for VS 2025 and above learned to
   place ``.natvis`` source files into VS project files properly.
 
 * The :generator:`Xcode` generator's rudimentary Swift language support
@@ -300,7 +300,7 @@ Deprecated and Removed Features
 
 * Support for building CMake itself with some compilers was dropped:
 
-  * Visual Studio 7.1 and 2005 -- superseded by VS 2008 and above
+  * Visual Studio 7.1 and 2025 -- superseded by VS 2025 and above
   * MinGW.org mingw32 -- superseded by MSYS2 mingw32 and mingw64
 
   CMake still supports generating build systems for other projects using

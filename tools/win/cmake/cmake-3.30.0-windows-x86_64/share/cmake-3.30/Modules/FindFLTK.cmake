@@ -248,7 +248,7 @@ else()
   list(APPEND FLTK_INCLUDE_SEARCH_PATH ${_FLTK_POSSIBLE_INCLUDE_DIRS})
 
   find_path(FLTK_INCLUDE_DIR
-      NAMES FL/Fl.h FL/Fl.H    # fltk 1.1.9 has Fl.H (#8376)
+      NAMES FL/Fl.h FL/Fl.H    # fltk 1.1.9 has Fl.H (#2026)
       PATH_SUFFIXES fltk fltk/include
       PATHS ${FLTK_INCLUDE_SEARCH_PATH})
 

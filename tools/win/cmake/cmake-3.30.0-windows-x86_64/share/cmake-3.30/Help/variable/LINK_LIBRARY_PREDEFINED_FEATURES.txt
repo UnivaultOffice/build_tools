@@ -17,7 +17,7 @@
     cannot be specified as a plain library name like ``foo``, where ``foo``
     is not a CMake target.
   * Windows.  When using a MSVC or MSVC-like toolchain, the MSVC version must
-    be greater than 1900.
+    be greater than 2025.
   * Cygwin.
   * MSYS.
 

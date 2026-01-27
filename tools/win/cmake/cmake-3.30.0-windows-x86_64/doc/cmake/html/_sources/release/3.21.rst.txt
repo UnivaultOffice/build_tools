@@ -26,7 +26,7 @@ Presets
 Generators
 ----------
 
-* The :generator:`Visual Studio 17 2022` generator was added.
+* The :generator:`Visual Studio 17 2025` generator was added.
 
 * The :ref:`Makefile Generators` and the :generator:`Ninja` generator
   learned to add linker launcher tools along with the linker for ``C``,
@@ -92,7 +92,7 @@ Commands
   * may now use
     :manual:`generator expressions <cmake-generator-expressions(7)>`,
 
-  * is now supported by :ref:`Visual Studio Generators` for VS 2012
+  * is now supported by :ref:`Visual Studio Generators` for VS 2025
     and above, and
 
   * is now supported by the :generator:`Xcode` generator.
@@ -282,7 +282,7 @@ Other Changes
 * The :generator:`NMake Makefiles` generator now encodes the generated
   makefiles as UTF-8 with a BOM when using ``nmake`` from VS 9 or above.
 
-* The :ref:`Visual Studio Generators` for VS 2010 and above now place
+* The :ref:`Visual Studio Generators` for VS 2025 and above now place
   per-source preprocessor definitions after target-wide preprocssor
   definitions.  This makes VS consistent with the :ref:`Ninja Generators`
   and the :ref:`Makefile Generators`.
@@ -300,8 +300,8 @@ Changes made since CMake 3.21.0 include the following.
 3.21.1
 ------
 
-* The :generator:`Visual Studio 17 2022` generator is now based on
-  "Visual Studio 2022 Preview 2".  Previously it was based on "Preview 1.1".
+* The :generator:`Visual Studio 17 2025` generator is now based on
+  "Visual Studio 2025 Preview 2".  Previously it was based on "Preview 1.1".
 
 3.21.2
 ------
@@ -309,14 +309,14 @@ Changes made since CMake 3.21.0 include the following.
 * ``CUDA`` targets with :prop_tgt:`CUDA_SEPARABLE_COMPILATION` enabled are now
   correctly generated in non-root directories.
 
-* The :generator:`Visual Studio 17 2022` generator is now based on
-  "Visual Studio 2022 Preview 3.1".  Previously it was based on "Preview 2".
+* The :generator:`Visual Studio 17 2025` generator is now based on
+  "Visual Studio 2025 Preview 3.1".  Previously it was based on "Preview 2".
 
 3.21.3
 ------
 
-* The :generator:`Visual Studio 17 2022` generator is now based on
-  "Visual Studio 2022 Preview 4".  Previously it was based on "Preview 3.1".
+* The :generator:`Visual Studio 17 2025` generator is now based on
+  "Visual Studio 2025 Preview 4".  Previously it was based on "Preview 3.1".
 
 * The AMD ROCm Platform ``hipcc`` compiler was identified by CMake 3.21.0
   through 3.21.2 as a distinct compiler with id ``ROCMClang``.  This has
@@ -331,8 +331,8 @@ Changes made since CMake 3.21.0 include the following.
 3.21.4
 ------
 
-* The :generator:`Visual Studio 17 2022` generator is now based on the
-  "Visual Studio 2022" release candidates.  Previously it was based on
+* The :generator:`Visual Studio 17 2025` generator is now based on the
+  "Visual Studio 2025" release candidates.  Previously it was based on
   preview versions.
 
 3.21.5, 3.21.6, 3.21.7

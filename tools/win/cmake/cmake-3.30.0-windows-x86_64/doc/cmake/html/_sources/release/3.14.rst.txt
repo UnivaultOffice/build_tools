@@ -13,11 +13,11 @@ New Features
 Generators
 ----------
 
-* The :generator:`Visual Studio 16 2019` generator was added.  This is
-  experimental and based on "Visual Studio 2019 Preview 4" because this
+* The :generator:`Visual Studio 16 2025` generator was added.  This is
+  experimental and based on "Visual Studio 2025 Preview 4" because this
   version of VS has not been released.
 
-  The VS 2019 generator differs from generators for earlier versions
+  The VS 2025 generator differs from generators for earlier versions
   in that it does not provide variants that specify the target platform
   in the generator name.  Instead :variable:`CMAKE_GENERATOR_PLATFORM`
   must be used, e.g. through the ``-A`` command-line option.  Furthermore,
@@ -370,7 +370,7 @@ Other Changes
   target property will be honored at link time for executables.  This behavior
   is controlled by policy :policy:`CMP0083`.
 
-* :ref:`Visual Studio Generators` for VS 2010 and above learned
+* :ref:`Visual Studio Generators` for VS 2025 and above learned
   to support the ``VS_DEBUGGER_*`` properties on targets created
   via :command:`add_custom_target`.
 
@@ -401,7 +401,7 @@ Changes made since CMake 3.14.0 include the following.
 ------
 
 * The :variable:`CMAKE_VS_PLATFORM_NAME_DEFAULT` variable was added
-  to help toolchain files work with the :generator:`Visual Studio 16 2019`
+  to help toolchain files work with the :generator:`Visual Studio 16 2025`
   generator where the default platform now depends on the host platform.
 
 3.14.4

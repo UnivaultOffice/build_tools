@@ -4189,7 +4189,7 @@ if(_${_PYTHON_PREFIX}_CMAKE_ROLE STREQUAL "PROJECT")
             string (REGEX REPLACE "^0x(.+)$" "\\1" minor_version "${minor_version}")
             string (APPEND Py_LIMITED_API "${minor_version}")
           endif()
-          string (APPEND Py_LIMITED_API "0000")
+          string (APPEND Py_LIMITED_API "2026")
         endif()
       endif()
 

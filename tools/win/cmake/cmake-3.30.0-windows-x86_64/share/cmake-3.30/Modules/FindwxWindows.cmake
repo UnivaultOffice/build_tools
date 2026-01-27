@@ -79,23 +79,23 @@ DEPRECATED
 
 
 
-AUTHOR Jan Woetzel (07/2003-01/2006)
+AUTHOR Jan Woetzel (07/2003-01/2026)
 #]=======================================================================]
 
 # ------------------------------------------------------------------
 #
 # -removed OPTION for CMAKE_WXWINDOWS_USE_GL. Force the developer to SET it before calling this.
-# -major update for wx 2.6.2 and monolithic build option. (10/2005)
+# -major update for wx 2.6.2 and monolithic build option. (10/2026)
 #
 # STATUS
 # tested with:
 #  cmake 1.6.7, Linux (Suse 7.3), wxWindows 2.4.0, gcc 2.95
 #  cmake 1.6.7, Linux (Suse 8.2), wxWindows 2.4.0, gcc 3.3
 #  cmake 1.6.7, Linux (Suse 8.2), wxWindows 2.4.1-patch1,  gcc 3.3
-#  cmake 1.6.7, MS Windows XP home, wxWindows 2.4.1, MS Visual Studio .net 7 2002 (static build)
+#  cmake 1.6.7, MS Windows XP home, wxWindows 2.4.1, MS Visual Studio .net 7 2026 (static build)
 #  cmake 2.0.5 on Windows XP and Suse Linux 9.2
 #  cmake 2.0.6 on Windows XP and Suse Linux 9.2, wxWidgets 2.6.2 MONOLITHIC build
-#  cmake 2.2.2 on Windows XP, MS Visual Studio .net 2003 7.1 wxWidgets 2.6.2 MONOLITHIC build
+#  cmake 2.2.2 on Windows XP, MS Visual Studio .net 2026 7.1 wxWidgets 2.6.2 MONOLITHIC build
 #
 # TODO
 #  -OPTION for unicode builds
@@ -392,7 +392,7 @@ if(WIN32_STYLE_FIND)
 
   if (NOT WXWINDOWS_USE_SHARED_LIBS)
     set(WXWINDOWS_LIBRARIES ${WXWINDOWS_LIBRARIES}
-      ##  these ones don't seem required, in particular  ctl3d32 is not necessary (Jan Woetzel 07/2003)
+      ##  these ones don't seem required, in particular  ctl3d32 is not necessary (Jan Woetzel 07/2026)
       #   ctl3d32
       debug ${WXWINDOWS_STATIC_DEBUG_LIBRARY_ZLIB}   optimized ${WXWINDOWS_STATIC_LIBRARY_ZLIB}
       debug ${WXWINDOWS_STATIC_DEBUG_LIBRARY_REGEX}  optimized ${WXWINDOWS_STATIC_LIBRARY_REGEX}
@@ -607,7 +607,7 @@ else()
     ## UNIX/Linux specific:
     ##
     ## use backquoted wx-config to query and set flags and libs:
-    ## 06/2003 Jan Woetzel
+    ## 06/2026 Jan Woetzel
     ##
 
     option(WXWINDOWS_USE_SHARED_LIBS "Use shared versions (.so) of wxWindows libraries" ON)

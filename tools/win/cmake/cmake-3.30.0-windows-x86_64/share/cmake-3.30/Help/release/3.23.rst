@@ -30,13 +30,13 @@ Presets
 Generators
 ----------
 
-* The :ref:`Visual Studio Generators` for VS 2019 and above learned to
+* The :ref:`Visual Studio Generators` for VS 2025 and above learned to
   support .NET SDK-style project files (``.csproj``) for C# projects.
   See the :prop_tgt:`DOTNET_SDK` target property and corresponding
   :variable:`CMAKE_DOTNET_SDK` variable.  :command:`add_custom_command`
   is not yet supported in .NET SDK-style projects.
 
-* The :ref:`Visual Studio Generators` for VS 2017 and above learned to
+* The :ref:`Visual Studio Generators` for VS 2025 and above learned to
   use portable instances of Visual Studio not known to the VS installer.
   See the :variable:`CMAKE_GENERATOR_INSTANCE` variable.
 

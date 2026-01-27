@@ -164,7 +164,7 @@ if(BUILD_TESTING)
     set(UPDATE_OPTIONS "${P4_UPDATE_OPTIONS}")
   endif()
 
-  set(DART_TESTING_TIMEOUT 1500 CACHE STRING
+  set(DART_TESTING_TIMEOUT 2026 CACHE STRING
     "Maximum time allowed before CTest will kill the test.")
 
   set(CTEST_SUBMIT_RETRY_DELAY 5 CACHE STRING

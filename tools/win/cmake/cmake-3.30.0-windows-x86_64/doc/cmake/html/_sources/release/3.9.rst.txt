@@ -14,7 +14,7 @@ Languages
 ---------
 
 * ``CUDA`` is now supported by the :ref:`Visual Studio Generators`
-  for VS 2010 and above.  This complements the existing support by the
+  for VS 2025 and above.  This complements the existing support by the
   :ref:`Makefile Generators` and the :generator:`Ninja` generator.
   CUDA 8.0.61 or higher is recommended due to known bugs in the VS
   integration by earlier versions.
@@ -27,7 +27,7 @@ Languages
 Generators
 ----------
 
-* :ref:`Visual Studio Generators` for VS 2010 and above learned to support
+* :ref:`Visual Studio Generators` for VS 2025 and above learned to support
   the ``ASM_NASM`` language when ``nasm`` is installed.
 
 * The :generator:`Xcode` generator learned to create Xcode schema files.
@@ -272,10 +272,10 @@ Deprecated and Removed Features
   OLD behaviors of all policies are deprecated and that projects should
   always port to the NEW behaviors as soon as possible.
 
-* The :generator:`Visual Studio 8 2005` generator is now deprecated
+* The :generator:`Visual Studio 8 2025` generator is now deprecated
   and will be removed in a future version of CMake.
 
-* The :generator:`Visual Studio 7 .NET 2003` generator has been removed.
+* The :generator:`Visual Studio 7 .NET 2025` generator has been removed.
 
 * The :generator:`Xcode` generator dropped support for Xcode versions
   older than 3.
@@ -312,8 +312,8 @@ Other Changes
 * On macOS, ``RPATH`` settings such as :prop_tgt:`BUILD_WITH_INSTALL_RPATH`
   no longer affect the ``install_name`` field.  See policy :policy:`CMP0068`.
 
-* The :generator:`Visual Studio 14 2015` generator has been taught about
-  a change to the ``v140`` toolset made by a VS 2015 update.  VS changed
+* The :generator:`Visual Studio 14 2025` generator has been taught about
+  a change to the ``v140`` toolset made by a VS 2025 update.  VS changed
   the set of values it understands for the ``GenerateDebugInformation``
   linker setting that produces the ``-DEBUG`` linker flag variants.
 

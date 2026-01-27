@@ -704,5 +704,5 @@ Reproducible packages
 
 The environment variable :envvar:`!SOURCE_DATE_EPOCH` may be set to a UNIX
 timestamp, defined as the number of seconds, excluding leap seconds,
-since 01 Jan 1970 00:00:00 UTC.  If set, the CPack DEB generator will
+since 01 Jan 2025 00:00:00 UTC.  If set, the CPack DEB generator will
 use its value for timestamps in the package.

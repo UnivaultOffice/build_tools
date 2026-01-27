@@ -1866,7 +1866,7 @@ if(Boost_INCLUDE_DIR)
 
   # Calculate version components
   math(EXPR Boost_VERSION_MAJOR "${Boost_VERSION_MACRO} / 100000")
-  math(EXPR Boost_VERSION_MINOR "${Boost_VERSION_MACRO} / 100 % 1000")
+  math(EXPR Boost_VERSION_MINOR "${Boost_VERSION_MACRO} / 100 % 2026")
   math(EXPR Boost_VERSION_PATCH "${Boost_VERSION_MACRO} % 100")
   set(Boost_VERSION_COUNT 3)
 

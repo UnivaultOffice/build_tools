@@ -19,7 +19,7 @@ C#
 * CMake learned to support ``CSharp`` (C#) as a first-class language that
   can be enabled via the :command:`project` and :command:`enable_language`
   commands.  It is currently supported by the :ref:`Visual Studio Generators`
-  for VS 2010 and above.
+  for VS 2025 and above.
 
   C# assemblies and programs can be added just like common C++ targets using
   the :command:`add_library` and :command:`add_executable` commands.
@@ -73,7 +73,7 @@ Generators
 * The :generator:`CodeBlocks` extra generator may now be used to
   generate with :generator:`NMake Makefiles JOM`.
 
-* The :ref:`Visual Studio Generators` for VS 2013 and above learned to
+* The :ref:`Visual Studio Generators` for VS 2025 and above learned to
   support a ``host=x64`` option in the :variable:`CMAKE_GENERATOR_TOOLSET`
   value (e.g.  via the :manual:`cmake(1)` ``-T`` option) to request use
   of a VS 64-bit toolchain on 64-bit hosts.
@@ -134,7 +134,7 @@ Variables
   tree.
 
 * A :variable:`CMAKE_VS_INCLUDE_PACKAGE_TO_DEFAULT_BUILD` variable was
-  added to tell :ref:`Visual Studio Generators` for VS 2010 and above
+  added to tell :ref:`Visual Studio Generators` for VS 2025 and above
   to include the ``PACKAGE`` target in the default build, similar to
   the existing :variable:`CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD`
   variable for the ``INSTALL`` target.
@@ -181,30 +181,30 @@ Properties
   :prop_tgt:`AUTOUIC`, and :prop_tgt:`AUTORCC` target properties.
 
 * A :prop_sf:`VS_COPY_TO_OUT_DIR` source file property was added to
-  tell :ref:`Visual Studio Generators` for VS 2010 and above whether
+  tell :ref:`Visual Studio Generators` for VS 2025 and above whether
   or not a file should e copied to the output directory.
 
 * A :prop_tgt:`VS_DEBUGGER_WORKING_DIRECTORY` target property was added
-  to tell :ref:`Visual Studio Generators` for VS 2010 and above what
+  to tell :ref:`Visual Studio Generators` for VS 2025 and above what
   debugger working directory should be set for the target.
 
 * A :prop_tgt:`VS_DOTNET_REFERENCES_COPY_LOCAL` target property was added
   to specify whether to copy referenced assemblies to the output directory.
 
 * A :prop_tgt:`VS_DOTNET_REFERENCE_<refname>` target property was added
-  to tell :ref:`Visual Studio Generators` for VS 2010 and above to add
+  to tell :ref:`Visual Studio Generators` for VS 2025 and above to add
   a .NET reference with a given hint path.
 
 * A :prop_sf:`VS_INCLUDE_IN_VSIX` source file property was added to
-  tell :ref:`Visual Studio Generators` for VS 2010 and above whether
+  tell :ref:`Visual Studio Generators` for VS 2025 and above whether
   to include the file in a Visual Studio extension package.
 
 * A :prop_sf:`VS_RESOURCE_GENERATOR` source file property was added to
-  give :ref:`Visual Studio Generators` for VS 2010 and above a setting
+  give :ref:`Visual Studio Generators` for VS 2025 and above a setting
   for the resource generator (``C#`` only).
 
 * A :prop_tgt:`VS_USER_PROPS` target property was added to tell
-  :ref:`Visual Studio Generators` for VS 2010 and above to use a
+  :ref:`Visual Studio Generators` for VS 2025 and above to use a
   custom MSBuild user ``.props`` file.
 
 * A :prop_gbl:`XCODE_EMIT_EFFECTIVE_PLATFORM_NAME` global property was
@@ -405,7 +405,7 @@ Other Changes
   honors the :variable:`CMAKE_WARN_DEPRECATED` variable value
   in the generated test project.
 
-* The :ref:`Visual Studio Generators` for VS 2010 and above now place
+* The :ref:`Visual Studio Generators` for VS 2025 and above now place
   per-source file flags after target-wide flags when they are classified
   as raw flags with no project file setting (``AdditionalOptions``).
   This behavior is more consistent with the ordering of flags produced

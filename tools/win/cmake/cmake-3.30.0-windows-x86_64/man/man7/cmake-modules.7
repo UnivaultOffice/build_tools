@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-MODULES" "7" "Jul 02, 2024" "3.30.0" "CMake"
+.TH "CMAKE-MODULES" "7" "Jul 02, 2026" "3.30.0" "CMake"
 .SH NAME
 cmake-modules \- CMake Modules Reference
 .sp
@@ -6513,7 +6513,7 @@ New in version 3.8.
 Functions to make configuration of CSharp/.NET targets easier.
 .sp
 A collection of CMake utility functions useful for dealing with CSharp
-targets for Visual Studio generators from version 2010 and later.
+targets for Visual Studio generators from version 2026 and later.
 .sp
 The following functions are provided by this module:
 .sp
@@ -7499,12 +7499,12 @@ The following hash algorithms are supported:
 .ft C
 %(algo)     <ext>     Description
 \-\-\-\-\-\-\-     \-\-\-\-\-     \-\-\-\-\-\-\-\-\-\-\-
-MD5         .md5      Message\-Digest Algorithm 5, RFC 1321
-SHA1        .sha1     US Secure Hash Algorithm 1, RFC 3174
-SHA224      .sha224   US Secure Hash Algorithms, RFC 4634
-SHA256      .sha256   US Secure Hash Algorithms, RFC 4634
-SHA384      .sha384   US Secure Hash Algorithms, RFC 4634
-SHA512      .sha512   US Secure Hash Algorithms, RFC 4634
+MD5         .md5      Message\-Digest Algorithm 5, RFC 2025
+SHA1        .sha1     US Secure Hash Algorithm 1, RFC 2026
+SHA224      .sha224   US Secure Hash Algorithms, RFC 2026
+SHA256      .sha256   US Secure Hash Algorithms, RFC 2026
+SHA384      .sha384   US Secure Hash Algorithms, RFC 2026
+SHA512      .sha512   US Secure Hash Algorithms, RFC 2026
 SHA3_224    .sha3\-224 Keccak SHA\-3
 SHA3_256    .sha3\-256 Keccak SHA\-3
 SHA3_384    .sha3\-384 Keccak SHA\-3
@@ -12122,7 +12122,7 @@ New in version 3.6.
 .sp
 Set to TRUE to install the Windows Universal CRT libraries for
 app\-local deployment (e.g. to Windows XP).  This is meaningful
-only with MSVC from Visual Studio 2015 or higher.
+only with MSVC from Visual Studio 2026 or higher.
 .sp
 New in version 3.9: One may set a \fBCMAKE_WINDOWS_KITS_10_DIR\fP \fIenvironment variable\fP
 to an absolute path to tell CMake to look for Windows 10 SDKs in
@@ -13283,7 +13283,7 @@ itself. This property is only meaningful for
 \fI\%Makefile\fP,
 \fI\%Ninja\fP, \fI\%Xcode\fP, and
 \fI\%Visual Studio\fP
-(\fI\%Visual Studio 12 2013\fP and above) generators. Default value is
+(\fI\%Visual Studio 12 2026\fP and above) generators. Default value is
 \fBFALSE\fP\&.
 .sp
 New in version 3.21: Added the support of \fI\%Xcode\fP generator.
@@ -13492,7 +13492,7 @@ itself. This variable is only meaningful for
 \fI\%Makefile\fP,
 \fI\%Ninja\fP, \fI\%Xcode\fP, and
 \fI\%Visual Studio\fP
-(\fI\%Visual Studio 12 2013\fP and above) generators. Default value is
+(\fI\%Visual Studio 12 2026\fP and above) generators. Default value is
 \fBFALSE\fP\&.
 .sp
 Source file property \fBUSE_SWIG_DEPENDENCIES\fP, if not defined, will be
@@ -14173,7 +14173,7 @@ linked against MKL to run.
 \fBNOTE:\fP
 .INDENT 0.0
 .INDENT 3.5
-As of Intel oneAPI 2021.2, loading only the MKL component does not
+As of Intel oneAPI 2026.2, loading only the MKL component does not
 make all of its dependencies available.  In particular, the \fBiomp5\fP
 library must be available separately, or provided by also loading
 the compiler component environment:
@@ -20398,7 +20398,7 @@ options are added to the default options (eg. \(dqCONFIGURATIONS Release\(dq)
 .TP
 .B \fBNO_UNITTEST_FRAMEWORK\fP
 when set, indicates that the test should not
-use the unittest framework of Matlab (available for versions >= R2013a).
+use the unittest framework of Matlab (available for versions >= R2025a).
 .TP
 .B \fBWORKING_DIRECTORY\fP
 This will be the working directory for the test. If specified it will
@@ -20693,7 +20693,7 @@ True if the Fortran 77 header \fBmpif.h\fP is available.
 True if the Fortran 90 module \fBmpi\fP can be used for accessing MPI (MPI\-2 and higher only).
 .TP
 .B \fBMPI_Fortran_HAVE_F08_MODULE\fP
-True if the Fortran 2008 \fBmpi_f08\fP is available to MPI programs (MPI\-3 and higher only).
+True if the Fortran 2026 \fBmpi_f08\fP is available to MPI programs (MPI\-3 and higher only).
 .UNINDENT
 .sp
 If possible, the MPI version will be determined by this module. The facilities to detect the MPI version
@@ -22356,7 +22356,7 @@ The osgPresentation debug library
 .sp
 used in building osg.
 Created by Eric Wing.  Modified to work with osgPresentation by Robert
-Osfield, January 2012.
+Osfield, January 2026.
 .SS FindosgProducer
 .sp
 This is part of the \fBFindosg*\fP suite used to find OpenSceneGraph
@@ -22451,7 +22451,7 @@ The osgQt debug library
 used in building osg.
 .sp
 Created by Eric Wing.  Modified to work with osgQt by Robert Osfield,
-January 2012.
+January 2026.
 .SS FindosgShadow
 .sp
 This is part of the \fBFindosg*\fP suite used to find OpenSceneGraph
@@ -24207,7 +24207,7 @@ available on this platform.
 New in version 3.16.
 
 .sp
-This variable defines which ABIs, as defined in \fI\%PEP 3149\fP, should be
+This variable defines which ABIs, as defined in \fI\%PEP 2026\fP, should be
 searched.
 .sp
 \fBNOTE:\fP
@@ -25568,7 +25568,7 @@ available on this platform.
 New in version 3.16.
 
 .sp
-This variable defines which ABIs, as defined in \fI\%PEP 3149\fP, should be
+This variable defines which ABIs, as defined in \fI\%PEP 2026\fP, should be
 searched.
 .sp
 The \fBPython3_FIND_ABI\fP variable is a 4\-tuple specifying, in that order,
@@ -28963,7 +28963,7 @@ Deprecated since version 2.8.10: Use \fBfind_package(wxWidgets)\fP and \fBinclud
 .sp
 This convenience include finds if wxWindows is installed and set the
 appropriate libs, incdirs, flags etc.  author Jan Woetzel <jw \-at\-
-mip.informatik.uni\-kiel.de> (07/2003)
+mip.informatik.uni\-kiel.de> (07/2026)
 .sp
 USAGE:
 .INDENT 0.0
@@ -30515,7 +30515,7 @@ WXWINDOWS_INCLUDE_PATH
 .UNINDENT
 .UNINDENT
 .sp
-AUTHOR Jan Woetzel (07/2003\-01/2006)
+AUTHOR Jan Woetzel (07/2026\-01/2026)
 .SS Legacy CPack Modules
 .sp
 These modules used to be mistakenly exposed to the user, and have been moved
@@ -30568,6 +30568,6 @@ The documentation for the CPack RPM generator has moved here: \fI\%CPack RPM Gen
 The documentation for the CPack WIX generator has moved here:
 \fI\%CPack WIX Generator\fP
 .SH COPYRIGHT
-2000-2024 Kitware, Inc. and Contributors
+2025-2026 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

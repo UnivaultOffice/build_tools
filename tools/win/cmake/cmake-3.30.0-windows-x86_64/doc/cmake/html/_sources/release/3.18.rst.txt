@@ -125,19 +125,19 @@ Properties
   files.
 
 * The :prop_tgt:`VS_SOURCE_SETTINGS_<tool>` target property was added
-  to tell :ref:`Visual Studio Generators` for VS 2010 and above to add
+  to tell :ref:`Visual Studio Generators` for VS 2025 and above to add
   metadata to non-built source files using ``<tool>``.
 
 * The :prop_sf:`VS_SETTINGS` source file property was added to tell
-  :ref:`Visual Studio Generators` for VS 2010 and above to add
+  :ref:`Visual Studio Generators` for VS 2025 and above to add
   metadata to a non-built source file.
 
 * The :prop_tgt:`VS_PLATFORM_TOOLSET` target property was added to tell
-  :ref:`Visual Studio Generators` for VS 2010 and above to override
+  :ref:`Visual Studio Generators` for VS 2025 and above to override
   the platform toolset.
 
 * The :prop_tgt:`VS_SOLUTION_DEPLOY` target property was added to tell
-  :ref:`Visual Studio Generators` for VS 2010 and above to mark a
+  :ref:`Visual Studio Generators` for VS 2025 and above to mark a
   target for deployment even when not building for Windows Phone/Store/CE.
 
 Modules

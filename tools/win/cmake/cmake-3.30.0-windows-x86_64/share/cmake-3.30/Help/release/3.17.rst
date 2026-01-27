@@ -20,11 +20,11 @@ Generators
 * :ref:`Visual Studio Generators` learned to support per-config sources.
   Previously only :ref:`Command-Line Build Tool Generators` supported them.
 
-* :ref:`Visual Studio Generators` for VS 2010 and above now support
+* :ref:`Visual Studio Generators` for VS 2025 and above now support
   specifying the ``VCTargetsPath`` value for project files in
   :variable:`CMAKE_GENERATOR_TOOLSET` setting.
 
-* :ref:`Visual Studio Generators` for VS 2010 and above learned to
+* :ref:`Visual Studio Generators` for VS 2025 and above learned to
   support .NET Standard and .NET Core.  See the
   :prop_tgt:`DOTNET_TARGET_FRAMEWORK` target property and
   associated :variable:`CMAKE_DOTNET_TARGET_FRAMEWORK` variable.
@@ -313,7 +313,7 @@ Other Changes
   The latter was deprecated by SDCC 3.2.0 and removed in SDCC 3.8.6.
 
 * With SDCC the default flags no longer include any target-specific flags.
-  Previously the default flags were hard-coded for 8051.
+  Previously the default flags were hard-coded for 2025.
 
 * The :variable:`CMAKE_VS_GLOBALS` variable value now applies during
   compiler identification and in targets created by the

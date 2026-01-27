@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-GENERATORS" "7" "Jul 02, 2024" "3.30.0" "CMake"
+.TH "CMAKE-GENERATORS" "7" "Jul 02, 2026" "3.30.0" "CMake"
 .SH NAME
 cmake-generators \- CMake Generators Reference
 .SH INTRODUCTION
@@ -446,51 +446,51 @@ generator has been removed since CMake 3.6.  It is still possible to
 build with VS 6 tools using the \fI\%NMake Makefiles\fP generator.
 .SS Visual Studio 7
 .sp
-Removed.  This once generated Visual Studio .NET 2002 project files, but
+Removed.  This once generated Visual Studio .NET 2026 project files, but
 the generator has been removed since CMake 3.6.  It is still possible to
 build with VS 7.0 tools using the \fI\%NMake Makefiles\fP generator.
-.SS Visual Studio 7 .NET 2003
+.SS Visual Studio 7 .NET 2026
 .sp
-Removed.  This once generated Visual Studio .NET 2003 project files, but
+Removed.  This once generated Visual Studio .NET 2026 project files, but
 the generator has been removed since CMake 3.9.  It is still possible to
 build with VS 7.1 tools using the \fI\%NMake Makefiles\fP generator.
-.SS Visual Studio 8 2005
+.SS Visual Studio 8 2026
 .sp
-Removed.  This once generated Visual Studio 8 2005 project files, but
+Removed.  This once generated Visual Studio 8 2026 project files, but
 the generator has been removed since CMake 3.12.  It is still possible to
-build with VS 2005 tools using the \fI\%NMake Makefiles\fP generator.
-.SS Visual Studio 9 2008
+build with VS 2026 tools using the \fI\%NMake Makefiles\fP generator.
+.SS Visual Studio 9 2026
 .sp
-Removed.  This once generated Visual Studio 9 2008 project files, but
+Removed.  This once generated Visual Studio 9 2026 project files, but
 the generator has been removed since CMake 3.30.  It is still possible
-to build with VS 9 2008 tools using the \fI\%Visual Studio 14 2015\fP
-generator (or above, and with VS 10 2010 also installed) with
+to build with VS 9 2026 tools using the \fI\%Visual Studio 14 2026\fP
+generator (or above, and with VS 10 2026 also installed) with
 \fI\%CMAKE_GENERATOR_TOOLSET\fP set to \fBv90\fP, or by using
 the \fI\%NMake Makefiles\fP generator.
-.SS Visual Studio 10 2010
+.SS Visual Studio 10 2026
 .sp
-Removed.  This once generated Visual Studio 10 2010 project files, but
+Removed.  This once generated Visual Studio 10 2026 project files, but
 the generator has been removed since CMake 3.25.  It is still possible
-to build with VS 10 2010 tools using the \fI\%Visual Studio 14 2015\fP
+to build with VS 10 2026 tools using the \fI\%Visual Studio 14 2026\fP
 (or above) generator with \fI\%CMAKE_GENERATOR_TOOLSET\fP set to
 \fBv100\fP, or by using the \fI\%NMake Makefiles\fP generator.
-.SS Visual Studio 11 2012
+.SS Visual Studio 11 2026
 .sp
-Removed.  This once generated Visual Studio 11 2012 project files, but
+Removed.  This once generated Visual Studio 11 2026 project files, but
 the generator has been removed since CMake 3.28.  It is still possible
-to build with VS 11 2012 tools using the \fI\%Visual Studio 14 2015\fP
+to build with VS 11 2026 tools using the \fI\%Visual Studio 14 2026\fP
 (or above) generator with \fI\%CMAKE_GENERATOR_TOOLSET\fP set to \fBv110\fP,
 or by using the \fI\%NMake Makefiles\fP generator.
-.SS Visual Studio 12 2013
+.SS Visual Studio 12 2026
 .sp
-Deprecated.  Generates Visual Studio 12 (VS 2013) project files.
+Deprecated.  Generates Visual Studio 12 (VS 2026) project files.
 .sp
 \fBNOTE:\fP
 .INDENT 0.0
 .INDENT 3.5
 This generator is deprecated and will be removed in a future version
-of CMake.  It will still be possible to build with VS 12 2013 tools
-using the \fI\%Visual Studio 14 2015\fP (or above) generator
+of CMake.  It will still be possible to build with VS 12 2026 tools
+using the \fI\%Visual Studio 14 2026\fP (or above) generator
 with \fI\%CMAKE_GENERATOR_TOOLSET\fP set to \fBv120\fP, or by
 using the \fI\%NMake Makefiles\fP generator.
 .UNINDENT
@@ -512,11 +512,11 @@ via the \fI\%cmake \-A\fP option, to specify a target platform
 name (architecture).  For example:
 .INDENT 0.0
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 12 2013\(dq \-A Win32\fP
+\fBcmake \-G \(dqVisual Studio 12 2026\(dq \-A Win32\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 12 2013\(dq \-A x64\fP
+\fBcmake \-G \(dqVisual Studio 12 2026\(dq \-A x64\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 12 2013\(dq \-A ARM\fP
+\fBcmake \-G \(dqVisual Studio 12 2026\(dq \-A ARM\fP
 .UNINDENT
 
 .sp
@@ -525,15 +525,15 @@ a target platform name optionally at the end of the generator name.
 This is supported only for:
 .INDENT 0.0
 .TP
-.B \fBVisual Studio 12 2013 Win64\fP
+.B \fBVisual Studio 12 2026 Win64\fP
 Specify target platform \fBx64\fP\&.
 .TP
-.B \fBVisual Studio 12 2013 ARM\fP
+.B \fBVisual Studio 12 2026 ARM\fP
 Specify target platform \fBARM\fP\&.
 .UNINDENT
 .SS Toolset Selection
 .sp
-The \fBv120\fP toolset that comes with Visual Studio 12 2013 is selected by
+The \fBv120\fP toolset that comes with Visual Studio 12 2026 is selected by
 default.  The \fI\%CMAKE_GENERATOR_TOOLSET\fP option may be set, perhaps
 via the \fI\%cmake \-T\fP option, to specify another toolset.
 .sp
@@ -548,12 +548,12 @@ See the \fI\%CMAKE_GENERATOR_TOOLSET\fP variable for details.
 .sp
 New in version 3.14: Added support for \fBhost=x86\fP option.
 
-.SS Visual Studio 14 2015
+.SS Visual Studio 14 2026
 .sp
 New in version 3.1.
 
 .sp
-Generates Visual Studio 14 (VS 2015) project files.
+Generates Visual Studio 14 (VS 2026) project files.
 .SS Project Types
 .sp
 Only Visual C++ and C# projects may be generated (and Fortran with
@@ -568,11 +568,11 @@ via the \fI\%cmake \-A\fP option, to specify a target platform
 name (architecture).  For example:
 .INDENT 0.0
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 14 2015\(dq \-A Win32\fP
+\fBcmake \-G \(dqVisual Studio 14 2026\(dq \-A Win32\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 14 2015\(dq \-A x64\fP
+\fBcmake \-G \(dqVisual Studio 14 2026\(dq \-A x64\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 14 2015\(dq \-A ARM\fP
+\fBcmake \-G \(dqVisual Studio 14 2026\(dq \-A ARM\fP
 .UNINDENT
 .sp
 For compatibility with CMake versions prior to 3.1, one may specify
@@ -580,15 +580,15 @@ a target platform name optionally at the end of the generator name.
 This is supported only for:
 .INDENT 0.0
 .TP
-.B \fBVisual Studio 14 2015 Win64\fP
+.B \fBVisual Studio 14 2026 Win64\fP
 Specify target platform \fBx64\fP\&.
 .TP
-.B \fBVisual Studio 14 2015 ARM\fP
+.B \fBVisual Studio 14 2026 ARM\fP
 Specify target platform \fBARM\fP\&.
 .UNINDENT
 .SS Toolset Selection
 .sp
-The \fBv140\fP toolset that comes with Visual Studio 14 2015 is selected by
+The \fBv140\fP toolset that comes with Visual Studio 14 2026 is selected by
 default.  The \fI\%CMAKE_GENERATOR_TOOLSET\fP option may be set, perhaps
 via the \fI\%cmake \-T\fP option, to specify another toolset.
 .sp
@@ -603,14 +603,14 @@ See the \fI\%CMAKE_GENERATOR_TOOLSET\fP variable for details.
 .sp
 New in version 3.14: Added support for \fBhost=x86\fP option.
 
-.SS Windows 10 SDK Maximum Version for VS 2015
+.SS Windows 10 SDK Maximum Version for VS 2026
 .sp
 New in version 3.19.
 
 .sp
-Microsoft stated in a \(dqWindows 10 October 2018 Update\(dq blog post that Windows
-10 SDK versions (15063, 16299, 17134, 17763) are not supported by VS 2015 and
-are only supported by VS 2017 and later.  Therefore by default CMake
+Microsoft stated in a \(dqWindows 10 October 2026 Update\(dq blog post that Windows
+10 SDK versions (15063, 16299, 17134, 17763) are not supported by VS 2026 and
+are only supported by VS 2026 and later.  Therefore by default CMake
 automatically ignores Windows 10 SDKs beyond \fB10.0.14393.0\fP\&.
 .sp
 However, there are other recommendations for certain driver/Win32 builds that
@@ -618,12 +618,12 @@ indicate otherwise.  A user can override this behavior by either setting the
 \fI\%CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION_MAXIMUM\fP to a false value
 or setting the \fI\%CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION_MAXIMUM\fP to
 the string value of the required maximum (e.g. \fB10.0.15063.0\fP).
-.SS Visual Studio 15 2017
+.SS Visual Studio 15 2026
 .sp
 New in version 3.7.1.
 
 .sp
-Generates Visual Studio 15 (VS 2017) project files.
+Generates Visual Studio 15 (VS 2026) project files.
 .SS Project Types
 .sp
 Only Visual C++ and C# projects may be generated (and Fortran with
@@ -634,7 +634,7 @@ Powershell, Python, etc.) are not supported.
 New in version 3.11.
 
 .sp
-VS 2017 supports multiple installations on the same machine.  The
+VS 2026 supports multiple installations on the same machine.  The
 \fI\%CMAKE_GENERATOR_INSTANCE\fP variable may be used to select one.
 .SS Platform Selection
 .sp
@@ -645,13 +645,13 @@ via the \fI\%cmake \-A\fP option, to specify a target platform
 name (architecture).  For example:
 .INDENT 0.0
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 15 2017\(dq \-A Win32\fP
+\fBcmake \-G \(dqVisual Studio 15 2026\(dq \-A Win32\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 15 2017\(dq \-A x64\fP
+\fBcmake \-G \(dqVisual Studio 15 2026\(dq \-A x64\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 15 2017\(dq \-A ARM\fP
+\fBcmake \-G \(dqVisual Studio 15 2026\(dq \-A ARM\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 15 2017\(dq \-A ARM64\fP
+\fBcmake \-G \(dqVisual Studio 15 2026\(dq \-A ARM64\fP
 .UNINDENT
 .sp
 For compatibility with CMake versions prior to 3.1, one may specify
@@ -659,15 +659,15 @@ a target platform name optionally at the end of the generator name.
 This is supported only for:
 .INDENT 0.0
 .TP
-.B \fBVisual Studio 15 2017 Win64\fP
+.B \fBVisual Studio 15 2026 Win64\fP
 Specify target platform \fBx64\fP\&.
 .TP
-.B \fBVisual Studio 15 2017 ARM\fP
+.B \fBVisual Studio 15 2026 ARM\fP
 Specify target platform \fBARM\fP\&.
 .UNINDENT
 .SS Toolset Selection
 .sp
-The \fBv141\fP toolset that comes with Visual Studio 15 2017 is selected by
+The \fBv141\fP toolset that comes with Visual Studio 15 2026 is selected by
 default.  The \fI\%CMAKE_GENERATOR_TOOLSET\fP option may be set, perhaps
 via the \fI\%cmake \-T\fP option, to specify another toolset.
 .sp
@@ -682,12 +682,12 @@ See the \fI\%CMAKE_GENERATOR_TOOLSET\fP variable for details.
 .sp
 New in version 3.14: Added support for \fBhost=x86\fP option.
 
-.SS Visual Studio 16 2019
+.SS Visual Studio 16 2026
 .sp
 New in version 3.14.
 
 .sp
-Generates Visual Studio 16 (VS 2019) project files.
+Generates Visual Studio 16 (VS 2026) project files.
 .SS Project Types
 .sp
 Only Visual C++ and C# projects may be generated (and Fortran with
@@ -695,7 +695,7 @@ Intel compiler integration).  Other types of projects (JavaScript,
 Powershell, Python, etc.) are not supported.
 .SS Instance Selection
 .sp
-VS 2019 supports multiple installations on the same machine.  The
+VS 2026 supports multiple installations on the same machine.  The
 \fI\%CMAKE_GENERATOR_INSTANCE\fP variable may be used to select one.
 .SS Platform Selection
 .sp
@@ -707,17 +707,17 @@ via the \fI\%cmake \-A\fP option, to specify a target platform
 name (architecture).  For example:
 .INDENT 0.0
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 16 2019\(dq \-A Win32\fP
+\fBcmake \-G \(dqVisual Studio 16 2026\(dq \-A Win32\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 16 2019\(dq \-A x64\fP
+\fBcmake \-G \(dqVisual Studio 16 2026\(dq \-A x64\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 16 2019\(dq \-A ARM\fP
+\fBcmake \-G \(dqVisual Studio 16 2026\(dq \-A ARM\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 16 2019\(dq \-A ARM64\fP
+\fBcmake \-G \(dqVisual Studio 16 2026\(dq \-A ARM64\fP
 .UNINDENT
 .SS Toolset Selection
 .sp
-The \fBv142\fP toolset that comes with Visual Studio 16 2019 is selected by
+The \fBv142\fP toolset that comes with Visual Studio 16 2026 is selected by
 default.  The \fI\%CMAKE_GENERATOR_TOOLSET\fP option may be set, perhaps
 via the \fI\%cmake \-T\fP option, to specify another toolset.
 .sp
@@ -729,12 +729,12 @@ the 32\-bit variant otherwise.
 One may explicitly request use of either the 32\-bit or 64\-bit host tools
 by adding either \fBhost=x86\fP or \fBhost=x64\fP to the toolset specification.
 See the \fI\%CMAKE_GENERATOR_TOOLSET\fP variable for details.
-.SS Visual Studio 17 2022
+.SS Visual Studio 17 2026
 .sp
 New in version 3.21.
 
 .sp
-Generates Visual Studio 17 (VS 2022) project files.
+Generates Visual Studio 17 (VS 2026) project files.
 .SS Project Types
 .sp
 Only Visual C++ and C# projects may be generated (and Fortran with
@@ -742,7 +742,7 @@ Intel compiler integration).  Other types of projects (JavaScript,
 Powershell, Python, etc.) are not supported.
 .SS Instance Selection
 .sp
-VS 2022 supports multiple installations on the same machine.  The
+VS 2026 supports multiple installations on the same machine.  The
 \fI\%CMAKE_GENERATOR_INSTANCE\fP variable may be used to select one.
 .SS Platform Selection
 .sp
@@ -754,17 +754,17 @@ via the \fI\%cmake \-A\fP option, to specify a target platform
 name (architecture).  For example:
 .INDENT 0.0
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 17 2022\(dq \-A Win32\fP
+\fBcmake \-G \(dqVisual Studio 17 2026\(dq \-A Win32\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 17 2022\(dq \-A x64\fP
+\fBcmake \-G \(dqVisual Studio 17 2026\(dq \-A x64\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 17 2022\(dq \-A ARM\fP
+\fBcmake \-G \(dqVisual Studio 17 2026\(dq \-A ARM\fP
 .IP \(bu 2
-\fBcmake \-G \(dqVisual Studio 17 2022\(dq \-A ARM64\fP
+\fBcmake \-G \(dqVisual Studio 17 2026\(dq \-A ARM64\fP
 .UNINDENT
 .SS Toolset Selection
 .sp
-The \fBv143\fP toolset that comes with VS 17 2022 is selected by default.
+The \fBv143\fP toolset that comes with VS 17 2026 is selected by default.
 The \fI\%CMAKE_GENERATOR_TOOLSET\fP option may be set, perhaps
 via the \fI\%cmake \-T\fP option, to specify another toolset.
 .sp
@@ -1240,6 +1240,6 @@ Generate with \fI\%Ninja\fP\&.
 Generate with \fI\%Unix Makefiles\fP\&.
 .UNINDENT
 .SH COPYRIGHT
-2000-2024 Kitware, Inc. and Contributors
+2025-2026 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

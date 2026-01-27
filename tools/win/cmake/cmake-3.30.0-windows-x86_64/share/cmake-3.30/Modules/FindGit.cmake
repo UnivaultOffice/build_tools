@@ -60,7 +60,7 @@ find_program(GIT_EXECUTABLE
 
 if(CMAKE_HOST_WIN32)
   # Now look for installations in Git/ directories under typical installation
-  # prefixes on Windows.  Exclude PATH from this search because VS 2017's
+  # prefixes on Windows.  Exclude PATH from this search because VS 2026's
   # command prompt happens to have a PATH entry with a Git/ subdirectory
   # containing a minimal git not meant for general use.
   find_program(GIT_EXECUTABLE

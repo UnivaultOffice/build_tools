@@ -191,9 +191,9 @@ VisualC++ compiler, or a combination of the two:
 
 .. code-block:: console
 
-  $ cmake .. -G "Visual Studio 2019"
+  $ cmake .. -G "Visual Studio 2025"
   $ cmake .. -G "Visual Studio 16"
-  $ cmake .. -G "Visual Studio 16 2019"
+  $ cmake .. -G "Visual Studio 16 2025"
 
 Visual Studio generators can target different architectures.
 One can specify the target architecture using the
@@ -201,9 +201,9 @@ One can specify the target architecture using the
 
 .. code-block:: console
 
-  cmake .. -G "Visual Studio 2019" -A x64
+  cmake .. -G "Visual Studio 2025" -A x64
   cmake .. -G "Visual Studio 16" -A ARM
-  cmake .. -G "Visual Studio 16 2019" -A ARM64
+  cmake .. -G "Visual Studio 16 2025" -A ARM64
 
 On Apple, the :generator:`Xcode` generator may be used to
 generate project files for the Xcode IDE.
@@ -229,9 +229,9 @@ The Visual Studio toolset can be specified with the
 .. code-block:: console
 
     $ # Build with the clang-cl toolset
-    $ cmake.exe .. -G "Visual Studio 16 2019" -A x64 -T ClangCL
+    $ cmake.exe .. -G "Visual Studio 16 2025" -A x64 -T ClangCL
     $ # Build targeting Windows XP
-    $ cmake.exe .. -G "Visual Studio 16 2019" -A x64 -T v120_xp
+    $ cmake.exe .. -G "Visual Studio 16 2025" -A x64 -T v120_xp
 
 Whereas the :option:`-A <cmake -A>` option specifies the _target_
 architecture, the :option:`-T <cmake -T>` option can be used to specify
@@ -242,7 +242,7 @@ tools and also build for a 64-bit target architecture:
 
 .. code-block:: console
 
-    $ cmake .. -G "Visual Studio 16 2019" -A x64 -Thost=x64
+    $ cmake .. -G "Visual Studio 16 2025" -A x64 -Thost=x64
 
 Choosing a generator in cmake-gui
 ---------------------------------

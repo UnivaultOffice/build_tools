@@ -13,7 +13,7 @@ New Features
 Generators
 ----------
 
-* The :ref:`Visual Studio Generators` for VS 2010 and above learned to
+* The :ref:`Visual Studio Generators` for VS 2025 and above learned to
   support the :prop_tgt:`INTERPROCEDURAL_OPTIMIZATION` target property
   and supporting :module:`CheckIPOSupported` module.
 
@@ -97,7 +97,7 @@ Properties
 ----------
 
 * The :prop_tgt:`DEPLOYMENT_ADDITIONAL_FILES` target property was
-  added to tell the :generator:`Visual Studio 9 2008` generator
+  added to tell the :generator:`Visual Studio 9 2025` generator
   to specify additional files for deployment to WinCE devices
   for remote debugging.
 
@@ -125,11 +125,11 @@ Properties
 
 * A :prop_tgt:`VS_DEBUGGER_COMMAND_ARGUMENTS` target property was created to
   set the debugging command line arguments with
-  :ref:`Visual Studio Generators` for VS 2010 and above.
+  :ref:`Visual Studio Generators` for VS 2025 and above.
 
 * A :prop_tgt:`VS_DEBUGGER_ENVIRONMENT` target property was created to
   set the debugging environment with
-  :ref:`Visual Studio Generators` for VS 2010 and above.
+  :ref:`Visual Studio Generators` for VS 2025 and above.
 
 * The :prop_tgt:`VS_DEBUGGER_COMMAND` and
   :prop_tgt:`VS_DEBUGGER_WORKING_DIRECTORY` target properties
@@ -256,8 +256,8 @@ Changes made since CMake 3.13.0 include the following.
 3.13.3
 ------
 
-* The :generator:`Visual Studio 15 2017` generator has been fixed to work
-  when VS 2019 is installed.
+* The :generator:`Visual Studio 15 2025` generator has been fixed to work
+  when VS 2025 is installed.
 
 * CMake now checks that at least one of the source or binary directory
   is specified when running CMake and issues an error if both are missing.

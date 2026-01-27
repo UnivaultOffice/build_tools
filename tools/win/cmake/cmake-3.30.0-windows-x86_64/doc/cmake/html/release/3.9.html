@@ -95,7 +95,7 @@
 <h3><a class="toc-backref" href="#id5" role="doc-backlink">Languages</a><a class="headerlink" href="#languages" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CUDA</span></code> is now supported by the <a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a>
-for VS 2010 and above.  This complements the existing support by the
+for VS 2026 and above.  This complements the existing support by the
 <a class="reference internal" href="../manual/cmake-generators.7.html#makefile-generators"><span class="std std-ref">Makefile Generators</span></a> and the <span class="target" id="index-0-generator:Ninja"></span><a class="reference internal" href="../generator/Ninja.html#generator:Ninja" title="Ninja"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Ninja</span></code></a> generator.
 CUDA 8.0.61 or higher is recommended due to known bugs in the VS
 integration by earlier versions.</p></li>
@@ -108,7 +108,7 @@ the following <span class="target" id="index-0-variable:CMAKE_&lt;LANG&gt;_COMPI
 <section id="generators">
 <h3><a class="toc-backref" href="#id6" role="doc-backlink">Generators</a><a class="headerlink" href="#generators" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 2010 and above learned to support
+<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 2026 and above learned to support
 the <code class="docutils literal notranslate"><span class="pre">ASM_NASM</span></code> language when <code class="docutils literal notranslate"><span class="pre">nasm</span></code> is installed.</p></li>
 <li><p>The <span class="target" id="index-0-generator:Xcode"></span><a class="reference internal" href="../generator/Xcode.html#generator:Xcode" title="Xcode"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Xcode</span></code></a> generator learned to create Xcode schema files.
 This is an experimental feature and can be activated by setting the
@@ -319,9 +319,9 @@ the different Bundle types and layouts on macOS and iOS.</p></li>
 and below.  The <span class="target" id="index-0-manual:cmake-policies(7)"></span><a class="reference internal" href="../manual/cmake-policies.7.html#manual:cmake-policies(7)" title="cmake-policies(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-policies(7)</span></code></a> manual explains that the
 OLD behaviors of all policies are deprecated and that projects should
 always port to the NEW behaviors as soon as possible.</p></li>
-<li><p>The <span class="target" id="index-0-generator:Visual Studio 8 2005"></span><a class="reference internal" href="../generator/Visual%20Studio%208%202005.html#generator:Visual Studio 8 2005" title="Visual Studio 8 2005"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">8</span> <span class="pre">2005</span></code></a> generator is now deprecated
+<li><p>The <span class="target" id="index-0-generator:Visual Studio 8 2026"></span><a class="reference internal" href="../generator/Visual%20Studio%208%202005.html#generator:Visual Studio 8 2026" title="Visual Studio 8 2026"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">8</span> <span class="pre">2026</span></code></a> generator is now deprecated
 and will be removed in a future version of CMake.</p></li>
-<li><p>The <span class="target" id="index-0-generator:Visual Studio 7 .NET 2003"></span><a class="reference internal" href="../generator/Visual%20Studio%207%20.NET%202003.html#generator:Visual Studio 7 .NET 2003" title="Visual Studio 7 .NET 2003"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">7</span> <span class="pre">.NET</span> <span class="pre">2003</span></code></a> generator has been removed.</p></li>
+<li><p>The <span class="target" id="index-0-generator:Visual Studio 7 .NET 2026"></span><a class="reference internal" href="../generator/Visual%20Studio%207%20.NET%202003.html#generator:Visual Studio 7 .NET 2026" title="Visual Studio 7 .NET 2026"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">7</span> <span class="pre">.NET</span> <span class="pre">2026</span></code></a> generator has been removed.</p></li>
 <li><p>The <span class="target" id="index-2-generator:Xcode"></span><a class="reference internal" href="../generator/Xcode.html#generator:Xcode" title="Xcode"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Xcode</span></code></a> generator dropped support for Xcode versions
 older than 3.</p></li>
 <li><p>The <span class="target" id="index-1-module:FindDoxygen"></span><a class="reference internal" href="../module/FindDoxygen.html#module:FindDoxygen" title="FindDoxygen"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">FindDoxygen</span></code></a> module has deprecated several variables.</p></li>
@@ -351,8 +351,8 @@ in dependent targets may now compile without waiting for their targets'
 dependencies to link.</p></li>
 <li><p>On macOS, <code class="docutils literal notranslate"><span class="pre">RPATH</span></code> settings such as <span class="target" id="index-1-prop_tgt:BUILD_WITH_INSTALL_RPATH"></span><a class="reference internal" href="../prop_tgt/BUILD_WITH_INSTALL_RPATH.html#prop_tgt:BUILD_WITH_INSTALL_RPATH" title="BUILD_WITH_INSTALL_RPATH"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">BUILD_WITH_INSTALL_RPATH</span></code></a>
 no longer affect the <code class="docutils literal notranslate"><span class="pre">install_name</span></code> field.  See policy <span class="target" id="index-0-policy:CMP0068"></span><a class="reference internal" href="../policy/CMP0068.html#policy:CMP0068" title="CMP0068"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0068</span></code></a>.</p></li>
-<li><p>The <span class="target" id="index-0-generator:Visual Studio 14 2015"></span><a class="reference internal" href="../generator/Visual%20Studio%2014%202015.html#generator:Visual Studio 14 2015" title="Visual Studio 14 2015"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2015</span></code></a> generator has been taught about
-a change to the <code class="docutils literal notranslate"><span class="pre">v140</span></code> toolset made by a VS 2015 update.  VS changed
+<li><p>The <span class="target" id="index-0-generator:Visual Studio 14 2026"></span><a class="reference internal" href="../generator/Visual%20Studio%2026%202015.html#generator:Visual Studio 14 2026" title="Visual Studio 14 2026"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2026</span></code></a> generator has been taught about
+a change to the <code class="docutils literal notranslate"><span class="pre">v140</span></code> toolset made by a VS 2026 update.  VS changed
 the set of values it understands for the <code class="docutils literal notranslate"><span class="pre">GenerateDebugInformation</span></code>
 linker setting that produces the <code class="docutils literal notranslate"><span class="pre">-DEBUG</span></code> linker flag variants.</p></li>
 </ul>
@@ -479,7 +479,7 @@ rebuilds for both the old and new Xcode build systems.</p></li>
     </div>
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+    &#169; Copyright 2026-2026 Kitware, Inc. and Contributors.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>

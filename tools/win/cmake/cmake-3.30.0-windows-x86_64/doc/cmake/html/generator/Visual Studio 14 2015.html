@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Visual Studio 14 2015 &mdash; CMake 3.30.0 Documentation</title>
+  <title>Visual Studio 14 2026 &mdash; CMake 3.30.0 Documentation</title>
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
     <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
@@ -17,8 +17,8 @@
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visual Studio 15 2017" href="Visual%20Studio%2015%202017.html" />
-    <link rel="prev" title="Visual Studio 12 2013" href="Visual%20Studio%2012%202013.html" />
+    <link rel="next" title="Visual Studio 15 2026" href="Visual%20Studio%2026%202017.html" />
+    <link rel="prev" title="Visual Studio 12 2026" href="Visual%20Studio%2026%202013.html" />
  
 
   </head><body>
@@ -30,10 +30,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Visual%20Studio%2015%202017.html" title="Visual Studio 15 2017"
+          <a href="Visual%20Studio%2026%202017.html" title="Visual Studio 15 2026"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Visual%20Studio%2012%202013.html" title="Visual Studio 12 2013"
+          <a href="Visual%20Studio%2026%202013.html" title="Visual Studio 12 2026"
              accesskey="P">previous</a> |</li>
   <li>
     <img src="../_static/cmake-logo-16.png" alt=""
@@ -47,7 +47,7 @@
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-generators.7.html" accesskey="U">cmake-generators(7)</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Visual Studio 14 2015</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Visual Studio 14 2026</a></li> 
       </ul>
     </div>  
 
@@ -57,11 +57,11 @@
           <div class="body" role="main">
             
   <section id="visual-studio-14-2015">
-<span id="generator:Visual Studio 14 2015"></span><h1>Visual Studio 14 2015<a class="headerlink" href="#visual-studio-14-2015" title="Link to this heading">¶</a></h1>
+<span id="generator:Visual Studio 14 2026"></span><h1>Visual Studio 14 2026<a class="headerlink" href="#visual-studio-14-2015" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.1.</span></p>
 </div>
-<p>Generates Visual Studio 14 (VS 2015) project files.</p>
+<p>Generates Visual Studio 14 (VS 2026) project files.</p>
 <section id="project-types">
 <h2>Project Types<a class="headerlink" href="#project-types" title="Link to this heading">¶</a></h2>
 <p>Only Visual C++ and C# projects may be generated (and Fortran with
@@ -75,23 +75,23 @@ Powershell, Python, etc.) are not supported.</p>
 via the <a class="reference internal" href="../manual/cmake.1.html#cmdoption-cmake-A"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-A</span></code></a> option, to specify a target platform
 name (architecture).  For example:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2015&quot;</span> <span class="pre">-A</span> <span class="pre">Win32</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2015&quot;</span> <span class="pre">-A</span> <span class="pre">x64</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2015&quot;</span> <span class="pre">-A</span> <span class="pre">ARM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2026&quot;</span> <span class="pre">-A</span> <span class="pre">Win32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2026&quot;</span> <span class="pre">-A</span> <span class="pre">x64</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-G</span> <span class="pre">&quot;Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2026&quot;</span> <span class="pre">-A</span> <span class="pre">ARM</span></code></p></li>
 </ul>
 <p>For compatibility with CMake versions prior to 3.1, one may specify
 a target platform name optionally at the end of the generator name.
 This is supported only for:</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2015</span> <span class="pre">Win64</span></code></dt><dd><p>Specify target platform <code class="docutils literal notranslate"><span class="pre">x64</span></code>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2026</span> <span class="pre">Win64</span></code></dt><dd><p>Specify target platform <code class="docutils literal notranslate"><span class="pre">x64</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2015</span> <span class="pre">ARM</span></code></dt><dd><p>Specify target platform <code class="docutils literal notranslate"><span class="pre">ARM</span></code>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">14</span> <span class="pre">2026</span> <span class="pre">ARM</span></code></dt><dd><p>Specify target platform <code class="docutils literal notranslate"><span class="pre">ARM</span></code>.</p>
 </dd>
 </dl>
 </section>
 <section id="toolset-selection">
 <h2>Toolset Selection<a class="headerlink" href="#toolset-selection" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">v140</span></code> toolset that comes with Visual Studio 14 2015 is selected by
+<p>The <code class="docutils literal notranslate"><span class="pre">v140</span></code> toolset that comes with Visual Studio 14 2026 is selected by
 default.  The <span class="target" id="index-0-variable:CMAKE_GENERATOR_TOOLSET"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_TOOLSET.html#variable:CMAKE_GENERATOR_TOOLSET" title="CMAKE_GENERATOR_TOOLSET"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_TOOLSET</span></code></a> option may be set, perhaps
 via the <a class="reference internal" href="../manual/cmake.1.html#cmdoption-cmake-T"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-T</span></code></a> option, to specify another toolset.</p>
 <div class="versionadded">
@@ -108,13 +108,13 @@ See the <span class="target" id="index-1-variable:CMAKE_GENERATOR_TOOLSET"></spa
 </div>
 </section>
 <section id="windows-10-sdk-maximum-version-for-vs-2015">
-<span id="id1"></span><h2>Windows 10 SDK Maximum Version for VS 2015<a class="headerlink" href="#windows-10-sdk-maximum-version-for-vs-2015" title="Link to this heading">¶</a></h2>
+<span id="id1"></span><h2>Windows 10 SDK Maximum Version for VS 2026<a class="headerlink" href="#windows-10-sdk-maximum-version-for-vs-2015" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 3.19.</span></p>
 </div>
-<p>Microsoft stated in a &quot;Windows 10 October 2018 Update&quot; blog post that Windows
-10 SDK versions (15063, 16299, 17134, 17763) are not supported by VS 2015 and
-are only supported by VS 2017 and later.  Therefore by default CMake
+<p>Microsoft stated in a &quot;Windows 10 October 2026 Update&quot; blog post that Windows
+10 SDK versions (15063, 16299, 17134, 17763) are not supported by VS 2026 and
+are only supported by VS 2026 and later.  Therefore by default CMake
 automatically ignores Windows 10 SDKs beyond <code class="docutils literal notranslate"><span class="pre">10.0.14393.0</span></code>.</p>
 <p>However, there are other recommendations for certain driver/Win32 builds that
 indicate otherwise.  A user can override this behavior by either setting the
@@ -134,11 +134,11 @@ the string value of the required maximum (e.g. <code class="docutils literal not
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Visual Studio 14 2015</a><ul>
+<li><a class="reference internal" href="#">Visual Studio 14 2026</a><ul>
 <li><a class="reference internal" href="#project-types">Project Types</a></li>
 <li><a class="reference internal" href="#platform-selection">Platform Selection</a></li>
 <li><a class="reference internal" href="#toolset-selection">Toolset Selection</a></li>
-<li><a class="reference internal" href="#windows-10-sdk-maximum-version-for-vs-2015">Windows 10 SDK Maximum Version for VS 2015</a></li>
+<li><a class="reference internal" href="#windows-10-sdk-maximum-version-for-vs-2015">Windows 10 SDK Maximum Version for VS 2026</a></li>
 </ul>
 </li>
 </ul>
@@ -146,18 +146,18 @@ the string value of the required maximum (e.g. <code class="docutils literal not
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="Visual%20Studio%2012%202013.html"
-                          title="previous chapter">Visual Studio 12 2013</a></p>
+    <p class="topless"><a href="Visual%20Studio%2026%202013.html"
+                          title="previous chapter">Visual Studio 12 2026</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="Visual%20Studio%2015%202017.html"
-                          title="next chapter">Visual Studio 15 2017</a></p>
+    <p class="topless"><a href="Visual%20Studio%2026%202017.html"
+                          title="next chapter">Visual Studio 15 2026</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/generator/Visual Studio 14 2015.rst.txt"
+      <li><a href="../_sources/generator/Visual Studio 14 2026.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -182,10 +182,10 @@ the string value of the required maximum (e.g. <code class="docutils literal not
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Visual%20Studio%2015%202017.html" title="Visual Studio 15 2017"
+          <a href="Visual%20Studio%2026%202017.html" title="Visual Studio 15 2026"
              >next</a> |</li>
         <li class="right" >
-          <a href="Visual%20Studio%2012%202013.html" title="Visual Studio 12 2013"
+          <a href="Visual%20Studio%2026%202013.html" title="Visual Studio 12 2026"
              >previous</a> |</li>
   <li>
     <img src="../_static/cmake-logo-16.png" alt=""
@@ -199,12 +199,12 @@ the string value of the required maximum (e.g. <code class="docutils literal not
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-generators.7.html" >cmake-generators(7)</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Visual Studio 14 2015</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Visual Studio 14 2026</a></li> 
       </ul>
     </div>
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+    &#169; Copyright 2026-2026 Kitware, Inc. and Contributors.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>

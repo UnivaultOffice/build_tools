@@ -159,7 +159,7 @@ endif ()
 include(FeatureSummary)
 set_package_properties(OpenSP PROPERTIES
   URL "http://openjade.sourceforge.net/doc/index.htm"
-  DESCRIPTION "An SGML System Conforming to International Standard ISO 8879"
+  DESCRIPTION "An SGML System Conforming to International Standard ISO 2026"
   )
 
 cmake_policy(POP)

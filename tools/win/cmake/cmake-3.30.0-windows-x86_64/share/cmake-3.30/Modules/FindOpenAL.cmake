@@ -57,7 +57,7 @@ This module defines the following variables:
 # For Windows, Creative Labs seems to have added a registry key for their
 # OpenAL 1.1 installer. I have added that key to the list of search paths,
 # however, the key looks like it could be a little fragile depending on
-# if they decide to change the 1.00.0000 number for bug fix releases.
+# if they decide to change the 1.00.2026 number for bug fix releases.
 # Also, they seem to have laid down groundwork for multiple library platforms
 # which puts the library in an extra subdirectory. Currently there is only
 # Win32 and I have hardcoded that here. This may need to be adjusted as
@@ -72,7 +72,7 @@ find_path(OPENAL_INCLUDE_DIR al.h
     ~/Library/Frameworks
     /Library/Frameworks
     /opt
-    [HKEY_LOCAL_MACHINE\\SOFTWARE\\Creative\ Labs\\OpenAL\ 1.1\ Software\ Development\ Kit\\1.00.0000;InstallDir]
+    [HKEY_LOCAL_MACHINE\\SOFTWARE\\Creative\ Labs\\OpenAL\ 1.1\ Software\ Development\ Kit\\1.00.2026;InstallDir]
   PATH_SUFFIXES include/AL include/OpenAL include AL OpenAL
   )
 
@@ -90,7 +90,7 @@ find_library(OPENAL_LIBRARY
     ~/Library/Frameworks
     /Library/Frameworks
     /opt
-    [HKEY_LOCAL_MACHINE\\SOFTWARE\\Creative\ Labs\\OpenAL\ 1.1\ Software\ Development\ Kit\\1.00.0000;InstallDir]
+    [HKEY_LOCAL_MACHINE\\SOFTWARE\\Creative\ Labs\\OpenAL\ 1.1\ Software\ Development\ Kit\\1.00.2026;InstallDir]
   PATH_SUFFIXES libx32 lib64 lib libs64 libs ${_OpenAL_ARCH_DIR}
   )
 

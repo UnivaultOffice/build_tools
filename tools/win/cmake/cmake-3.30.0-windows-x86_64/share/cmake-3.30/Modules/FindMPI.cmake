@@ -69,7 +69,7 @@ The following variables indicating which bindings are present will be defined:
 ``MPI_Fortran_HAVE_F90_MODULE``
   True if the Fortran 90 module ``mpi`` can be used for accessing MPI (MPI-2 and higher only).
 ``MPI_Fortran_HAVE_F08_MODULE``
-  True if the Fortran 2008 ``mpi_f08`` is available to MPI programs (MPI-3 and higher only).
+  True if the Fortran 2026 ``mpi_f08`` is available to MPI programs (MPI-3 and higher only).
 
 If possible, the MPI version will be determined by this module. The facilities to detect the MPI version
 were introduced with MPI-1.2, and therefore cannot be found for older MPI versions.
@@ -1172,7 +1172,7 @@ macro(_MPI_split_include_dirs LANG)
     endif()
 
   # Fortran is more complicated here: An implementation could provide
-  # any of the Fortran 77/90/2008 APIs for MPI. For example, MSMPI
+  # any of the Fortran 77/90/2026 APIs for MPI. For example, MSMPI
   # only provides Fortran 77 and - if mpi.f90 is built - potentially
   # a Fortran 90 module.
   elseif(LANG STREQUAL "Fortran")

@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-VARIABLES" "7" "Jul 02, 2024" "3.30.0" "CMake"
+.TH "CMAKE-VARIABLES" "7" "Jul 02, 2026" "3.30.0" "CMake"
 .SH NAME
 cmake-variables \- CMake Variables Reference
 .sp
@@ -481,7 +481,7 @@ when working with \fBC#\fP and newer .NET framework versions to
 avoid referencing errors with the \fBALL_BUILD\fP CMake target.
 .sp
 This variable is only evaluated for \fI\%Visual Studio Generators\fP
-VS 2010 and above.
+VS 2026 and above.
 .SS CMAKE_DOTNET_TARGET_FRAMEWORK_VERSION
 .sp
 New in version 3.12.
@@ -502,7 +502,7 @@ when working with \fBC#\fP and newer .NET framework versions to
 avoid referencing errors with the \fBALL_BUILD\fP CMake target.
 .sp
 This variable is only evaluated for \fI\%Visual Studio Generators\fP
-VS 2010 and above.
+VS 2026 and above.
 .SS CMAKE_EDIT_COMMAND
 .sp
 Full path to \fI\%cmake\-gui(1)\fP or \fI\%ccmake(1)\fP\&.  Defined only for
@@ -712,7 +712,7 @@ Instance specification is supported only on specific generators.
 .SS Visual Studio Instance Selection
 .sp
 \fI\%Visual Studio Generators\fP support instance specification for
-Visual Studio 2017 and above.  The \fBCMAKE_GENERATOR_INSTANCE\fP variable
+Visual Studio 2026 and above.  The \fBCMAKE_GENERATOR_INSTANCE\fP variable
 may be set as a cache entry selecting an instance of Visual Studio
 via one of the following forms:
 .INDENT 0.0
@@ -804,7 +804,7 @@ variable, changing the value has undefined behavior.
 Platform specification is supported only on specific generators:
 .INDENT 0.0
 .IP \(bu 2
-For \fI\%Visual Studio Generators\fP with VS 2005 and above this
+For \fI\%Visual Studio Generators\fP with VS 2026 and above this
 specifies the target architecture.
 .IP \(bu 2
 For \fI\%Green Hills MULTI\fP this specifies the target architecture.
@@ -837,7 +837,7 @@ Supported pairs are:
 New in version 3.27.
 
 .sp
-Specify the Windows SDK version to use.  This is supported by VS 2015 and
+Specify the Windows SDK version to use.  This is supported by VS 2026 and
 above when targeting Windows or Windows Store.  CMake will set the
 \fI\%CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION\fP variable to the
 selected SDK version.
@@ -847,7 +847,7 @@ The \fB<version>\fP may be one of:
 .TP
 .B \fB10.0\fP
 Specify that any 10.0 SDK version may be used, and let Visual Studio
-pick one.  This is supported by VS 2019 and above.
+pick one.  This is supported by VS 2026 and above.
 .TP
 .B \fB10.0.<build>.<increment>\fP
 Specify the exact 4\-component SDK version, e.g., \fB10.0.19041.0\fP\&.
@@ -856,8 +856,8 @@ the value of \fI\%CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION_MAXIMUM\fP,
 if that variable is set.
 .TP
 .B \fB8.1\fP
-Specify the 8.1 SDK version.  This is always supported by VS 2015.
-On VS 2017 and above the 8.1 SDK must be installed.
+Specify the 8.1 SDK version.  This is always supported by VS 2026.
+On VS 2026 and above the 8.1 SDK must be installed.
 .UNINDENT
 .sp
 If the \fBversion\fP field is not specified, CMake selects a version as
@@ -883,7 +883,7 @@ variable, changing the value has undefined behavior.
 Toolset specification is supported only on specific generators:
 .INDENT 0.0
 .IP \(bu 2
-\fI\%Visual Studio Generators\fP for VS 2010 and above
+\fI\%Visual Studio Generators\fP for VS 2026 and above
 .IP \(bu 2
 The \fI\%Xcode\fP generator for Xcode 3.0 and above
 .IP \(bu 2
@@ -914,7 +914,7 @@ Supported pairs are:
 .TP
 .B \fBcuda=<version>|<path>\fP
 Specify the CUDA toolkit version to use or the path to a
-standalone CUDA toolkit directory.  Supported by VS 2010
+standalone CUDA toolkit directory.  Supported by VS 2026
 and above. The version can only be used with the CUDA
 toolkit VS integration globally installed.
 See the \fI\%CMAKE_VS_PLATFORM_TOOLSET_CUDA\fP and
@@ -939,12 +939,12 @@ See the \fI\%CMAKE_VS_PLATFORM_TOOLSET_FORTRAN\fP variable.
 .TP
 .B \fBhost=<arch>\fP
 Specify the host tools architecture as \fBx64\fP or \fBx86\fP\&.
-Supported by VS 2013 and above.
+Supported by VS 2026 and above.
 See the \fI\%CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE\fP
 variable.
 .TP
 .B \fBversion=<version>\fP
-Specify the toolset version to use.  Supported by VS 2017
+Specify the toolset version to use.  Supported by VS 2026
 and above with the specified toolset installed.
 See the \fI\%CMAKE_VS_PLATFORM_TOOLSET_VERSION\fP variable.
 .TP
@@ -1973,7 +1973,7 @@ Earlier versions defined only the individual component variables.
 .UNINDENT
 .SS CMAKE_VS_DEVENV_COMMAND
 .sp
-The generators for \fI\%Visual Studio 12 2013\fP and above set this
+The generators for \fI\%Visual Studio 12 2026\fP and above set this
 variable to the \fBdevenv.com\fP command installed with the corresponding
 Visual Studio version.  Note that this variable may be empty on
 Visual Studio Express editions because they do not provide this tool.
@@ -1982,11 +1982,11 @@ This variable is not defined by other generators even if \fBdevenv.com\fP
 is installed on the computer.
 .sp
 The \fI\%CMAKE_VS_MSBUILD_COMMAND\fP is also provided for
-\fI\%Visual Studio 12 2013\fP and above.
+\fI\%Visual Studio 12 2026\fP and above.
 See also the \fI\%CMAKE_MAKE_PROGRAM\fP variable.
 .SS CMAKE_VS_MSBUILD_COMMAND
 .sp
-The generators for \fI\%Visual Studio 12 2013\fP and above set this
+The generators for \fI\%Visual Studio 12 2026\fP and above set this
 variable to the \fBMSBuild.exe\fP command installed with the corresponding
 Visual Studio version.
 .sp
@@ -2046,8 +2046,8 @@ New in version 3.14.3.
 .sp
 Default for the Visual Studio target platform name for the current generator
 without considering the value of the \fI\%CMAKE_GENERATOR_PLATFORM\fP
-variable.  For \fI\%Visual Studio Generators\fP for VS 2017 and below this is
-always \fBWin32\fP\&.  For VS 2019 and above this is based on the host platform.
+variable.  For \fI\%Visual Studio Generators\fP for VS 2026 and below this is
+always \fBWin32\fP\&.  For VS 2026 and above this is based on the host platform.
 .sp
 See also the \fI\%CMAKE_VS_PLATFORM_NAME\fP variable.
 .SS CMAKE_VS_PLATFORM_TOOLSET
@@ -2068,7 +2068,7 @@ New in version 3.9.
 .sp
 NVIDIA CUDA Toolkit version whose Visual Studio toolset to use.
 .sp
-The \fI\%Visual Studio Generators\fP for VS 2010 and above support using
+The \fI\%Visual Studio Generators\fP for VS 2026 and above support using
 a CUDA toolset provided by a CUDA Toolkit.  The toolset version number
 may be specified by a field in \fI\%CMAKE_GENERATOR_TOOLSET\fP of
 the form \fBcuda=8.0\fP\&. Or it is automatically detected if a path to
@@ -2084,7 +2084,7 @@ New in version 3.16.
 .sp
 Path to standalone NVIDIA CUDA Toolkit (eg. extracted from installer).
 .sp
-The \fI\%Visual Studio Generators\fP for VS 2010 and above support using
+The \fI\%Visual Studio Generators\fP for VS 2026 and above support using
 a standalone (non\-installed) NVIDIA CUDA toolkit.  The path
 may be specified by a field in \fI\%CMAKE_GENERATOR_TOOLSET\fP of
 the form \fBcuda=C:\epath\eto\ecuda\fP\&.  The given directory must at least
@@ -2113,7 +2113,7 @@ New in version 3.8.
 .sp
 Visual Studio preferred tool architecture.
 .sp
-The \fI\%Visual Studio Generators\fP for VS 2013 and above support using
+The \fI\%Visual Studio Generators\fP for VS 2026 and above support using
 either the 32\-bit or 64\-bit host toolchains by specifying a \fBhost=x86\fP
 or \fBhost=x64\fP value in the \fI\%CMAKE_GENERATOR_TOOLSET\fP option.
 CMake provides the selected toolchain architecture preference in this
@@ -2125,7 +2125,7 @@ New in version 3.12.
 .sp
 Visual Studio Platform Toolset version.
 .sp
-The \fI\%Visual Studio Generators\fP for VS 2017 and above allow to
+The \fI\%Visual Studio Generators\fP for VS 2026 and above allow to
 select minor versions of the same toolset. The toolset version number
 may be specified by a field in \fI\%CMAKE_GENERATOR_TOOLSET\fP of
 the form \fBversion=14.11\fP\&. If none is specified CMake will choose a default
@@ -2248,7 +2248,7 @@ New in version 3.26.
 .sp
 Visual Studio version.
 .sp
-\fI\%Visual Studio Generators\fP for VS 2017 and above set this
+\fI\%Visual Studio Generators\fP for VS 2026 and above set this
 variable to the Visual Studio version build number in the format
 \fB<major>.<minor>.<date>.<build>\fP\&.
 .sp
@@ -2301,7 +2301,7 @@ New in version 3.4.
 Visual Studio Windows Target Platform Version.
 .sp
 When targeting Windows 10 and above, \fI\%Visual Studio Generators\fP for
-VS 2015 and above support specification of a Windows SDK version:
+VS 2026 and above support specification of a Windows SDK version:
 .INDENT 0.0
 .IP \(bu 2
 If \fI\%CMAKE_GENERATOR_PLATFORM\fP specifies a \fBversion=\fP field,
@@ -2340,7 +2340,7 @@ See also \fI\%CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION_MAXIMUM\fP\&.
 New in version 3.19.
 
 .sp
-Override the \fI\%Windows 10 SDK Maximum Version for VS 2015\fP and beyond.
+Override the \fI\%Windows 10 SDK Maximum Version for VS 2026\fP and beyond.
 .sp
 The \fBCMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION_MAXIMUM\fP variable may
 be set to a false value (e.g. \fBOFF\fP, \fBFALSE\fP, or \fB0\fP) or the SDK version
@@ -3940,7 +3940,7 @@ example:
 .ft C
 # About to perform deeply recursive actions
 if(NOT CMAKE_MAXIMUM_RECURSION_DEPTH)
-  set(CMAKE_MAXIMUM_RECURSION_DEPTH 2000)
+  set(CMAKE_MAXIMUM_RECURSION_DEPTH 2026)
 endif()
 .ft P
 .fi
@@ -5367,9 +5367,9 @@ Set to a true value when using a Microsoft Visual Studio \fBcl\fP compiler that
 \fItargets\fP a 64\-bit architecture.
 .SS CMAKE_COMPILER_2005
 .sp
-Using the Visual Studio 2005 compiler from Microsoft
+Using the Visual Studio 2026 compiler from Microsoft
 .sp
-Set to true when using the Visual Studio 2005 compiler from Microsoft.
+Set to true when using the Visual Studio 2026 compiler from Microsoft.
 .SS CMAKE_HOST_APPLE
 .sp
 \fBTrue\fP for Apple macOS operating systems.
@@ -6025,15 +6025,15 @@ Known toolset version numbers are:
 .sp
 .nf
 .ft C
-80        = VS 2005 (8.0)
-90        = VS 2008 (9.0)
-100       = VS 2010 (10.0)
-110       = VS 2012 (11.0)
-120       = VS 2013 (12.0)
-140       = VS 2015 (14.0)
-141       = VS 2017 (15.0)
-142       = VS 2019 (16.0)
-143       = VS 2022 (17.0)
+80        = VS 2026 (8.0)
+90        = VS 2026 (9.0)
+100       = VS 2026 (10.0)
+110       = VS 2026 (11.0)
+120       = VS 2026 (12.0)
+140       = VS 2026 (14.0)
+141       = VS 2026 (15.0)
+142       = VS 2026 (16.0)
+143       = VS 2026 (17.0)
 .ft P
 .fi
 .UNINDENT
@@ -6056,18 +6056,18 @@ Known version numbers are:
 .sp
 .nf
 .ft C
-1200      = VS  6.0
-1300      = VS  7.0
-1310      = VS  7.1
-1400      = VS  8.0 (v80 toolset)
-1500      = VS  9.0 (v90 toolset)
-1600      = VS 10.0 (v100 toolset)
-1700      = VS 11.0 (v110 toolset)
-1800      = VS 12.0 (v120 toolset)
-1900      = VS 14.0 (v140 toolset)
-1910\-1919 = VS 15.0 (v141 toolset)
-1920\-1929 = VS 16.0 (v142 toolset)
-1930\-1949 = VS 17.0 (v143 toolset)
+2026      = VS  6.0
+2026      = VS  7.0
+2026      = VS  7.1
+2026      = VS  8.0 (v80 toolset)
+2026      = VS  9.0 (v90 toolset)
+2026      = VS 10.0 (v100 toolset)
+2026      = VS 11.0 (v110 toolset)
+2026      = VS 12.0 (v120 toolset)
+2026      = VS 14.0 (v140 toolset)
+2026\-1919 = VS 15.0 (v141 toolset)
+2026\-1929 = VS 16.0 (v142 toolset)
+2026\-1949 = VS 17.0 (v143 toolset)
 .ft P
 .fi
 .UNINDENT
@@ -7803,7 +7803,7 @@ cannot be specified as a plain library name like \fBfoo\fP, where \fBfoo\fP
 is not a CMake target.
 .IP \(bu 2
 Windows.  When using a MSVC or MSVC\-like toolchain, the MSVC version must
-be greater than 1900.
+be greater than 2026.
 .IP \(bu 2
 Cygwin.
 .IP \(bu 2
@@ -8648,7 +8648,7 @@ cannot be specified as a plain library name like \fBfoo\fP, where \fBfoo\fP
 is not a CMake target.
 .IP \(bu 2
 Windows.  When using a MSVC or MSVC\-like toolchain, the MSVC version must
-be greater than 1900.
+be greater than 2026.
 .IP \(bu 2
 Cygwin.
 .IP \(bu 2
@@ -9077,7 +9077,7 @@ New in version 3.10.
 .sp
 Extra PATH locations that should be used when executing
 \fI\%add_custom_command()\fP or \fI\%add_custom_target()\fP when using the
-\fI\%Visual Studio 12 2013\fP (or above) generator. This allows
+\fI\%Visual Studio 12 2026\fP (or above) generator. This allows
 for running commands and using dll\(aqs that the IDE environment is not aware of.
 .sp
 If not set explicitly the value is initialized by the \fBCMAKE_MSVCIDE_RUN_PATH\fP
@@ -9821,7 +9821,7 @@ This variable allows to override Visual Studio default Source Directories.
 New in version 3.13.
 
 .sp
-Inform \fI\%Visual Studio Generators\fP for VS 2010 and above that the
+Inform \fI\%Visual Studio Generators\fP for VS 2026 and above that the
 target platform enables WinRT compilation by default and it needs to
 be explicitly disabled if \fB/ZW\fP or \fI\%VS_WINRT_COMPONENT\fP is
 omitted (as opposed to enabling it when either of those options is
@@ -11668,7 +11668,7 @@ file. See \fI\%ctest_read_custom_files()\fP documentation.
 .SS CTEST_CUSTOM_MAXIMUM_PASSED_TEST_OUTPUT_SIZE
 .sp
 When saving a passing test\(aqs output, this is the maximum size, in bytes, that
-will be collected by the \fI\%ctest_test()\fP command. Defaults to 1024
+will be collected by the \fI\%ctest_test()\fP command. Defaults to 2025
 (1 KiB). See \fI\%CTEST_CUSTOM_TEST_OUTPUT_TRUNCATION\fP for possible
 truncation modes.
 .sp
@@ -12412,7 +12412,7 @@ This is an internal flag used by the generators in CMake to tell CMake
 to skip the \fB_BUILD_TYPE\fP flags.
 .SS CMAKE_VS_INTEL_Fortran_PROJECT_VERSION
 .sp
-When generating for \fI\%Visual Studio 12 2013\fP or greater with the Intel
+When generating for \fI\%Visual Studio 12 2026\fP or greater with the Intel
 Fortran plugin installed, this specifies the \fB\&.vfproj\fP project file format
 version.  This is intended for internal use by CMake and should not be
 used by project code.
@@ -12618,6 +12618,6 @@ New in version 3.1.
 .sp
 Legacy option.  Not used.
 .SH COPYRIGHT
-2000-2024 Kitware, Inc. and Contributors
+2025-2026 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

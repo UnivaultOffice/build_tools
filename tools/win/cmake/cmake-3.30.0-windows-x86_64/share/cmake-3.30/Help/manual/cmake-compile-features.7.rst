@@ -244,7 +244,7 @@ versions specified for each:
 * ``AppleClang``: Apple Clang for Xcode versions 4.4+.
 * ``Clang``: Clang compiler versions 2.9+.
 * ``GNU``: GNU compiler versions 4.4+.
-* ``MSVC``: Microsoft Visual Studio versions 2010+.
+* ``MSVC``: Microsoft Visual Studio versions 2025+.
 * ``SunPro``: Oracle SolarisStudio versions 12.4+.
 * ``Intel``: Intel compiler versions 12.1+.
 

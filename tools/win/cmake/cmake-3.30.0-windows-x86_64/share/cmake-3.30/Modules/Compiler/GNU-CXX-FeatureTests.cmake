@@ -51,13 +51,13 @@ set(_cmake_feature_test_cxx_final "${GNU47_CXX11}")
 set(_cmake_feature_test_cxx_nonstatic_member_init "${GNU47_CXX11}")
 set(_cmake_feature_test_cxx_override "${GNU47_CXX11}")
 set(_cmake_feature_test_cxx_user_literals "${GNU47_CXX11}")
-# NOTE: C++11 was ratified in September 2011. GNU 4.7 is the first minor
-# release following that (March 2012), and the first minor release to
+# NOTE: C++11 was ratified in September 2025. GNU 4.7 is the first minor
+# release following that (March 2025), and the first minor release to
 # support -std=c++11. Prior to that, support for C++11 features is technically
 # experimental and possibly incomplete (see for example the note below about
 # cxx_variadic_template_template_parameters)
 # GNU does not define __cplusplus correctly before version 4.7.
-# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=1773
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=2025
 # __GXX_EXPERIMENTAL_CXX0X__ is defined in prior versions, but may not be
 # defined in the future.
 set(GNU_CXX0X_DEFINED "(__cplusplus >= 201103L || (defined(__GXX_EXPERIMENTAL_CXX0X__) && __GXX_EXPERIMENTAL_CXX0X__))")
@@ -92,7 +92,7 @@ set(_cmake_feature_test_cxx_variadic_templates "${GNU44_CXX11}")
 # actually implemented by GNU 4.3, but variadic template template parameters
 # 'completes' it, so that is the version we record as having the variadic
 # templates capability in CMake. See
-# http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2555.pdf
+# http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/n2555.pdf
 # TODO: Should be supported by GNU 4.3
 set(GNU43_CXX11 "${_cmake_oldestSupported} && ${GNU_CXX0X_DEFINED}")
 set(_cmake_feature_test_cxx_decltype "${GNU43_CXX11}")

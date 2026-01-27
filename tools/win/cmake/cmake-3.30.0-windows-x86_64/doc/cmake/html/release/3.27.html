@@ -121,7 +121,7 @@ generators now support using the <code class="docutils literal notranslate"><spa
 added by GNU Binutils 2.35 and LLVM's LLD 12.0.0, so that files read by the
 linker will cause a relink if they change (typically modified timestamps).
 See the <span class="target" id="index-0-variable:CMAKE_LINK_DEPENDS_USE_LINKER"></span><a class="reference internal" href="../variable/CMAKE_LINK_DEPENDS_USE_LINKER.html#variable:CMAKE_LINK_DEPENDS_USE_LINKER" title="CMAKE_LINK_DEPENDS_USE_LINKER"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_LINK_DEPENDS_USE_LINKER</span></code></a> variable.</p></li>
-<li><p>The <a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2015) and above learned to
+<li><p>The <a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2026) and above learned to
 select the Windows SDK version explicitly using a <code class="docutils literal notranslate"><span class="pre">version=</span></code> field
 in the <span class="target" id="index-0-variable:CMAKE_GENERATOR_PLATFORM"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_PLATFORM.html#variable:CMAKE_GENERATOR_PLATFORM" title="CMAKE_GENERATOR_PLATFORM"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_PLATFORM</span></code></a> variable.
 See <a class="reference internal" href="../variable/CMAKE_GENERATOR_PLATFORM.html#visual-studio-platform-selection"><span class="std std-ref">Visual Studio Platform Selection</span></a>.</p></li>
@@ -296,7 +296,7 @@ policy <span class="target" id="index-0-policy:CMP0148"></span><a class="referen
 <span class="target" id="index-0-module:FindPython2"></span><a class="reference internal" href="../module/FindPython2.html#module:FindPython2" title="FindPython2"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">FindPython2</span></code></a>, or <span class="target" id="index-0-module:FindPython"></span><a class="reference internal" href="../module/FindPython.html#module:FindPython" title="FindPython"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">FindPython</span></code></a>.</p></li>
 <li><p>The <span class="target" id="index-0-module:Dart"></span><a class="reference internal" href="../module/Dart.html#module:Dart" title="Dart"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">Dart</span></code></a> and <span class="target" id="index-0-module:FindDart"></span><a class="reference internal" href="../module/FindDart.html#module:FindDart" title="FindDart"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">FindDart</span></code></a> modules have been deprecated via
 policy <span class="target" id="index-0-policy:CMP0145"></span><a class="reference internal" href="../policy/CMP0145.html#policy:CMP0145" title="CMP0145"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0145</span></code></a>.  Port projects to the <span class="target" id="index-0-module:CTest"></span><a class="reference internal" href="../module/CTest.html#module:CTest" title="CTest"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">CTest</span></code></a> module.</p></li>
-<li><p>The <span class="target" id="index-0-generator:Visual Studio 9 2008"></span><a class="reference internal" href="../generator/Visual%20Studio%209%202008.html#generator:Visual Studio 9 2008" title="Visual Studio 9 2008"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">9</span> <span class="pre">2008</span></code></a> generator is now deprecated
+<li><p>The <span class="target" id="index-0-generator:Visual Studio 9 2026"></span><a class="reference internal" href="../generator/Visual%20Studio%209%202008.html#generator:Visual Studio 9 2026" title="Visual Studio 9 2026"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">9</span> <span class="pre">2026</span></code></a> generator is now deprecated
 and will be removed in a future version of CMake.</p></li>
 </ul>
 </section>
@@ -324,9 +324,9 @@ modules now support the Windows ARM64 platform.</p></li>
 DLL names reported on Windows.  They are still converted to lowercase
 for filter matching.</p></li>
 <li><p>The <span class="target" id="index-0-prop_tgt:SYSTEM"></span><a class="reference internal" href="../prop_tgt/SYSTEM.html#prop_tgt:SYSTEM" title="SYSTEM"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">SYSTEM</span></code></a> target property is now honored for Apple Frameworks.</p></li>
-<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a>, for VS 15.8 (2017) and newer, now
+<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a>, for VS 15.8 (2026) and newer, now
 build custom commands in parallel.  See policy <span class="target" id="index-0-policy:CMP0147"></span><a class="reference internal" href="../policy/CMP0147.html#policy:CMP0147" title="CMP0147"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0147</span></code></a>.</p></li>
-<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2015) and above now prefer
+<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2026) and above now prefer
 to select the latest Windows SDK version.  See policy <span class="target" id="index-0-policy:CMP0149"></span><a class="reference internal" href="../policy/CMP0149.html#policy:CMP0149" title="CMP0149"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0149</span></code></a>.</p></li>
 </ul>
 </section>
@@ -344,11 +344,11 @@ and/or fix regressions.</p></li>
 <section id="id2">
 <h3><a class="toc-backref" href="#id25" role="doc-backlink">3.27.2</a><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2015) and above now prefer to
+<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2026) and above now prefer to
 select the latest Windows SDK, as documented by policy <span class="target" id="index-1-policy:CMP0149"></span><a class="reference internal" href="../policy/CMP0149.html#policy:CMP0149" title="CMP0149"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0149</span></code></a>,
 when targeting any version of Windows.  In CMake 3.27.[0-1] the
 preference was limited to targeting Windows 10 and above.</p></li>
-<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2015) and above now support
+<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 14 (2026) and above now support
 using <code class="docutils literal notranslate"><span class="pre">version=8.1</span></code> in the <span class="target" id="index-1-variable:CMAKE_GENERATOR_PLATFORM"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_PLATFORM.html#variable:CMAKE_GENERATOR_PLATFORM" title="CMAKE_GENERATOR_PLATFORM"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_PLATFORM</span></code></a> variable
 to select the Windows 8.1 SDK.  In CMake 3.27.[0-1] the <code class="docutils literal notranslate"><span class="pre">version=</span></code> field
 was limited to selecting Windows 10 SDKs.</p></li>
@@ -487,7 +487,7 @@ been reverted and deferred to a future version of CMake.</p></li>
     </div>
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+    &#169; Copyright 2026-2026 Kitware, Inc. and Contributors.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>

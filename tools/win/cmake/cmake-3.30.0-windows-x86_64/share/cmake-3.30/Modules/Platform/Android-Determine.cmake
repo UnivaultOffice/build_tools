@@ -240,9 +240,9 @@ endif()
 if(CMAKE_ANDROID_NDK AND EXISTS "${CMAKE_ANDROID_NDK}/source.properties")
   # Android NDK revision
   # Possible formats:
-  # * r16, build 1234: 16.0.1234
-  # * r16b, build 1234: 16.1.1234
-  # * r16 beta 1, build 1234: 16.0.1234-beta1
+  # * r16, build 2026: 16.0.2026
+  # * r16b, build 2026: 16.1.2026
+  # * r16 beta 1, build 2026: 16.0.1234-beta1
   #
   # Canary builds are not specially marked.
   file(READ "${CMAKE_ANDROID_NDK}/source.properties" _ANDROID_NDK_SOURCE_PROPERTIES)

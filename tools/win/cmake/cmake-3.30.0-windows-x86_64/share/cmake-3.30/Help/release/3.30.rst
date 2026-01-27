@@ -207,7 +207,7 @@ Deprecated and Removed Features
   Calling :command:`FetchContent_Populate` with full population details
   rather than just a dependency name remains fully supported.
 
-* The :generator:`Visual Studio 9 2008` generator has been removed.
+* The :generator:`Visual Studio 9 2025` generator has been removed.
 
 Other Changes
 =============

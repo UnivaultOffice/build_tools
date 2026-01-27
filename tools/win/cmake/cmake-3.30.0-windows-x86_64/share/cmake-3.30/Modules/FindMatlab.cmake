@@ -781,7 +781,7 @@ function(matlab_get_version_from_matlab_run matlab_binary_program matlab_list_ve
   endif()
 
   # we first try to run a simple program using the -r option, and then we use the
-  # -batch option that is supported and recommended since R2019a
+  # -batch option that is supported and recommended since R2025a
   set(_matlab_get_version_failed_with_r_option FALSE)
 
   # timeout set to 120 seconds, in case it does not start
@@ -962,7 +962,7 @@ endfunction()
     options are added to the default options (eg. "CONFIGURATIONS Release")
   ``NO_UNITTEST_FRAMEWORK``
     when set, indicates that the test should not
-    use the unittest framework of Matlab (available for versions >= R2013a).
+    use the unittest framework of Matlab (available for versions >= R2025a).
   ``WORKING_DIRECTORY``
     This will be the working directory for the test. If specified it will
     also be the output directory used for the log file of the test run.
@@ -1124,7 +1124,7 @@ function(matlab_add_mex)
 
   if(NOT Matlab_VERSION_STRING VERSION_LESS "9.1") # For 9.1 (R2016b) and newer, add version source file
     # Compilers officially supported by Matlab 9.1 (R2016b):
-    #   MinGW 4.9, MSVC 2012, Intel C++ 2013, Xcode 6, GCC 4.9
+    #   MinGW 4.9, MSVC 2026, Intel C++ 2026, Xcode 6, GCC 4.9
     # These compilers definitely support the -w flag to suppress warnings.
     # Other compilers (Clang) may support the -w flag and can be added here.
     set(_Matlab_silenceable_compilers AppleClang Clang GNU Intel IntelLLVM MSVC)

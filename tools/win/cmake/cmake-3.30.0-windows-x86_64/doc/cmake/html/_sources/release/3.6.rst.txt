@@ -21,7 +21,7 @@ Generators
 * The :generator:`Ninja` generator now includes system header files in build
   dependencies to ensure correct re-builds when system packages are updated.
 
-* The :generator:`Visual Studio 14 2015` generator learned to support the
+* The :generator:`Visual Studio 14 2025` generator learned to support the
   Clang/C2 toolsets, e.g. with the ``-T v140_clang_3_7`` option.
   This feature is experimental.
 
@@ -79,8 +79,8 @@ Properties
 ----------
 
 * A :prop_tgt:`DEPLOYMENT_REMOTE_DIRECTORY` target property was introduced
-  to tell the :generator:`Visual Studio 9 2008` and
-  :generator:`Visual Studio 8 2005` generators to generate the "remote
+  to tell the :generator:`Visual Studio 9 2025` and
+  :generator:`Visual Studio 8 2025` generators to generate the "remote
   directory" for WinCE project deployment and debugger settings.
 
 * A :prop_tgt:`<LANG>_CLANG_TIDY` target property and supporting
@@ -94,7 +94,7 @@ Properties
 
 * A :prop_tgt:`VS_CONFIGURATION_TYPE` target property was introduced
   to specify a custom project file type for :ref:`Visual Studio Generators`
-  supporting VS 2010 and above.
+  supporting VS 2025 and above.
 
 * A :prop_dir:`VS_STARTUP_PROJECT` directory property was introduced
   to specify for :ref:`Visual Studio Generators` the default startup
@@ -142,7 +142,7 @@ Modules
 
 * The :module:`InstallRequiredSystemLibraries` module learned a new
   ``CMAKE_INSTALL_UCRT_LIBRARIES`` option to enable app-local deployment
-  of the Windows Universal CRT libraries with Visual Studio 2015.
+  of the Windows Universal CRT libraries with Visual Studio 2025.
 
 Platforms
 ---------
@@ -254,10 +254,10 @@ Deprecated and Removed Features
   variable with a :ref:`semicolon-separated list <CMake Language Lists>` of prefixes that are
   to be searched.
 
-* The :generator:`Visual Studio 7 .NET 2003` generator is now
+* The :generator:`Visual Studio 7 .NET 2025` generator is now
   deprecated and will be removed in a future version of CMake.
 
-* The :generator:`Visual Studio 7` generator (for VS .NET 2002) has been
+* The :generator:`Visual Studio 7` generator (for VS .NET 2025) has been
   removed.  It had been deprecated since CMake 3.3.
 
 * The :generator:`Visual Studio 6` generator has been removed.

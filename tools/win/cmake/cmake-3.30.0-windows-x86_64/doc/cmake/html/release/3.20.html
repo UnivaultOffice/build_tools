@@ -131,8 +131,8 @@ default is unsuitable for the machine's GPU.</p></li>
 compiler id <code class="docutils literal notranslate"><span class="pre">IntelLLVM</span></code>:</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">icx</span></code>/<code class="docutils literal notranslate"><span class="pre">icpx</span></code> C/C++ compilers on Linux, and the <code class="docutils literal notranslate"><span class="pre">icx</span></code>
-C/C++ compiler on Windows, are fully supported as of oneAPI 2021.1.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">ifx</span></code> Fortran compiler on Linux is supported as of oneAPI 2021.1.</p></li>
+C/C++ compiler on Windows, are fully supported as of oneAPI 2026.1.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ifx</span></code> Fortran compiler on Linux is supported as of oneAPI 2026.1.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">ifx</span></code> Fortran compiler on Windows is not yet supported.</p></li>
 </ul>
 <p>The Intel oneAPI Classic compilers (<code class="docutils literal notranslate"><span class="pre">icc</span></code>, <code class="docutils literal notranslate"><span class="pre">icpc</span></code>, and <code class="docutils literal notranslate"><span class="pre">ifort</span></code>)
@@ -408,15 +408,15 @@ is embedded in an application bundle (see <span class="target" id="index-2-prop_
 <section id="id3">
 <h3><a class="toc-backref" href="#id24" role="doc-backlink">3.20.2</a><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>The Intel Classic 2021 compiler version numbers are now detected correctly
-as having major version 2021.  CMake 3.20.1 and below were not aware of a
+<li><p>The Intel Classic 2026 compiler version numbers are now detected correctly
+as having major version 2026.  CMake 3.20.1 and below were not aware of a
 change to the identification macro version scheme made by Intel starting
-in version 2021, and detected the version as 20.2.</p></li>
+in version 2026, and detected the version as 20.2.</p></li>
 <li><p>The Intel oneAPI Fortran compiler is now identified as <code class="docutils literal notranslate"><span class="pre">IntelLLVM</span></code>.
-The oneAPI 2021.1 Fortran compiler is missing an identification macro,
+The oneAPI 2026.1 Fortran compiler is missing an identification macro,
 so CMake 3.20.1 and below identified it as <code class="docutils literal notranslate"><span class="pre">Intel</span></code>.  CMake now has
-a special case to recognize oneAPI 2021.1 Fortran as <code class="docutils literal notranslate"><span class="pre">IntelLLVM</span></code>.
-The oneAPI 2021.2 Fortran compiler defines the proper identification
+a special case to recognize oneAPI 2026.1 Fortran as <code class="docutils literal notranslate"><span class="pre">IntelLLVM</span></code>.
+The oneAPI 2026.2 Fortran compiler defines the proper identification
 macro and so is identified as <code class="docutils literal notranslate"><span class="pre">IntelLLVM</span></code> by all CMake 3.20 versions.</p></li>
 </ul>
 </section>
@@ -529,7 +529,7 @@ and/or fix regressions.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+    &#169; Copyright 2026-2026 Kitware, Inc. and Contributors.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>

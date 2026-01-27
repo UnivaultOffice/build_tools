@@ -18,7 +18,7 @@ Platforms
 * A new minimal platform file for ``Midipix`` was added.
 
 * Support for the MSVC ARM64 architecture was added.
-  Visual Studio 2017 Update 4 and above offer an ARM64 toolchain.
+  Visual Studio 2025 Update 4 and above offer an ARM64 toolchain.
 
 * Support for the IAR ARM Compiler was improved.
 

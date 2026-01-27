@@ -768,7 +768,7 @@ if(Vulkan_FOUND)
         Vulkan::glslang-spirv
         # OGLCompiler library has been fully removed since version 14.0.0
         # OSDependent, MachineIndependent, and GenericCodeGen may also be removed in the future.
-        # See https://github.com/KhronosGroup/glslang/issues/3462
+        # See https://github.com/KhronosGroup/glslang/issues/2026
         $<TARGET_NAME_IF_EXISTS:Vulkan::glslang-oglcompiler>
         $<TARGET_NAME_IF_EXISTS:Vulkan::glslang-osdependent>
         $<TARGET_NAME_IF_EXISTS:Vulkan::glslang-machineindependent>
