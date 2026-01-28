@@ -1415,43 +1415,16 @@ def _windows_codepage_for_stdout():
   except Exception:
     return stdout_cp if stdout_cp else "65001"
 
-def _count_cyrillic(text):
-  count = 0
-  for ch in text:
-    o = ord(ch)
-    if 0x0400 <= o <= 0x04FF:
-      count += 1
-  return count
-
-def _decode_windows_line(raw, acp, oem):
-  # Prefer UTF-8 if the bytes are valid UTF-8.
-  try:
-    return raw.decode("utf-8")
-  except Exception:
-    pass
-
-  text_acp = raw.decode("cp" + acp, errors="replace")
-  text_oem = raw.decode("cp" + oem, errors="replace")
-  # Choose the decoding with more Cyrillic letters (avoids mojibake).
-  if _count_cyrillic(text_oem) > _count_cyrillic(text_acp):
-    return text_oem
-  return text_acp
-
 def _run_bat_capture(name, encoding, is_no_errors=False):
-  try:
-    import ctypes
-    acp = str(ctypes.windll.kernel32.GetACP())
-    oem = str(ctypes.windll.kernel32.GetOEMCP())
-  except Exception:
-    acp = "1252"
-    oem = "437"
-
   process = subprocess.Popen(name, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
   try:
     for raw in iter(process.stdout.readline, b""):
       if not raw:
         break
-      text = _decode_windows_line(raw, acp, oem)
+      try:
+        text = raw.decode(encoding, errors="replace")
+      except Exception:
+        text = raw.decode("utf-8", errors="replace")
       sys.stdout.write(text)
       sys.stdout.flush()
   finally:
@@ -1476,7 +1449,7 @@ def run_as_bat(lines, is_no_errors=False):
   if ("windows" != host_platform()):
     os.system("chmod +x " + name)
 
-  if ("windows" == host_platform()):
+  if ("windows" == host_platform()) and (sys.stdout.encoding or "").lower() in ["utf-8", "utf8"]:
     _run_bat_capture(name, "cp" + cp, is_no_errors)
   else:
     cmd(name, [], is_no_errors)
