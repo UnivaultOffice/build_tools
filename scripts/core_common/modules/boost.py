@@ -49,6 +49,7 @@ def make():
   base_dir = base.get_script_dir() + "/../../core/Common/3dParty/boost"
   old_cur = os.getcwd()
   os.chdir(base_dir)
+  clone_args = ["clone", "--recursive", "--depth=1", "https://github.com/boostorg/boost.git", "boost_1_72_0", "-b" "boost-1.72.0"]
 
   # download
   #url = "https://downloads.sourceforge.net/project/boost/boost/1.58.0/boost_1_58_0.7z"  
@@ -60,11 +61,22 @@ def make():
   base.common_check_version("boost", "5", clean)
 
   if not base.is_dir("boost_1_72_0"):
-    base.cmd("git", ["clone", "--recursive", "--depth=1", "https://github.com/boostorg/boost.git", "boost_1_72_0", "-b" "boost-1.72.0"])
+    base.cmd("git", clone_args)
   # Ensure boost submodules are present even if the repo already exists.
   ret = base.cmd_in_dir("boost_1_72_0", "git", ["submodule", "update", "--init", "--recursive", "--depth=1"], True)
   if ret != 0:
-    base.cmd_in_dir("boost_1_72_0", "git", ["submodule", "update", "--init", "--recursive"])
+    ret = base.cmd_in_dir("boost_1_72_0", "git", ["submodule", "update", "--init", "--recursive"], True)
+  if ret != 0:
+    print("boost submodule update failed; recloning boost_1_72_0 ...")
+    os.chdir(base_dir)
+    base.delete_dir_with_access_error("boost_1_72_0")
+    base.delete_dir("boost_1_72_0")
+    base.cmd("git", clone_args)
+    ret = base.cmd_in_dir("boost_1_72_0", "git", ["submodule", "update", "--init", "--recursive", "--depth=1"], True)
+    if ret != 0:
+      ret = base.cmd_in_dir("boost_1_72_0", "git", ["submodule", "update", "--init", "--recursive"], True)
+    if ret != 0:
+      sys.exit("Error (git submodule update): " + str(ret))
 
   os.chdir("boost_1_72_0")
 
