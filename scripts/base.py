@@ -1254,7 +1254,7 @@ def for_each_framework(path, platform, callbacks, max_depth=512):
   return
 
 def correct_bundle_identifier(bundle_identifier):
-  return re.sub("[^a-zA-Z0-9\.\-]", "-", bundle_identifier)
+  return re.sub(r"[^a-zA-Z0-9.\-]", "-", bundle_identifier)
 
 def get_sdkjs_addons():
   result = {}
@@ -1741,7 +1741,7 @@ def hack_xcode_ios():
 def find_mac_sdk_version():
   sdk_dir = run_command("xcode-select -print-path")['stdout']
   sdk_dir = os.path.join(sdk_dir, "Platforms/MacOSX.platform/Developer/SDKs")
-  sdks = [re.findall('^MacOSX(1\d\.\d+)\.sdk$', s) for s in os.listdir(sdk_dir)]
+  sdks = [re.findall(r'^MacOSX(1\d\.\d+)\.sdk$', s) for s in os.listdir(sdk_dir)]
   sdks = [s[0] for s in sdks if s]
   return sdks[0]
 
@@ -1956,7 +1956,7 @@ def change_elf_rpath(path, origin):
   if (-1 != old_path.find(origin)):
     return
   new_path = old_path
-  new_path = new_path.replace("$ORIGIN", "\$ORIGIN")
+  new_path = new_path.replace("$ORIGIN", r"\$ORIGIN")
   if ("" != new_path):
     new_path += ":"
   new_path += origin

@@ -61,6 +61,10 @@ def make():
 
   if not base.is_dir("boost_1_72_0"):
     base.cmd("git", ["clone", "--recursive", "--depth=1", "https://github.com/boostorg/boost.git", "boost_1_72_0", "-b" "boost-1.72.0"])
+  # Ensure boost submodules are present even if the repo already exists.
+  ret = base.cmd_in_dir("boost_1_72_0", "git", ["submodule", "update", "--init", "--recursive", "--depth=1"], True)
+  if ret != 0:
+    base.cmd_in_dir("boost_1_72_0", "git", ["submodule", "update", "--init", "--recursive"])
 
   os.chdir("boost_1_72_0")
 
