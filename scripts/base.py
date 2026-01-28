@@ -1390,17 +1390,26 @@ def vcvarsall_end():
 
 def _windows_codepage_for_stdout():
   enc = (sys.stdout.encoding or "").lower()
+  stdout_cp = ""
   if enc in ["utf-8", "utf8"]:
-    return "65001"
-  if enc.startswith("cp") and enc[2:].isdigit():
-    return enc[2:]
-  if enc.startswith("windows-") and enc[8:].isdigit():
-    return enc[8:]
+    stdout_cp = "65001"
+  elif enc.startswith("cp") and enc[2:].isdigit():
+    stdout_cp = enc[2:]
+  elif enc.startswith("windows-") and enc[8:].isdigit():
+    stdout_cp = enc[8:]
+
   try:
     import ctypes
-    return str(ctypes.windll.kernel32.GetACP())
+    oem_cp = str(ctypes.windll.kernel32.GetOEMCP())
+    acp = str(ctypes.windll.kernel32.GetACP())
+    # If stdout uses OEM code page, switch to ANSI for tool output (avoids garbled Cyrillic).
+    if stdout_cp and stdout_cp == oem_cp:
+      return acp
+    if stdout_cp:
+      return stdout_cp
+    return acp
   except Exception:
-    return "65001"
+    return stdout_cp if stdout_cp else "65001"
 
 def run_as_bat(lines, is_no_errors=False):
   name = "tmp.bat" if ("windows" == host_platform()) else "./tmp.sh"
