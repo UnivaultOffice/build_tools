@@ -1415,31 +1415,10 @@ def _windows_codepage_for_stdout():
   except Exception:
     return stdout_cp if stdout_cp else "65001"
 
-def _run_bat_capture(name, encoding, is_no_errors=False):
-  process = subprocess.Popen(name, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
-  try:
-    for raw in iter(process.stdout.readline, b""):
-      if not raw:
-        break
-      try:
-        text = raw.decode(encoding, errors="replace")
-      except Exception:
-        text = raw.decode("utf-8", errors="replace")
-      sys.stdout.write(text)
-      sys.stdout.flush()
-  finally:
-    if process.stdout:
-      process.stdout.close()
-  ret = process.wait()
-  if ret != 0 and True != is_no_errors:
-    sys.exit("Error (" + name + "): " + str(ret))
-  return ret
-
 def run_as_bat(lines, is_no_errors=False):
   name = "tmp.bat" if ("windows" == host_platform()) else "./tmp.sh"
   if ("windows" == host_platform()):
-    cp = _windows_codepage_for_stdout()
-    lines = ["chcp " + cp + " >nul"] + lines
+    lines = ["chcp " + _windows_codepage_for_stdout() + " >nul"] + lines
   content = "\n".join(lines)
 
   file = codecs.open(name, "w", "utf-8")
@@ -1449,10 +1428,7 @@ def run_as_bat(lines, is_no_errors=False):
   if ("windows" != host_platform()):
     os.system("chmod +x " + name)
 
-  if ("windows" == host_platform()) and (sys.stdout.encoding or "").lower() in ["utf-8", "utf8"]:
-    _run_bat_capture(name, "cp" + cp, is_no_errors)
-  else:
-    cmd(name, [], is_no_errors)
+  cmd(name, [], is_no_errors)
   delete_file(name)
   return
 
