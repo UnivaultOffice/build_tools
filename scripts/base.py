@@ -175,12 +175,12 @@ def configure_common_apps(file=""):
   return
 
 def check_build_version(dir):
-  if ("" == get_env("PRODUCT_VERSION")):
-    version_number = readFile(dir + "/version")
-    if ("" != version_number):
-      version_number = version_number.replace("\r", "")
-      version_number = version_number.replace("\n", "")
-      set_env("PRODUCT_VERSION", version_number)
+  version_number = readFile(dir + "/version")
+  if ("" != version_number):
+    version_number = version_number.replace("\r", "")
+    version_number = version_number.replace("\n", "")
+    # Always source PRODUCT_VERSION from build_tools/version
+    set_env("PRODUCT_VERSION", version_number)
   if ("" == get_env("BUILD_NUMBER")):
     set_env("BUILD_NUMBER", "0")
   return
