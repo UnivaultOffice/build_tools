@@ -1402,11 +1402,7 @@ def _windows_codepage_for_stdout():
     import ctypes
     oem_cp = str(ctypes.windll.kernel32.GetOEMCP())
     acp = str(ctypes.windll.kernel32.GetACP())
-    # Prefer ANSI (ACP) for legacy MSVC/vcvarsall output.
-    # If stdout is UTF-8, but OEM != ACP, tools likely emit ACP.
-    if stdout_cp == "65001" and acp != oem_cp:
-      return acp
-    # If stdout uses OEM, switch to ANSI to avoid garbled Cyrillic.
+    # If stdout uses OEM code page, switch to ANSI for tool output (avoids garbled Cyrillic).
     if stdout_cp and stdout_cp == oem_cp:
       return acp
     if stdout_cp:
