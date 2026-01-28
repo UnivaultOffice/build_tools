@@ -1179,7 +1179,7 @@ def generate_plist(file, platform):
   name = name.replace(".framework", "")
 
   content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-  content += "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"https://github.com/Kitware/CMake/releases/download/v">\n"
+  content += "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"https://github.com/Kitware/CMake/releases/download/v\">\n"
   content += "<plist version=\"1.0\">\n"
   content += "<dict>\n"
   content += "\t<key>CFBundleExecutable</key>\n"
