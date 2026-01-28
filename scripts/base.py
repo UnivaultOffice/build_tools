@@ -1388,24 +1388,10 @@ def vcvarsall_end():
   os.environ = _old_environment.copy()
   return
 
-def _windows_codepage_for_stdout():
-  enc = (sys.stdout.encoding or "").lower()
-  if enc in ["utf-8", "utf8"]:
-    return "65001"
-  if enc.startswith("cp") and enc[2:].isdigit():
-    return enc[2:]
-  if enc.startswith("windows-") and enc[8:].isdigit():
-    return enc[8:]
-  try:
-    import ctypes
-    return str(ctypes.windll.kernel32.GetACP())
-  except Exception:
-    return "65001"
-
 def run_as_bat(lines, is_no_errors=False):
   name = "tmp.bat" if ("windows" == host_platform()) else "./tmp.sh"
   if ("windows" == host_platform()):
-    lines = ["chcp " + _windows_codepage_for_stdout() + " >nul"] + lines
+    lines = ["chcp 866 >nul"] + lines
   content = "\n".join(lines)
 
   file = codecs.open(name, "w", "utf-8")
