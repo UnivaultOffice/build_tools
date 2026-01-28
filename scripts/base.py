@@ -1390,8 +1390,6 @@ def vcvarsall_end():
 
 def run_as_bat(lines, is_no_errors=False):
   name = "tmp.bat" if ("windows" == host_platform()) else "./tmp.sh"
-  if ("windows" == host_platform()):
-    lines = ["chcp 866 >nul"] + lines
   content = "\n".join(lines)
 
   file = codecs.open(name, "w", "utf-8")
