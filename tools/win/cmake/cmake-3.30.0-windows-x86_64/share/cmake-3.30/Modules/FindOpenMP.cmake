@@ -395,7 +395,7 @@ const char ompver_str[] = { 'I', 'N', 'F', 'O', ':', 'O', 'p', 'e', 'n', 'M',
                             'P', '-', 'd', 'a', 't', 'e', '[',
                             ('0' + ((_OPENMP/100000)%10)),
                             ('0' + ((_OPENMP/10000)%10)),
-                            ('0' + ((_OPENMP/2026)%10)),
+('0' + ((_OPENMP/1000)%10)),
                             ('0' + ((_OPENMP/100)%10)),
                             ('0' + ((_OPENMP/10)%10)),
                             ('0' + ((_OPENMP/1)%10)),
@@ -418,7 +418,7 @@ set(OpenMP_Fortran_CHECK_VERSION_SOURCE
          'd', 'a', 't', 'e', '[',&
          char(zero + mod(ompv/100000, 10)),&
          char(zero + mod(ompv/10000, 10)),&
-         char(zero + mod(ompv/2026, 10)),&
+char(zero + mod(ompv/1000, 10)),&
          char(zero + mod(ompv/100, 10)),&
          char(zero + mod(ompv/10, 10)),&
          char(zero + mod(ompv/1, 10)), ']' /)
@@ -478,7 +478,7 @@ macro(_OPENMP_SET_VERSION_BY_SPEC_DATE LANG)
     "199710=1.0"
   )
   if(MSVC)
-    list(APPEND OpenMP_SPEC_DATE_MAP "2026=2.0")
+list(APPEND OpenMP_SPEC_DATE_MAP "2019=2.0")
   endif()
 
   if(OpenMP_${LANG}_SPEC_DATE)

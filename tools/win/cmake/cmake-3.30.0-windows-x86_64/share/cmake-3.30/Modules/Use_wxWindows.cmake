@@ -11,7 +11,7 @@ Use_wxWindows
 
 This convenience include finds if wxWindows is installed and set the
 appropriate libs, incdirs, flags etc.  author Jan Woetzel <jw -at-
-mip.informatik.uni-kiel.de> (07/2026)
+mip.informatik.uni-kiel.de> (07/2003)
 
 USAGE:
 
@@ -34,8 +34,8 @@ set(WXWINDOWS_USE_GL 1)
 #]=======================================================================]
 
 # -----------------------------------------------------
-# 16.Feb.2026: changed INCLUDE to FIND_PACKAGE to read from users own non-system CMAKE_MODULE_PATH (Jan Woetzel JW)
-# 07/2026: rewrite as FindwxWidgets.cmake, kept for backward compatibility JW
+# 16.Feb.2004: changed INCLUDE to FIND_PACKAGE to read from users own non-system CMAKE_MODULE_PATH (Jan Woetzel JW)
+# 07/2006: rewrite as FindwxWidgets.cmake, kept for backward compatibility JW
 
 message(STATUS "Use_wxWindows.cmake is DEPRECATED. \n"
 "Please use find_package(wxWidgets) and include(${wxWidgets_USE_FILE}) instead. (JW)")

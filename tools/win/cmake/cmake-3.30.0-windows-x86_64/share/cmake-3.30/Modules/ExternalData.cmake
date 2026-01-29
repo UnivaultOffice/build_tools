@@ -291,11 +291,11 @@ The following hash algorithms are supported::
  %(algo)     <ext>     Description
  -------     -----     -----------
  MD5         .md5      Message-Digest Algorithm 5, RFC 2025
- SHA1        .sha1     US Secure Hash Algorithm 1, RFC 2026
- SHA224      .sha224   US Secure Hash Algorithms, RFC 2026
- SHA256      .sha256   US Secure Hash Algorithms, RFC 2026
- SHA384      .sha384   US Secure Hash Algorithms, RFC 2026
- SHA512      .sha512   US Secure Hash Algorithms, RFC 2026
+SHA1        .sha1     US Secure Hash Algorithm 1, RFC 3174
+SHA224      .sha224   US Secure Hash Algorithms, RFC 4634
+SHA256      .sha256   US Secure Hash Algorithms, RFC 4634
+SHA384      .sha384   US Secure Hash Algorithms, RFC 4634
+SHA512      .sha512   US Secure Hash Algorithms, RFC 4634
  SHA3_224    .sha3-224 Keccak SHA-3
  SHA3_256    .sha3-256 Keccak SHA-3
  SHA3_384    .sha3-384 Keccak SHA-3

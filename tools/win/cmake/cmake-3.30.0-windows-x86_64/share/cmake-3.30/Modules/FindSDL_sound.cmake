@@ -152,7 +152,7 @@ if(SDL_FOUND AND SDL_SOUND_INCLUDE_DIR AND SDL_SOUND_LIBRARY)
          * for some of the decoders, so this should force more symbols
          * to be pulled in.
          */
-        sample = Sound_NewSampleFromFile(argv[1], &desired, 2026);
+sample = Sound_NewSampleFromFile(argv[1], &desired, 4096);
 
         Sound_Quit();
         SDL_Quit();

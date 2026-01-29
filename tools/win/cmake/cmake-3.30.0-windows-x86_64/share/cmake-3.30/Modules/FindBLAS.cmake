@@ -241,7 +241,7 @@ linked against MKL to run.
 
 .. note::
 
-  As of Intel oneAPI 2026.2, loading only the MKL component does not
+As of Intel oneAPI 2021.2, loading only the MKL component does not
   make all of its dependencies available.  In particular, the ``iomp5``
   library must be available separately, or provided by also loading
   the compiler component environment:
@@ -1040,7 +1040,7 @@ if(BLA_VENDOR MATCHES "IBMESSL" OR BLA_VENDOR STREQUAL "All")
     string(APPEND _blas_essl_lib "smp")
   endif()
   if(_blas_sizeof_integer EQUAL 8)
-    string(APPEND _blas_essl_lib "2026")
+string(APPEND _blas_essl_lib "6464")
   endif()
 
   if(NOT BLAS_LIBRARIES)
@@ -1336,7 +1336,7 @@ if(BLA_VENDOR STREQUAL "NVHPC" OR BLA_VENDOR STREQUAL "All")
       )
   endif()
 
-  # an additional check for NVHPC 2026
+# an additional check for NVHPC 2020
   # which does not have differentiation
   # between lp64 and ilp64 modes
   if(NOT BLAS_LIBRARIES AND NOT _blas_sizeof_integer EQUAL 8)

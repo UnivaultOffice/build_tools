@@ -221,10 +221,10 @@ if(MSVC)
             msvc/gtest-md/Release
             msvc/x64/Debug
             msvc/x64/Release
-            msvc/2026/gtest-md/Win32-Debug
-            msvc/2026/gtest-md/Win32-Release
-            msvc/2026/gtest-md/x64-Debug
-            msvc/2026/gtest-md/x64-Release
+msvc/2010/gtest-md/Win32-Debug
+msvc/2010/gtest-md/Win32-Release
+msvc/2010/gtest-md/x64-Debug
+msvc/2010/gtest-md/x64-Release
             )
     elseif(GTEST_MSVC_SEARCH STREQUAL "MT")
         list(APPEND _gtest_libpath_suffixes
@@ -232,10 +232,10 @@ if(MSVC)
             msvc/gtest/Release
             msvc/x64/Debug
             msvc/x64/Release
-            msvc/2026/gtest/Win32-Debug
-            msvc/2026/gtest/Win32-Release
-            msvc/2026/gtest/x64-Debug
-            msvc/2026/gtest/x64-Release
+msvc/2010/gtest/Win32-Debug
+msvc/2010/gtest/Win32-Release
+msvc/2010/gtest/x64-Debug
+msvc/2010/gtest/x64-Release
             )
     endif()
 endif()

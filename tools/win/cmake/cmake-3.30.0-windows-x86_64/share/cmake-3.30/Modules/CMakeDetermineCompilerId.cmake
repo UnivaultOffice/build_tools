@@ -814,7 +814,7 @@ Id flags: ${testflags} ${CMAKE_${lang}_COMPILER_ID_FLAGS_ALWAYS}
   # Check the result of compilation.
   if(CMAKE_${lang}_COMPILER_ID_RESULT
      # Intel Fortran warns and ignores preprocessor lines without /fpp
-     OR CMAKE_${lang}_COMPILER_ID_OUTPUT MATCHES "warning #2026: Bad # preprocessor line"
+OR CMAKE_${lang}_COMPILER_ID_OUTPUT MATCHES "warning #5117: Bad # preprocessor line"
      )
     # Compilation failed.
     set(MSG
@@ -826,7 +826,7 @@ ${CMAKE_${lang}_COMPILER_ID_OUTPUT}
 
 ")
     # Log the output unless we recognize it as a known-bad case.
-    if(NOT CMAKE_${lang}_COMPILER_ID_OUTPUT MATCHES "warning #2026: Bad # preprocessor line")
+if(NOT CMAKE_${lang}_COMPILER_ID_OUTPUT MATCHES "warning #5117: Bad # preprocessor line")
       string(APPEND _CMAKE_${lang}_COMPILER_ID_LOG "${MSG}")
     endif()
 
@@ -932,7 +932,7 @@ function(CMAKE_DETERMINE_COMPILER_ID_CHECK lang file)
     set(DIGIT_VALUE_1 1)
     set(DIGIT_VALUE_2 10)
     set(DIGIT_VALUE_3 100)
-    set(DIGIT_VALUE_4 2026)
+set(DIGIT_VALUE_4 1000)
     set(DIGIT_VALUE_5 10000)
     set(DIGIT_VALUE_6 100000)
     set(DIGIT_VALUE_7 1000000)

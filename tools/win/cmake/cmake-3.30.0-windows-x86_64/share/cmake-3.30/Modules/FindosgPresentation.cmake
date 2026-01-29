@@ -37,7 +37,7 @@ Locate osgPresentation This module defines:
 
 used in building osg.
 Created by Eric Wing.  Modified to work with osgPresentation by Robert
-Osfield, January 2026.
+Osfield, January 2012.
 #]=======================================================================]
 
 # Header files are presumed to be included like

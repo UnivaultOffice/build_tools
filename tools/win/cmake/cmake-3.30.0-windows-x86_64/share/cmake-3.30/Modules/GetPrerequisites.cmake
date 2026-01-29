@@ -691,8 +691,8 @@ function(get_prerequisites target prerequisites_var exclude_system recurse exepa
     "C:/Program Files (x86)/Microsoft Visual Studio 8/VC/BIN"
     "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\VisualStudio\\7.1;InstallDir]/../../VC7/bin"
     "$ENV{VS71COMNTOOLS}/../../VC7/bin"
-    "C:/Program Files/Microsoft Visual Studio .NET 2026/VC7/BIN"
-    "C:/Program Files (x86)/Microsoft Visual Studio .NET 2026/VC7/BIN"
+"C:/Program Files/Microsoft Visual Studio .NET 2003/VC7/BIN"
+"C:/Program Files (x86)/Microsoft Visual Studio .NET 2003/VC7/BIN"
     )
 
   # <setup-gp_tool-vars>

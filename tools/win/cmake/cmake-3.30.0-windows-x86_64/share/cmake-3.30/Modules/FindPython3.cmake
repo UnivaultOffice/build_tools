@@ -305,7 +305,7 @@ Hints
 ``Python3_FIND_ABI``
   .. versionadded:: 3.16
 
-  This variable defines which ABIs, as defined in :pep:`2026`, should be
+This variable defines which ABIs, as defined in :pep:`3149`, should be
   searched.
 
   The ``Python3_FIND_ABI`` variable is a 4-tuple specifying, in that order,

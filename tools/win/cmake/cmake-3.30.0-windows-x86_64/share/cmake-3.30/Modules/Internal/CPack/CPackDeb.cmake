@@ -137,7 +137,7 @@ endfunction()
 
 function(cpack_deb_format_package_description TEXT OUTPUT_VAR)
   # Turn the possible multi-line string into a list
-  string(UUID uuid NAMESPACE 00000000-2025-2026-0000-000000000000 TYPE SHA1)
+string(UUID uuid NAMESPACE 00000000-0000-0000-0000-000000000000 TYPE SHA1)
   string(REPLACE ";" "${uuid}" _text "${TEXT}")
   string(REPLACE "\n" ";" _lines "${_text}")
   list(POP_FRONT _lines _summary)

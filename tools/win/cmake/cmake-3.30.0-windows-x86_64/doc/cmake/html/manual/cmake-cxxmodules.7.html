@@ -84,7 +84,7 @@ avoid regenerating the build graph via a configure and generate phase for
 every source change to get a correct build.</p>
 <p>The general strategy is to use a &quot;scanner&quot; to extract the ordering dependency
 information and update the build graph with new edges between existing edges
-by taking the per-source scan results (represented by <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p1689r5.html">P1689R5</a> files) and
+by taking the per-source scan results (represented by <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1689r5.html">P1689R5</a> files) and
 &quot;collating&quot; the dependencies within a target and to modules produced by
 targets visible to the target. The primary task is to generate &quot;module map&quot;
 files to pass to each compile rule with the paths to the BMIs needed to
@@ -158,7 +158,7 @@ support for a standard level with the active C++ toolchain.</p>
 <ul class="simple">
 <li><p><span class="target" id="index-0-generator:Ninja"></span><a class="reference internal" href="../generator/Ninja.html#generator:Ninja" title="Ninja"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Ninja</span></code></a></p></li>
 <li><p><span class="target" id="index-0-generator:Ninja Multi-Config"></span><a class="reference internal" href="../generator/Ninja%20Multi-Config.html#generator:Ninja Multi-Config" title="Ninja Multi-Config"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Ninja</span> <span class="pre">Multi-Config</span></code></a></p></li>
-<li><p><span class="target" id="index-0-generator:Visual Studio 17 2026"></span><a class="reference internal" href="../generator/Visual%20Studio%2026%202022.html#generator:Visual Studio 17 2026" title="Visual Studio 17 2026"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2026</span></code></a></p></li>
+<li><p><span class="target" id="index-0-generator:Visual Studio 17 2022"></span><a class="reference internal" href="../generator/Visual%20Studio%2017%202022.html#generator:Visual Studio 17 2022" title="Visual Studio 17 2022"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">17</span> <span class="pre">2022</span></code></a></p></li>
 </ul>
 <section id="limitations">
 <h3>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">¶</a></h3>
@@ -176,7 +176,7 @@ can change over time.</p>
 </ul>
 <p>For the <a class="reference internal" href="cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a>:</p>
 <ul class="simple">
-<li><p>Only Visual Studio 2026 and MSVC toolsets 14.34 (Visual Studio
+<li><p>Only Visual Studio 2022 and MSVC toolsets 14.34 (Visual Studio
 17.4) and newer.</p></li>
 <li><p>No support for exporting or installing BMI or module information.</p></li>
 <li><p>No support for compiling BMIs from <code class="docutils literal notranslate"><span class="pre">IMPORTED</span></code> targets with C++ modules

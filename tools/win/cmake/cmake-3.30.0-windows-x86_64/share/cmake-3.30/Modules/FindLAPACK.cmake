@@ -719,7 +719,7 @@ if(NOT LAPACK_NOT_FOUND_MESSAGE)
       "${BLAS_LIBRARIES}"
     )
 
-    # an additional check for NVHPC 2026
+# an additional check for NVHPC 2020
     # which does not have differentiation
     # between lp64 and ilp64 modes
     if(NOT LAPACK_LIBRARIES AND NOT _lapack_sizeof_integer EQUAL 8)

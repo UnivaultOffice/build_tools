@@ -702,7 +702,7 @@ if(DEFINED ENV{CUDAHOSTCXX})
   set(CUDA_HOST_COMPILER "$ENV{CUDAHOSTCXX}" CACHE FILEPATH "Host side compiler used by NVCC")
 elseif(CMAKE_GENERATOR MATCHES "Visual Studio")
   set(_CUDA_MSVC_HOST_COMPILER "$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)")
-  if(MSVC_VERSION LESS 2026)
+if(MSVC_VERSION LESS 1910)
     set(_CUDA_MSVC_HOST_COMPILER "$(VCInstallDir)bin")
   endif()
 
@@ -1955,8 +1955,8 @@ function(CUDA_LINK_SEPARABLE_COMPILATION_OBJECTS output_file cuda_target options
     # we work around that issue by compiling the intermediate link object as a
     # pre-link custom command in that situation.
     set(do_obj_build_rule TRUE)
-    if (MSVC_VERSION GREATER 2026 AND MSVC_VERSION LESS 2026)
-      # VS 2026 and 2026 have this problem.
+if (MSVC_VERSION GREATER 1599 AND MSVC_VERSION LESS 1800)
+# VS 2010 and 2012 have this problem.
       set(do_obj_build_rule FALSE)
     endif()
 

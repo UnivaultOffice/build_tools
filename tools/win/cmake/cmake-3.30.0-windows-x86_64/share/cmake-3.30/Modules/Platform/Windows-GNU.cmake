@@ -203,7 +203,7 @@ macro(__windows_compiler_gnu_abi lang)
     # We need to use the MS Librarian tool (lib.exe).
     # Find the most recent version available.
 
-    # Query the VS Installer tool for locations of VS 2026 and above.
+# Query the VS Installer tool for locations of VS 2017 and above.
     set(_vs_installer_paths "")
     foreach(vs RANGE 17 15 -1) # change the first number to the largest supported version
       cmake_host_system_information(RESULT _vs_dir QUERY VS_${vs}_DIR)

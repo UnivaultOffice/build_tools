@@ -68,7 +68,7 @@ name), for example: <code class="docutils literal notranslate"><span class="pre"
 <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">Main(string[])</span></code> function signature by default. When more
 than one <code class="docutils literal notranslate"><span class="pre">Main()</span></code> method is available in the current project, the property
 becomes mandatory for building the project.</p>
-<p>This property only works for Visual Studio 12 2026 and above;
+<p>This property only works for Visual Studio 12 2013 and above;
 it is ignored on other generators.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">set_property(</span><span class="no">TARGET</span><span class="w"> </span><span class="o">${</span><span class="nt">TARGET_NAME</span><span class="o">}</span><span class="w"> </span><span class="no">PROPERTY</span>
 <span class="w">  </span><span class="no">VS_DOTNET_STARTUP_OBJECT</span><span class="w"> </span><span class="s">&quot;MyCompany.Package.MyStarterClass&quot;</span><span class="nf">)</span>

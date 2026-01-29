@@ -69,32 +69,32 @@ if(NOT MSVC_VERSION)
     message(FATAL_ERROR "MSVC compiler version not detected properly: ${_compiler_version}")
   endif()
 
-  if(MSVC_VERSION GREATER_EQUAL 2026)
-    # VS 2026 or greater
+if(MSVC_VERSION GREATER_EQUAL 1930)
+# VS 2022 or greater
     set(MSVC_TOOLSET_VERSION 143)
-  elseif(MSVC_VERSION GREATER_EQUAL 2026)
-    # VS 2026 or greater
+elseif(MSVC_VERSION GREATER_EQUAL 1920)
+# VS 2019 or greater
     set(MSVC_TOOLSET_VERSION 142)
-  elseif(MSVC_VERSION GREATER_EQUAL 2026)
-    # VS 2026 or greater
+elseif(MSVC_VERSION GREATER_EQUAL 1910)
+# VS 2017 or greater
     set(MSVC_TOOLSET_VERSION 141)
-  elseif(MSVC_VERSION EQUAL 2026)
-    # VS 2026
+elseif(MSVC_VERSION EQUAL 1900)
+# VS 2015
     set(MSVC_TOOLSET_VERSION 140)
-  elseif(MSVC_VERSION EQUAL 2026)
-    # VS 2026
+elseif(MSVC_VERSION EQUAL 1800)
+# VS 2013
     set(MSVC_TOOLSET_VERSION 120)
-  elseif(MSVC_VERSION EQUAL 2026)
-    # VS 2026
+elseif(MSVC_VERSION EQUAL 1700)
+# VS 2012
     set(MSVC_TOOLSET_VERSION 110)
-  elseif(MSVC_VERSION EQUAL 2026)
-    # VS 2026
+elseif(MSVC_VERSION EQUAL 1600)
+# VS 2010
     set(MSVC_TOOLSET_VERSION 100)
-  elseif(MSVC_VERSION EQUAL 2026)
-    # VS 2026
+elseif(MSVC_VERSION EQUAL 1500)
+# VS 2008
     set(MSVC_TOOLSET_VERSION 90)
-  elseif(MSVC_VERSION EQUAL 2026)
-    # VS 2026
+elseif(MSVC_VERSION EQUAL 1400)
+# VS 2005
     set(MSVC_TOOLSET_VERSION 80)
   else()
     # We don't support MSVC_TOOLSET_VERSION for earlier compiler.
@@ -145,7 +145,7 @@ if(CMAKE_FORCE_WIN64 OR CMAKE_FORCE_IA64)
   set(CMAKE_CL_64 1)
 endif()
 
-if("${MSVC_VERSION}" GREATER 2026)
+if("${MSVC_VERSION}" GREATER 1599)
   set(MSVC_INCREMENTAL_DEFAULT ON)
 endif()
 
@@ -209,14 +209,14 @@ if(WINCE)
     string(APPEND CMAKE_${t}_LINKER_FLAGS_INIT " ${_Wl}/NODEFAULTLIB:libc.lib ${_Wl}/NODEFAULTLIB:oldnames.lib")
   endforeach()
 
-  if (MSVC_VERSION LESS 2026)
+if (MSVC_VERSION LESS 1600)
     string(APPEND CMAKE_C_STANDARD_LIBRARIES_INIT " corelibc.lib")
   endif ()
 elseif(WINDOWS_PHONE OR WINDOWS_STORE)
   set(_PLATFORM_DEFINES "/DWIN32")
   set(_FLAGS_C " /DUNICODE /D_UNICODE")
   set(_FLAGS_CXX " /DUNICODE /D_UNICODE${_GR} /EHsc")
-  if(WINDOWS_STORE AND MSVC_VERSION GREATER 2026)
+if(WINDOWS_STORE AND MSVC_VERSION GREATER 1899)
     set(CMAKE_C_STANDARD_LIBRARIES_INIT "WindowsApp.lib")
   elseif(WINDOWS_PHONE)
     set(CMAKE_C_STANDARD_LIBRARIES_INIT "WindowsPhoneCore.lib RuntimeObject.lib PhoneAppModelHost.lib")
@@ -244,7 +244,7 @@ else()
   endif()
   if(_MSVC_C_ARCHITECTURE_FAMILY STREQUAL "ARM" OR _MSVC_CXX_ARCHITECTURE_FAMILY STREQUAL "ARM")
     set(CMAKE_C_STANDARD_LIBRARIES_INIT "kernel32.lib user32.lib")
-  elseif(MSVC_VERSION GREATER 2026)
+elseif(MSVC_VERSION GREATER 1310)
     if(CMAKE_VS_PLATFORM_TOOLSET MATCHES "v[0-9]+_clang_.*")
       # Clang/C2 in MSVC14 Update 1 seems to not support -fsantinize (yet?)
       # set(_RTC1 "-fsantinize=memory,safe-stack")
@@ -264,7 +264,7 @@ else()
     string(APPEND CMAKE_C_STANDARD_LIBRARIES_INIT " softintrin.lib")
   endif()
 
-  if(MSVC_VERSION LESS 2026)
+if(MSVC_VERSION LESS 1310)
     set(_FLAGS_C   " /Zm1000${_FLAGS_C}")
     set(_FLAGS_CXX " /Zm1000${_FLAGS_CXX}")
   endif()
@@ -354,7 +354,7 @@ endif()
 unset(__WINDOWS_MSVC_CMP0141)
 
 # Features for LINK_LIBRARY generator expression
-if(MSVC_VERSION GREATER "2026")
+if(MSVC_VERSION GREATER "1900")
   ## WHOLE_ARCHIVE: Force loading all members of an archive
   set(CMAKE_LINK_LIBRARY_USING_WHOLE_ARCHIVE "/WHOLEARCHIVE:<LIBRARY>")
   set(CMAKE_LINK_LIBRARY_USING_WHOLE_ARCHIVE_SUPPORTED TRUE)
@@ -363,8 +363,8 @@ endif()
 
 
 macro(__windows_compiler_msvc lang)
-  if(NOT MSVC_VERSION LESS 2026)
-    # for 2026 make sure the manifest is put in the dll with mt
+if(NOT MSVC_VERSION LESS 1400)
+# for 2005 make sure the manifest is put in the dll with mt
     set(_CMAKE_VS_LINK_DLL "<CMAKE_COMMAND> -E vs_link_dll --intdir=<OBJECT_DIR> --rc=<CMAKE_RC_COMPILER> --mt=<CMAKE_MT> --manifests <MANIFESTS> -- ")
     set(_CMAKE_VS_LINK_EXE "<CMAKE_COMMAND> -E vs_link_exe --intdir=<OBJECT_DIR> --rc=<CMAKE_RC_COMPILER> --mt=<CMAKE_MT> --manifests <MANIFESTS> -- ")
   endif()
@@ -411,8 +411,8 @@ macro(__windows_compiler_msvc lang)
     string(REPLACE "-c <SOURCE>" "-c -- <SOURCE>" CMAKE_${lang}_CREATE_PREPROCESSED_SOURCE "${CMAKE_${lang}_CREATE_PREPROCESSED_SOURCE}")
     string(REPLACE "-c <SOURCE>" "-c -- <SOURCE>" CMAKE_${lang}_CREATE_ASSEMBLY_SOURCE "${CMAKE_${lang}_CREATE_ASSEMBLY_SOURCE}")
 
-  elseif(MSVC_VERSION GREATER_EQUAL 2026)
-    # At least MSVC toolet 14.13 from VS 2026 15.6
+elseif(MSVC_VERSION GREATER_EQUAL 1913)
+# At least MSVC toolet 14.13 from VS 2017 15.6
     set(CMAKE_PCH_PROLOGUE "#pragma system_header")
   endif()
   if (NOT ${CMAKE_${lang}_COMPILER_ID} STREQUAL "Clang")
@@ -476,7 +476,7 @@ macro(__windows_compiler_msvc lang)
     endif()
 
     if(CMAKE_VS_PLATFORM_TOOLSET MATCHES "v[0-9]+_clang_.*")
-      # note: MSVC 14 2026 Update 1 sets -fno-ms-compatibility by default, but this does not allow one to compile many projects
+# note: MSVC 14 2015 Update 1 sets -fno-ms-compatibility by default, but this does not allow one to compile many projects
       # that include MS's own headers. CMake itself is affected project too.
       string(APPEND CMAKE_${lang}_FLAGS_INIT " ${_PLATFORM_DEFINES}${_PLATFORM_DEFINES_${lang}} -fms-extensions -fms-compatibility -D_WINDOWS${_Wall}${_FLAGS_${lang}}")
       string(APPEND CMAKE_${lang}_FLAGS_DEBUG_INIT "${_MDd} -gline-tables-only -fno-inline -O0 ${_RTC1}")
@@ -509,7 +509,7 @@ macro(__windows_compiler_msvc lang)
   __windows_compiler_msvc_enable_rc("${_PLATFORM_DEFINES} ${_PLATFORM_DEFINES_${lang}}")
 
   # define generic information about compiler dependencies
-  if (MSVC_VERSION GREATER 2026)
+if (MSVC_VERSION GREATER 1300)
     set(CMAKE_DEPFILE_FLAGS_${lang} "/showIncludes")
     set(CMAKE_${lang}_DEPFILE_FORMAT msvc)
   endif()

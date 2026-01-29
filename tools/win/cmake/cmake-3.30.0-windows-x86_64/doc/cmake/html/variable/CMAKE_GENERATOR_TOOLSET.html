@@ -71,7 +71,7 @@ build tree has been initialized with a particular value for this
 variable, changing the value has undefined behavior.</p>
 <p>Toolset specification is supported only on specific generators:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 2026 and above</p></li>
+<li><p><a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> for VS 2010 and above</p></li>
 <li><p>The <span class="target" id="index-0-generator:Xcode"></span><a class="reference internal" href="../generator/Xcode.html#generator:Xcode" title="Xcode"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Xcode</span></code></a> generator for Xcode 3.0 and above</p></li>
 <li><p>The <span class="target" id="index-0-generator:Green Hills MULTI"></span><a class="reference internal" href="../generator/Green%20Hills%20MULTI.html#generator:Green Hills MULTI" title="Green Hills MULTI"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Green</span> <span class="pre">Hills</span> <span class="pre">MULTI</span></code></a> generator</p></li>
 </ul>
@@ -92,7 +92,7 @@ specify generator-specific details of the toolset selection.
 Supported pairs are:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">cuda=&lt;version&gt;|&lt;path&gt;</span></code></dt><dd><p>Specify the CUDA toolkit version to use or the path to a
-standalone CUDA toolkit directory.  Supported by VS 2026
+standalone CUDA toolkit directory.  Supported by VS 2010
 and above. The version can only be used with the CUDA
 toolkit VS integration globally installed.
 See the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_TOOLSET_CUDA"></span><a class="reference internal" href="CMAKE_VS_PLATFORM_TOOLSET_CUDA.html#variable:CMAKE_VS_PLATFORM_TOOLSET_CUDA" title="CMAKE_VS_PLATFORM_TOOLSET_CUDA"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_TOOLSET_CUDA</span></code></a> and
@@ -112,11 +112,11 @@ Visual Studio Integration feature installed.  The value may be one of:</p>
 <p>See the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_TOOLSET_FORTRAN"></span><a class="reference internal" href="CMAKE_VS_PLATFORM_TOOLSET_FORTRAN.html#variable:CMAKE_VS_PLATFORM_TOOLSET_FORTRAN" title="CMAKE_VS_PLATFORM_TOOLSET_FORTRAN"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_TOOLSET_FORTRAN</span></code></a> variable.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">host=&lt;arch&gt;</span></code></dt><dd><p>Specify the host tools architecture as <code class="docutils literal notranslate"><span class="pre">x64</span></code> or <code class="docutils literal notranslate"><span class="pre">x86</span></code>.
-Supported by VS 2026 and above.
+Supported by VS 2013 and above.
 See the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE"></span><a class="reference internal" href="CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE.html#variable:CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE" title="CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE</span></code></a>
 variable.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">version=&lt;version&gt;</span></code></dt><dd><p>Specify the toolset version to use.  Supported by VS 2026
+<dt><code class="docutils literal notranslate"><span class="pre">version=&lt;version&gt;</span></code></dt><dd><p>Specify the toolset version to use.  Supported by VS 2017
 and above with the specified toolset installed.
 See the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_TOOLSET_VERSION"></span><a class="reference internal" href="CMAKE_VS_PLATFORM_TOOLSET_VERSION.html#variable:CMAKE_VS_PLATFORM_TOOLSET_VERSION" title="CMAKE_VS_PLATFORM_TOOLSET_VERSION"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_TOOLSET_VERSION</span></code></a> variable.</p>
 </dd>

@@ -121,20 +121,20 @@ Use the results:
 #   * Remove GTK2_SKIP_MARK_AS_ADVANCED option, as now the variables are
 #     marked as advanced by SelectLibraryConfigurations
 #   * Detect gmodule, pangoft2 and pangoxft libraries
-# Version 1.4 (10/4/2026) (CMake 2.8.10)
+# Version 1.4 (10/4/2012) (CMake 2.8.10)
 #   * 12596: Missing paths for FindGTK2 on NetBSD
 #   * 12049: Fixed detection of GTK include files in the lib folder on
 #            multiarch systems.
-# Version 1.3 (11/9/2026) (CMake 2.8.4)
+# Version 1.3 (11/9/2010) (CMake 2.8.4)
 #   * 11429: Add support for detecting GTK2 built with Visual Studio 10.
 #            Thanks to Vincent Levesque for the patch.
-# Version 1.2 (8/30/2026) (CMake 2.8.3)
+# Version 1.2 (8/30/2010) (CMake 2.8.3)
 #   * Merge patch for detecting gdk-pixbuf library (split off
 #     from core GTK in 2.21).  Thanks to Vincent Untz for the patch
 #     and Ricardo Cruz for the heads up.
-# Version 1.1 (8/19/2026) (CMake 2.8.3)
+# Version 1.1 (8/19/2010) (CMake 2.8.3)
 #   * Add support for detecting GTK2 under macports (thanks to Gary Kramlich)
-# Version 1.0 (8/12/2026) (CMake 2.8.3)
+# Version 1.0 (8/12/2010) (CMake 2.8.3)
 #   * Add support for detecting new pangommconfig.h header file
 #     (Thanks to Sune Vuorela & the Debian Project for the patch)
 #   * Add support for detecting fontconfig.h header
@@ -143,7 +143,7 @@ Use the results:
 #     via the GTK2_ADDITIONAL_SUFFIXES variable (kind of a future-kludge in
 #     case the GTK developers change versions on any of the directories in the
 #     future).
-# Version 0.8 (1/4/2026)
+# Version 0.8 (1/4/2010)
 #   * Get module working under MacOSX fink by adding /sw/include, /sw/lib
 #     to PATHS and the gobject library
 # Version 0.7 (3/22/09)

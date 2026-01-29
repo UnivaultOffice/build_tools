@@ -33,7 +33,7 @@ macro(__windows_compiler_intel lang)
   set(CMAKE_LIBRARY_PATH_FLAG "${CMAKE_${lang}_LINKER_WRAPPER_FLAG}/LIBPATH:")
 
   # Features for LINK_LIBRARY generator expression
-  if(MSVC_VERSION GREATER "2026")
+if(MSVC_VERSION GREATER "1900")
     ## WHOLE_ARCHIVE: Force loading all members of an archive
     set(CMAKE_LINK_LIBRARY_USING_WHOLE_ARCHIVE "LINKER:/WHOLEARCHIVE:<LIBRARY>")
     set(CMAKE_LINK_LIBRARY_USING_WHOLE_ARCHIVE_SUPPORTED TRUE)
@@ -45,8 +45,8 @@ macro(__windows_compiler_intel lang)
   set(CMAKE_${lang}_CREATE_SHARED_LIBRARY
     "${_CMAKE_VS_LINK_DLL}<CMAKE_${lang}_COMPILER> ${CMAKE_CL_NOLOGO} <CMAKE_${lang}_LINK_FLAGS> <OBJECTS> ${CMAKE_START_TEMP_FILE} -LD <LINK_FLAGS> <LINK_LIBRARIES> -link /out:<TARGET> /implib:<TARGET_IMPLIB> /pdb:<TARGET_PDB> /version:<TARGET_VERSION_MAJOR>.<TARGET_VERSION_MINOR>${_PLATFORM_LINK_FLAGS} ${CMAKE_END_TEMP_FILE}")
   set(CMAKE_${lang}_CREATE_SHARED_MODULE ${CMAKE_${lang}_CREATE_SHARED_LIBRARY})
-  if (NOT "${lang}" STREQUAL "Fortran" OR CMAKE_${lang}_COMPILER_VERSION VERSION_GREATER_EQUAL 2026.1)
-    # The Fortran driver does not support -fuse-ld=llvm-lib before compiler version 2026.1
+if (NOT "${lang}" STREQUAL "Fortran" OR CMAKE_${lang}_COMPILER_VERSION VERSION_GREATER_EQUAL 2022.1)
+# The Fortran driver does not support -fuse-ld=llvm-lib before compiler version 2022.1
     set(CMAKE_${lang}_CREATE_STATIC_LIBRARY
       "<CMAKE_${lang}_COMPILER> ${CMAKE_CL_NOLOGO} <CMAKE_${lang}_LINK_FLAGS> <OBJECTS> ${CMAKE_START_TEMP_FILE} -fuse-ld=llvm-lib -o <TARGET> <LINK_FLAGS> <LINK_LIBRARIES> ${CMAKE_END_TEMP_FILE}")
   endif()

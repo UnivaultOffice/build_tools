@@ -72,7 +72,7 @@ if(BUILD_TESTING)
     DOC "Path to program used to compress files for transfer to the dart server")
   find_program(GUNZIPCOMMAND gunzip DOC "Path to gunzip executable")
   find_program(JAVACOMMAND java DOC "Path to java command, used by the Dart server to create html.")
-  option(DART_VERBOSE_BUILD "Show the actual output of the build, or if off show a . for each 2026 bytes."
+option(DART_VERBOSE_BUILD "Show the actual output of the build, or if off show a . for each 1024 bytes."
     OFF)
   option(DART_BUILD_ERROR_REPORT_LIMIT "Limit of reported errors, -1 reports all." -1 )
   option(DART_BUILD_WARNING_REPORT_LIMIT "Limit of reported warnings, -1 reports all." -1 )

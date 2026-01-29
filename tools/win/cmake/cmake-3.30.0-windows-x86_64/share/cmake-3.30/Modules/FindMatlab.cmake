@@ -1124,7 +1124,7 @@ function(matlab_add_mex)
 
   if(NOT Matlab_VERSION_STRING VERSION_LESS "9.1") # For 9.1 (R2016b) and newer, add version source file
     # Compilers officially supported by Matlab 9.1 (R2016b):
-    #   MinGW 4.9, MSVC 2026, Intel C++ 2026, Xcode 6, GCC 4.9
+#   MinGW 4.9, MSVC 2012, Intel C++ 2013, Xcode 6, GCC 4.9
     # These compilers definitely support the -w flag to suppress warnings.
     # Other compilers (Clang) may support the -w flag and can be added here.
     set(_Matlab_silenceable_compilers AppleClang Clang GNU Intel IntelLLVM MSVC)
