@@ -18,6 +18,34 @@ __file__script__path__ = os.path.dirname( os.path.realpath(__file__))
 icu_ver = "74"
 icu_ver_old = "58"  # for win_xp support
 
+# mirror helpers ---------------------------------------
+_mirror_map_cache = None
+
+def _mirror_mode():
+  # off | on | auto
+  return os.getenv("UV_MIRROR_MODE", "auto").lower()
+
+def _mirror_map():
+  global _mirror_map_cache
+  if _mirror_map_cache is not None:
+    return _mirror_map_cache
+  path = os.getenv("UV_MIRROR_MAP", __file__script__path__ + "/mirror_map.json")
+  if is_file(path):
+    try:
+      _mirror_map_cache = json.loads(readFile(path))
+      return _mirror_map_cache
+    except Exception:
+      _mirror_map_cache = {}
+      return _mirror_map_cache
+  _mirror_map_cache = {}
+  return _mirror_map_cache
+
+def _mirror_url(url):
+  return _mirror_map().get(url, "")
+
+def _is_http_url(url):
+  return url.startswith("http://") or url.startswith("https://")
+
 # common functions --------------------------------------
 def get_script_dir(file=""):
   test_file = file
@@ -479,16 +507,49 @@ def writeFile(path, data):
 
 # system cmd methods ------------------------------------
 def cmd(prog, args=[], is_no_errors=False):
-  ret = 0
-  if ("windows" == host_platform()):
-    sub_args = args[:]
-    sub_args.insert(0, get_path(prog))
-    ret = subprocess.call(sub_args, stderr=subprocess.STDOUT, shell=True)
-  else:
-    command = prog
-    for arg in args:
-      command += (" \"" + arg.replace('\"', '\\\"') + "\"")
-    ret = subprocess.call(command, stderr=subprocess.STDOUT, shell=True)
+  def _run(p, a):
+    ret = 0
+    if ("windows" == host_platform()):
+      sub_args = a[:]
+      sub_args.insert(0, get_path(p))
+      ret = subprocess.call(sub_args, stderr=subprocess.STDOUT, shell=True)
+    else:
+      command = p
+      for arg in a:
+        command += (" \"" + arg.replace('\"', '\\\"') + "\"")
+      ret = subprocess.call(command, stderr=subprocess.STDOUT, shell=True)
+    return ret
+
+  # git clone with mirror fallback
+  if (prog == "git" and len(args) > 1 and args[0] == "clone"):
+    url_idx = -1
+    for i in range(len(args)):
+      if _is_http_url(args[i]):
+        url_idx = i
+        break
+    if url_idx != -1:
+      url = args[url_idx]
+      mirror = _mirror_url(url)
+      mode = _mirror_mode()
+      if mirror != "":
+        if mode == "on":
+          args_m = args[:]
+          args_m[url_idx] = mirror
+          ret = _run(prog, args_m)
+          if ret != 0 and True != is_no_errors:
+            sys.exit("Error (" + prog + "): " + str(ret))
+          return ret
+        if mode == "auto":
+          ret = _run(prog, args)
+          if ret != 0:
+            args_m = args[:]
+            args_m[url_idx] = mirror
+            ret = _run(prog, args_m)
+          if ret != 0 and True != is_no_errors:
+            sys.exit("Error (" + prog + "): " + str(ret))
+          return ret
+
+  ret = _run(prog, args)
   if ret != 0 and True != is_no_errors:
     sys.exit("Error (" + prog + "): " + str(ret))
   return ret
@@ -1326,6 +1387,20 @@ def web_apps_addons_param():
 
 # common apps
 def download(url, dst):
+  mirror = _mirror_url(url)
+  mode = _mirror_mode()
+  if mirror != "" and mode == "on":
+    ret = cmd_exe("curl", ["-L", "-o", dst, mirror], True)
+    if ret != 0:
+      sys.exit("Error (curl): " + str(ret))
+    return ret
+  if mirror != "" and mode == "auto":
+    ret = cmd_exe("curl", ["-L", "-o", dst, url], True)
+    if ret != 0:
+      ret = cmd_exe("curl", ["-L", "-o", dst, mirror], True)
+    if ret != 0:
+      sys.exit("Error (curl): " + str(ret))
+    return ret
   return cmd_exe("curl", ["-L", "-o", dst, url])
 
 def extract(src, dst, is_no_errors=False):
