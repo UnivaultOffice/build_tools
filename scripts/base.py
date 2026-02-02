@@ -20,6 +20,7 @@ icu_ver_old = "58"  # for win_xp support
 
 # mirror helpers ---------------------------------------
 _mirror_map_cache = None
+_cipd_env_applied = False
 
 def _mirror_mode():
   # off | on | auto
@@ -63,6 +64,46 @@ def _mirror_url(url):
 
 def _is_http_url(url):
   return url.startswith("http://") or url.startswith("https://")
+
+def _cipd_service_url():
+  env_val = os.getenv("UV_CIPD_SERVICE_URL", "")
+  if env_val != "":
+    return env_val
+  try:
+    cfg_val = config.option("cipd-service-url")
+    if cfg_val != "":
+      return cfg_val
+  except Exception:
+    pass
+  return _mirror_map().get("cipd_service_url", "")
+
+def _cipd_proxy_url():
+  env_val = os.getenv("UV_CIPD_PROXY_URL", "")
+  if env_val != "":
+    return env_val
+  try:
+    cfg_val = config.option("cipd-proxy-url")
+    if cfg_val != "":
+      return cfg_val
+  except Exception:
+    pass
+  return _mirror_map().get("cipd_proxy_url", "")
+
+def _apply_cipd_env():
+  global _cipd_env_applied
+  if _cipd_env_applied:
+    return
+  _cipd_env_applied = True
+  if _mirror_mode() == "off":
+    return
+  if os.getenv("CIPD_SERVICE_URL", "") == "":
+    service = _cipd_service_url()
+    if service != "":
+      os.environ["CIPD_SERVICE_URL"] = service
+  if os.getenv("CIPD_PROXY_URL", "") == "":
+    proxy = _cipd_proxy_url()
+    if proxy != "":
+      os.environ["CIPD_PROXY_URL"] = proxy
 
 # common functions --------------------------------------
 def get_script_dir(file=""):
@@ -525,6 +566,7 @@ def writeFile(path, data):
 
 # system cmd methods ------------------------------------
 def cmd(prog, args=[], is_no_errors=False):
+  _apply_cipd_env()
   def _run(p, a):
     ret = 0
     if ("windows" == host_platform()):
@@ -584,6 +626,7 @@ def cmd2(prog, args=[], is_no_errors=False):
   return ret
 
 def cmd_exe(prog, args, is_no_errors=False):
+  _apply_cipd_env()
   prog_dir = os.path.dirname(prog)
   env_dir = os.environ
   if ("linux" == host_platform()):

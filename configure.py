@@ -46,6 +46,8 @@ parser.add_option("--sysroot", action="store", type="string", dest="sysroot", de
 parser.add_option("--qemu-win-arm64-dir", action="store", type="string", dest="qemu-win-arm64-dir", default="", help="dir to qemu virtual machine for win_arm64 cross build. It should contains start.bat. More info in tools/win/qemu.")
 parser.add_option("--mirror-mode", action="store", type="string", dest="mirror-mode", default="", help="mirror mode for external downloads: off|on|auto")
 parser.add_option("--mirror-map", action="store", type="string", dest="mirror-map", default="", help="path to mirror_map.json")
+parser.add_option("--cipd-service-url", action="store", type="string", dest="cipd-service-url", default="", help="CIPD service base URL (mirror)")
+parser.add_option("--cipd-proxy-url", action="store", type="string", dest="cipd-proxy-url", default="", help="CIPD proxy URL (mirror)")
 
 (options, args) = parser.parse_args(arguments)
 configOptions = vars(options)
