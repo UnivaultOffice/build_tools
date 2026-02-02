@@ -66,6 +66,12 @@ def _mirror_url(url):
 def _is_http_url(url):
   return url.startswith("http://") or url.startswith("https://")
 
+def _curl_auth_args(url):
+  token = os.getenv("UV_GITHUB_TOKEN", "")
+  if token != "" and ("github.com" in url or "githubusercontent.com" in url):
+    return ["-H", "Authorization: token " + token]
+  return []
+
 def _cipd_service_url():
   env_val = os.getenv("UV_CIPD_SERVICE_URL", "")
   if env_val != "":
@@ -1541,19 +1547,20 @@ def web_apps_addons_param():
 def download(url, dst):
   mirror = _mirror_url(url)
   mode = _mirror_mode()
+  auth_args = _curl_auth_args(url)
   if mirror != "" and mode == "on":
-    ret = cmd_exe("curl", ["-L", "-o", dst, mirror], True)
+    ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, mirror], True)
     if ret != 0:
       sys.exit("Error (curl): " + str(ret))
     return ret
   if mirror != "" and mode == "auto":
-    ret = cmd_exe("curl", ["-L", "-o", dst, url], True)
+    ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url], True)
     if ret != 0:
-      ret = cmd_exe("curl", ["-L", "-o", dst, mirror], True)
+      ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, mirror], True)
     if ret != 0:
       sys.exit("Error (curl): " + str(ret))
     return ret
-  return cmd_exe("curl", ["-L", "-o", dst, url])
+  return cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url])
 
 def extract(src, dst, is_no_errors=False):
   app = "7za" if ("mac" == host_platform()) else "7z"
