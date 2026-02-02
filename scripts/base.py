@@ -13,6 +13,7 @@ import codecs
 import re
 import stat
 import json
+import hashlib
 
 __file__script__path__ = os.path.dirname( os.path.realpath(__file__))
 icu_ver = "74"
@@ -104,6 +105,96 @@ def _apply_cipd_env():
     proxy = _cipd_proxy_url()
     if proxy != "":
       os.environ["CIPD_PROXY_URL"] = proxy
+
+def _v8_cache_url():
+  env_val = os.getenv("UV_V8_CACHE_URL", "")
+  if env_val != "":
+    return env_val
+  try:
+    cfg_val = config.option("v8-cache-url")
+    if cfg_val != "":
+      return cfg_val
+  except Exception:
+    pass
+  return _mirror_map().get("v8_cache_url", "")
+
+def _sha256_file(path):
+  h = hashlib.sha256()
+  with open(get_path(path), "rb") as f:
+    for chunk in iter(lambda: f.read(1024 * 1024), b""):
+      h.update(chunk)
+  return h.hexdigest().upper()
+
+def _concat_files(parts, out_path):
+  if is_file(out_path):
+    delete_file(out_path)
+  with open(get_path(out_path), "wb") as out:
+    for part in parts:
+      with open(get_path(part), "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+          out.write(chunk)
+
+def _extract_tgz(src, dst):
+  # Prefer tar if available; fallback to 7z two-step.
+  ret = cmd_exe("tar", ["-xzf", src, "-C", dst], True)
+  if ret == 0:
+    return 0
+  ret = extract(src, dst, True)
+  if ret != 0:
+    return ret
+  # 7z extracts .tgz into .tar; extract again if needed.
+  tar_files = find_files(dst, "*.tar")
+  for tar_file in tar_files:
+    extract(tar_file, dst, True)
+  return 0
+
+def restore_v8_89_cache(base_dir):
+  url = _v8_cache_url()
+  if url == "":
+    return False
+  if is_dir(base_dir + "/depot_tools") and is_dir(base_dir + "/v8"):
+    return False
+
+  create_dir(base_dir)
+  manifest_path = base_dir + "/v8_cache_manifest.json"
+  download(url, manifest_path)
+  manifest = {}
+  try:
+    manifest = json.loads(readFile(manifest_path))
+  except Exception:
+    print_error("[cache] invalid manifest: " + manifest_path)
+    return False
+
+  parts = manifest.get("parts", [])
+  archive_name = manifest.get("archive", "v8_cache_pack.tgz")
+  sha_expected = manifest.get("sha256", "").upper()
+
+  if len(parts) == 0:
+    print_error("[cache] no parts listed in manifest")
+    return False
+
+  base_url = url.rsplit("/", 1)[0] + "/"
+  local_parts = []
+  for part in parts:
+    part_url = base_url + part
+    local_part = base_dir + "/" + part
+    if not is_file(local_part):
+      download(part_url, local_part)
+    local_parts.append(local_part)
+
+  archive_path = base_dir + "/" + archive_name
+  _concat_files(local_parts, archive_path)
+
+  if sha_expected != "":
+    sha_actual = _sha256_file(archive_path)
+    if sha_actual != sha_expected:
+      print_error("[cache] sha256 mismatch for " + archive_path)
+      print_error("[cache] expected: " + sha_expected)
+      print_error("[cache] actual:   " + sha_actual)
+      return False
+
+  _extract_tgz(archive_path, base_dir)
+  return True
 
 # common functions --------------------------------------
 def get_script_dir(file=""):

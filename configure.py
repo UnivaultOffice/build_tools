@@ -48,6 +48,7 @@ parser.add_option("--mirror-mode", action="store", type="string", dest="mirror-m
 parser.add_option("--mirror-map", action="store", type="string", dest="mirror-map", default="", help="path to mirror_map.json")
 parser.add_option("--cipd-service-url", action="store", type="string", dest="cipd-service-url", default="", help="CIPD service base URL (mirror)")
 parser.add_option("--cipd-proxy-url", action="store", type="string", dest="cipd-proxy-url", default="", help="CIPD proxy URL (mirror)")
+parser.add_option("--v8-cache-url", action="store", type="string", dest="v8-cache-url", default="", help="URL to v8 cache manifest (cache.json)")
 
 (options, args) = parser.parse_args(arguments)
 configOptions = vars(options)
