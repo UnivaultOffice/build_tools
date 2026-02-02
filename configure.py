@@ -44,6 +44,8 @@ parser.add_option("--siteUrl", action="store", type="string", dest="siteUrl", de
 parser.add_option("--multiprocess", action="store", type="string", dest="multiprocess", default="1", help="provides ability to specify single process for make")
 parser.add_option("--sysroot", action="store", type="string", dest="sysroot", default="0", help="provides ability to use sysroot (ubuntu 16.04) to build c++ code. If value is \"1\", then the sysroot from tools/linux/sysroot will be used, and if it is not there, it will download it and unpack it. You can also set value as the path to the your own sysroot (rarely used). Only for linux")
 parser.add_option("--qemu-win-arm64-dir", action="store", type="string", dest="qemu-win-arm64-dir", default="", help="dir to qemu virtual machine for win_arm64 cross build. It should contains start.bat. More info in tools/win/qemu.")
+parser.add_option("--mirror-mode", action="store", type="string", dest="mirror-mode", default="", help="mirror mode for external downloads: off|on|auto")
+parser.add_option("--mirror-map", action="store", type="string", dest="mirror-map", default="", help="path to mirror_map.json")
 
 (options, args) = parser.parse_args(arguments)
 configOptions = vars(options)

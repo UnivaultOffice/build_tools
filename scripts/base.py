@@ -23,13 +23,31 @@ _mirror_map_cache = None
 
 def _mirror_mode():
   # off | on | auto
-  return os.getenv("UV_MIRROR_MODE", "auto").lower()
+  env_val = os.getenv("UV_MIRROR_MODE", "")
+  if env_val != "":
+    return env_val.lower()
+  try:
+    cfg_val = config.option("mirror-mode")
+    if cfg_val != "":
+      return cfg_val.lower()
+  except Exception:
+    pass
+  return "auto"
 
 def _mirror_map():
   global _mirror_map_cache
   if _mirror_map_cache is not None:
     return _mirror_map_cache
-  path = os.getenv("UV_MIRROR_MAP", __file__script__path__ + "/mirror_map.json")
+  path = os.getenv("UV_MIRROR_MAP", "")
+  if path == "":
+    try:
+      cfg_val = config.option("mirror-map")
+      if cfg_val != "":
+        path = cfg_val
+    except Exception:
+      path = ""
+  if path == "":
+    path = __file__script__path__ + "/mirror_map.json"
   if is_file(path):
     try:
       _mirror_map_cache = json.loads(readFile(path))
