@@ -88,6 +88,37 @@ def _download_optional(url, dst):
     return cmd_exe("powershell", ["-NoProfile", "-Command", ps_cmd], True)
   return ret
 
+def _download_resume(url, dst):
+  if host_platform() == "windows":
+    ps_cmd = (
+      "$ProgressPreference='SilentlyContinue';"
+      "$url='" + url + "';"
+      "$dst='" + dst + "';"
+      "$headers=@{};"
+      "if($env:UV_GITHUB_TOKEN){$headers['Authorization']='token '+$env:UV_GITHUB_TOKEN};"
+      "$pos=0;"
+      "if(Test-Path $dst){$pos=(Get-Item $dst).Length};"
+      "$head=[System.Net.HttpWebRequest]::Create($url);"
+      "$head.Method='HEAD';"
+      "foreach($k in $headers.Keys){$head.Headers[$k]=$headers[$k]};"
+      "$headResp=$head.GetResponse();"
+      "$len=$headResp.ContentLength; $headResp.Close();"
+      "if($len -ge 0 -and $pos -ge $len){exit 0};"
+      "$req=[System.Net.HttpWebRequest]::Create($url);"
+      "foreach($k in $headers.Keys){$req.Headers[$k]=$headers[$k]};"
+      "if($pos -gt 0){$req.AddRange($pos)};"
+      "$resp=$req.GetResponse();"
+      "$stream=$resp.GetResponseStream();"
+      "$fs=[System.IO.File]::Open($dst,[System.IO.FileMode]::Append,[System.IO.FileAccess]::Write);"
+      "$buffer = New-Object byte[] 1048576;"
+      "while(($read=$stream.Read($buffer,0,$buffer.Length)) -gt 0){$fs.Write($buffer,0,$read)};"
+      "$fs.Close(); $stream.Close(); $resp.Close()"
+    )
+    return cmd_exe("powershell", ["-NoProfile", "-Command", ps_cmd], True)
+  # Non-windows: try curl resume.
+  auth_args = _curl_auth_args(url)
+  return cmd_exe("curl", ["-L"] + auth_args + ["-C", "-", "-o", dst, url], True)
+
 def _cipd_service_url():
   env_val = os.getenv("UV_CIPD_SERVICE_URL", "")
   if env_val != "":
@@ -254,8 +285,7 @@ def restore_v8_89_cache(base_dir):
     part_url = base_url + part
     local_part = base_dir + "/" + part
     print("[cache] download part " + str(idx) + "/" + str(total_parts) + ": " + part)
-    if not is_file(local_part):
-      download(part_url, local_part)
+    _download_resume(part_url, local_part)
     local_parts.append(local_part)
 
   archive_path = base_dir + "/" + archive_name
