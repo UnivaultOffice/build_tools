@@ -249,9 +249,11 @@ def restore_v8_89_cache(base_dir):
 
   base_url = url.rsplit("/", 1)[0] + "/"
   local_parts = []
-  for part in parts:
+  total_parts = len(parts)
+  for idx, part in enumerate(parts, start=1):
     part_url = base_url + part
     local_part = base_dir + "/" + part
+    print("[cache] download part " + str(idx) + "/" + str(total_parts) + ": " + part)
     if not is_file(local_part):
       download(part_url, local_part)
     local_parts.append(local_part)
