@@ -180,7 +180,10 @@ def make():
   base.common_check_version("v8", "1", clean)
 
   if not base.is_dir("depot_tools") or not base.is_dir("v8"):
-    base.restore_v8_89_cache(base_dir)
+    if not base.restore_v8_89_cache(base_dir):
+      if not base.is_dir("v8"):
+        base.print_error("[cache] v8 cache restore failed")
+        sys.exit("Error (cache): v8 cache restore failed")
     
   if not base.is_dir("depot_tools"):
     # Keep target dir stable even when mirror URL changes repo name.

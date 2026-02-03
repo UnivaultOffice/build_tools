@@ -316,7 +316,13 @@ def restore_v8_89_cache(base_dir):
     part_url = base_url + part
     local_part = base_dir + "/" + part
     print("[cache] download part " + str(idx) + "/" + str(total_parts) + ": " + part)
-    _download_resume(part_url, local_part, str(idx) + "/" + str(total_parts))
+    ret = _download_resume(part_url, local_part, str(idx) + "/" + str(total_parts))
+    if ret != 0:
+      print_error("[cache] failed to download part " + part)
+      return False
+    if not is_file(local_part):
+      print_error("[cache] missing part after download: " + local_part)
+      return False
     if is_file(local_part):
       size_mb = int(os.path.getsize(local_part) / (1024 * 1024))
       print("[cache] part " + str(idx) + "/" + str(total_parts) + " size: " + str(size_mb) + " MB")
