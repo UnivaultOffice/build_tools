@@ -74,7 +74,19 @@ def _curl_auth_args(url):
 
 def _download_optional(url, dst):
   auth_args = _curl_auth_args(url)
-  return cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url], True)
+  ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url], True)
+  if ret == 0:
+    return ret
+  # Fallback for Windows when curl/OpenSSL fails (e.g. SSL_ERROR_SYSCALL).
+  if host_platform() == "windows":
+    ps_cmd = (
+      "$ProgressPreference='SilentlyContinue';"
+      "$wc=New-Object Net.WebClient;"
+      "if($env:UV_GITHUB_TOKEN){$wc.Headers.Add('Authorization','token '+$env:UV_GITHUB_TOKEN)};"
+      "$wc.DownloadFile('" + url + "','" + dst + "')"
+    )
+    return cmd_exe("powershell", ["-NoProfile", "-Command", ps_cmd], True)
+  return ret
 
 def _cipd_service_url():
   env_val = os.getenv("UV_CIPD_SERVICE_URL", "")
@@ -1604,19 +1616,32 @@ def download(url, dst):
   mirror = _mirror_url(url)
   mode = _mirror_mode()
   auth_args = _curl_auth_args(url)
+  def _curl(url_to_get):
+    ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url_to_get], True)
+    if ret == 0:
+      return ret
+    if host_platform() == "windows":
+      ps_cmd = (
+        "$ProgressPreference='SilentlyContinue';"
+        "$wc=New-Object Net.WebClient;"
+        "if($env:UV_GITHUB_TOKEN){$wc.Headers.Add('Authorization','token '+$env:UV_GITHUB_TOKEN)};"
+        "$wc.DownloadFile('" + url_to_get + "','" + dst + "')"
+      )
+      return cmd_exe("powershell", ["-NoProfile", "-Command", ps_cmd], True)
+    return ret
   if mirror != "" and mode == "on":
-    ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, mirror], True)
+    ret = _curl(mirror)
     if ret != 0:
       sys.exit("Error (curl): " + str(ret))
     return ret
   if mirror != "" and mode == "auto":
-    ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url], True)
+    ret = _curl(url)
     if ret != 0:
-      ret = cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, mirror], True)
+      ret = _curl(mirror)
     if ret != 0:
       sys.exit("Error (curl): " + str(ret))
     return ret
-  return cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url])
+  return _curl(url)
 
 def extract(src, dst, is_no_errors=False):
   app = "7za" if ("mac" == host_platform()) else "7z"
