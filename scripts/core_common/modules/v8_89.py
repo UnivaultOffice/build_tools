@@ -179,7 +179,20 @@ def make():
   os.chdir(base_dir)
   base.common_check_version("v8", "1", clean)
 
-  if not base.is_dir("depot_tools") or not base.is_dir("v8"):
+  def is_v8_valid():
+    if not base.is_dir("v8"):
+      return False
+    if not base.is_dir("v8/src") or not base.is_dir("v8/build"):
+      return False
+    if base.host_platform() == "windows":
+      if not base.is_file("v8/build/config/win/BUILD.gn"):
+        return False
+    return True
+
+  if not base.is_dir("depot_tools") or not is_v8_valid():
+    if base.is_dir("v8") and not is_v8_valid():
+      base.delete_dir_with_access_error("v8")
+      base.delete_dir("v8")
     if not base.restore_v8_89_cache(base_dir):
       if not base.is_dir("v8"):
         base.print_error("[cache] v8 cache restore failed")
