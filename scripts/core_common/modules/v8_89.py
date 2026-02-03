@@ -185,8 +185,11 @@ def make():
   if not base.is_dir("depot_tools"):
     # Keep target dir stable even when mirror URL changes repo name.
     base.cmd("git", ["clone", "https://chromium.googlesource.com/chromium/tools/depot_tools.git", "depot_tools"])
+    base.ensure_cipd_client("depot_tools")
     base.patch_cipd_client_url("depot_tools/cipd.ps1")
     change_bootstrap()
+  else:
+    base.ensure_cipd_client("depot_tools")
 
   os.environ["PATH"] = base_dir + "/depot_tools" + os.pathsep + os.environ["PATH"]
 

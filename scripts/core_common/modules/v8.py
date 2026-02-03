@@ -90,12 +90,15 @@ def make():
 
   if not base.is_dir("depot_tools"):
     base.cmd("git", ["clone", "https://chromium.googlesource.com/chromium/tools/depot_tools.git"])
+    base.ensure_cipd_client("depot_tools")
     base.patch_cipd_client_url("depot_tools/cipd.ps1")
     v8_89.change_bootstrap()
     if ("windows" == base.host_platform()):
       # hack for 32 bit system!!!
       if base.is_file("depot_tools/cipd.ps1"):
         base.replaceInFile("depot_tools/cipd.ps1", "windows-386", "windows-amd64")
+  else:
+    base.ensure_cipd_client("depot_tools")
 
   os.environ["PATH"] = base_dir + "/depot_tools" + os.pathsep + os.environ["PATH"]
 

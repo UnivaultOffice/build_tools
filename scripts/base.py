@@ -72,6 +72,10 @@ def _curl_auth_args(url):
     return ["-H", "Authorization: token " + token]
   return []
 
+def _download_optional(url, dst):
+  auth_args = _curl_auth_args(url)
+  return cmd_exe("curl", ["-L"] + auth_args + ["-o", dst, url], True)
+
 def _cipd_service_url():
   env_val = os.getenv("UV_CIPD_SERVICE_URL", "")
   if env_val != "":
@@ -179,6 +183,32 @@ def _extract_tgz(src, dst):
   for tar_file in tar_files:
     extract(tar_file, dst, True)
   return 0
+
+def ensure_cipd_client(depot_tools_dir):
+  url = _cipd_client_url()
+  if url == "":
+    return False
+  client_path = depot_tools_dir + "/.cipd_client.exe"
+  if is_file(client_path):
+    return True
+
+  download(url, client_path)
+
+  # Optional checksum validation if sha256 URL is available.
+  sha_url = url + ".sha256"
+  sha_path = client_path + ".sha256"
+  ret = _download_optional(sha_url, sha_path)
+  if ret == 0 and is_file(sha_path):
+    sha_text = readFile(sha_path).strip().split()
+    if len(sha_text) > 0:
+      sha_expected = sha_text[0].upper()
+      sha_actual = _sha256_file(client_path)
+      if sha_actual != sha_expected:
+        print_error("[cipd] sha256 mismatch for " + client_path)
+        print_error("[cipd] expected: " + sha_expected)
+        print_error("[cipd] actual:   " + sha_actual)
+        return False
+  return True
 
 def restore_v8_89_cache(base_dir):
   url = _v8_cache_url()
