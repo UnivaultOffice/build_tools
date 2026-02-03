@@ -7,6 +7,18 @@ import base
 import os
 import subprocess
 
+def _mirror_mode():
+  env_val = os.getenv("UV_MIRROR_MODE", "")
+  if env_val != "":
+    return env_val.lower()
+  try:
+    cfg_val = config.option("mirror-mode")
+    if cfg_val != "":
+      return cfg_val.lower()
+  except Exception:
+    pass
+  return "auto"
+
 def clean():
   if base.is_dir("depot_tools"):
     base.delete_dir_with_access_error("depot_tools")
@@ -179,6 +191,8 @@ def make():
   os.chdir(base_dir)
   base.common_check_version("v8", "1", clean)
 
+  mode = _mirror_mode()
+
   def is_v8_valid():
     if not base.is_dir("v8"):
       return False
@@ -189,7 +203,7 @@ def make():
         return False
     return True
 
-  if not base.is_dir("depot_tools") or not is_v8_valid():
+  def restore_from_cache_or_fail():
     if base.is_dir("v8") and not is_v8_valid():
       base.delete_dir_with_access_error("v8")
       base.delete_dir("v8")
@@ -197,10 +211,29 @@ def make():
       if not base.is_dir("v8"):
         base.print_error("[cache] v8 cache restore failed")
         sys.exit("Error (cache): v8 cache restore failed")
-    
+
+  def try_main_or_fallback(prog, args):
+    ret = base.cmd(prog, args, True)
+    if ret == 0:
+      return True
+    if mode == "auto":
+      restore_from_cache_or_fail()
+      return False
+    sys.exit("Error (" + prog + "): " + str(ret))
+    return False
+
+  # mirror-mode behavior:
+  # off  -> only main sources (no cache)
+  # auto -> main first, then cache on failure
+  # on   -> cache only
+  if mode == "on" and (not base.is_dir("depot_tools") or not is_v8_valid()):
+    restore_from_cache_or_fail()
+
   if not base.is_dir("depot_tools"):
     # Keep target dir stable even when mirror URL changes repo name.
-    base.cmd("git", ["clone", "https://chromium.googlesource.com/chromium/tools/depot_tools.git", "depot_tools"])
+    if not try_main_or_fallback("git", ["clone", "https://chromium.googlesource.com/chromium/tools/depot_tools.git", "depot_tools"]):
+      os.chdir(old_cur)
+      return
     base.ensure_cipd_client("depot_tools")
     base.patch_cipd_client_url("depot_tools/cipd.ps1")
     change_bootstrap()
@@ -214,7 +247,9 @@ def make():
     base.set_env("GYP_MSVS_VERSION", config.option("vs-version"))
 
   if not base.is_dir("v8"):
-    base.cmd("./depot_tools/fetch", ["v8"], True)
+    if not try_main_or_fallback("./depot_tools/fetch", ["v8"]):
+      os.chdir(old_cur)
+      return
     base.copy_dir("./v8/third_party", "./v8/third_party_new")
     if ("windows" == base.host_platform()):
       os.chdir("v8")
@@ -223,8 +258,12 @@ def make():
     v8_branch_version = "remotes/branch-heads/8.9"
     if ("mac" == base.host_platform()):
       v8_branch_version = "remotes/branch-heads/9.9"
-    base.cmd("./depot_tools/gclient", ["sync", "-r", v8_branch_version], True)
-    base.cmd("gclient", ["sync", "--force"], True)
+    if not try_main_or_fallback("./depot_tools/gclient", ["sync", "-r", v8_branch_version]):
+      os.chdir(old_cur)
+      return
+    if not try_main_or_fallback("gclient", ["sync", "--force"]):
+      os.chdir(old_cur)
+      return
     base.copy_dir("./v8/third_party_new/ninja", "./v8/third_party/ninja")
 
   if ("windows" == base.host_platform()):
