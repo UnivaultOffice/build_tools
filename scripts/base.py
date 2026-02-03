@@ -88,24 +88,26 @@ def _download_optional(url, dst):
     return cmd_exe("powershell", ["-NoProfile", "-Command", ps_cmd], True)
   return ret
 
-def _download_resume(url, dst):
+def _download_resume(url, dst, label=""):
   if host_platform() == "windows":
     ps_cmd = (
       "$ProgressPreference='SilentlyContinue';"
-      "Write-Host ('[cache] downloading: ' + $url);"
+      "Write-Host ('[cache] downloading " + label + ": ' + $url);"
       "$url='" + url + "';"
       "$dst='" + dst + "';"
       "$headers=@{};"
       "if($env:UV_GITHUB_TOKEN){$headers['Authorization']='token '+$env:UV_GITHUB_TOKEN};"
       "$pos=0;"
       "if(Test-Path $dst){$pos=(Get-Item $dst).Length};"
-      "Write-Host ('[cache] current size: ' + $pos + ' bytes');"
+      "$posMB=[Math]::Round($pos/1MB,1);"
+      "Write-Host ('[cache] current size: ' + $posMB + ' MB');"
       "$head=[System.Net.HttpWebRequest]::Create($url);"
       "$head.Method='HEAD';"
       "foreach($k in $headers.Keys){$head.Headers[$k]=$headers[$k]};"
       "$headResp=$head.GetResponse();"
       "$len=$headResp.ContentLength; $headResp.Close();"
-      "Write-Host ('[cache] total size: ' + $len + ' bytes');"
+      "$lenMB=[Math]::Round($len/1MB,1);"
+      "Write-Host ('[cache] total size: ' + $lenMB + ' MB');"
       "if($len -ge 0 -and $pos -ge $len){exit 0};"
       "$req=[System.Net.HttpWebRequest]::Create($url);"
       "foreach($k in $headers.Keys){$req.Headers[$k]=$headers[$k]};"
@@ -120,11 +122,13 @@ def _download_resume(url, dst):
       "  $fs.Write($buffer,0,$read);"
       "  $total+=$read;"
       "  if(([DateTime]::UtcNow - $lastReport).TotalSeconds -ge 5){"
-      "    Write-Host ('[cache] progress: ' + $total + ' / ' + $len + ' bytes');"
+      "    $totalMB=[Math]::Round($total/1MB,1);"
+      "    Write-Host ('[cache] progress: ' + $totalMB + ' / ' + $lenMB + ' MB');"
       "    $lastReport=[DateTime]::UtcNow;"
       "  }"
       "};"
-      "Write-Host ('[cache] progress: ' + $total + ' / ' + $len + ' bytes');"
+      "$totalMB=[Math]::Round($total/1MB,1);"
+      "Write-Host ('[cache] progress: ' + $totalMB + ' / ' + $lenMB + ' MB');"
       "$fs.Close(); $stream.Close(); $resp.Close()"
     )
     return cmd_exe("powershell", ["-NoProfile", "-Command", ps_cmd], True)
@@ -298,7 +302,7 @@ def restore_v8_89_cache(base_dir):
     part_url = base_url + part
     local_part = base_dir + "/" + part
     print("[cache] download part " + str(idx) + "/" + str(total_parts) + ": " + part)
-    _download_resume(part_url, local_part)
+    _download_resume(part_url, local_part, str(idx) + "/" + str(total_parts))
     if is_file(local_part):
       size_mb = int(os.path.getsize(local_part) / (1024 * 1024))
       print("[cache] part " + str(idx) + "/" + str(total_parts) + " size: " + str(size_mb) + " MB")
