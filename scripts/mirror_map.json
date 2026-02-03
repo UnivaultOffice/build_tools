@@ -2,5 +2,6 @@
   "https://chromium.googlesource.com/chromium/tools/depot_tools.git": "https://github.com/UNIVAULTOFFICE/3dparty_mirror-depot_tools.git",
   "https://bitbucket.org/multicoreware/x265_git.git": "https://github.com/UNIVAULTOFFICE/3dparty_mirror-x265_git.git",
   "https://code.videolan.org/videolan/vlc.git": "https://github.com/UNIVAULTOFFICE/3dparty_mirror-vlc.git",
-  "v8_cache_url": "https://raw.githubusercontent.com/UnivaultOffice/build_tools_cache/main/v8_89/cache.json"
+  "v8_cache_url": "https://raw.githubusercontent.com/UnivaultOffice/build_tools_cache/main/v8_89/cache.json",
+  "cipd_client_url": "https://raw.githubusercontent.com/UnivaultOffice/build_tools_cache/main/cipd/windows-amd64/cipd.exe"
 }

@@ -96,6 +96,32 @@ def _cipd_proxy_url():
     pass
   return _mirror_map().get("cipd_proxy_url", "")
 
+def _cipd_client_url():
+  env_val = os.getenv("UV_CIPD_CLIENT_URL", "")
+  if env_val != "":
+    return env_val
+  try:
+    cfg_val = config.option("cipd-client-url")
+    if cfg_val != "":
+      return cfg_val
+  except Exception:
+    pass
+  return _mirror_map().get("cipd_client_url", "")
+
+def patch_cipd_client_url(path):
+  if not is_file(path):
+    return False
+  url = _cipd_client_url()
+  if url == "":
+    return False
+  content = readFile(path)
+  if "chrome-infra-packages.appspot.com/client" not in content:
+    return False
+  content = content.replace("https://chrome-infra-packages.appspot.com/client", url)
+  content = content.replace("http://chrome-infra-packages.appspot.com/client", url)
+  writeFile(path, content)
+  return True
+
 def _apply_cipd_env():
   global _cipd_env_applied
   if _cipd_env_applied:
