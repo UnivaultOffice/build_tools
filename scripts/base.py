@@ -330,6 +330,12 @@ def restore_v8_89_cache(base_dir):
 
   archive_path = base_dir + "/" + archive_name
   _concat_files(local_parts, archive_path)
+  # remove parts right after concatenation to save space
+  for part in local_parts:
+    try:
+      delete_file(part, False)
+    except Exception:
+      pass
 
   if sha_expected != "":
     sha_actual = _sha256_file(archive_path)
@@ -339,8 +345,23 @@ def restore_v8_89_cache(base_dir):
       print_error("[cache] actual:   " + sha_actual)
       return False
 
-  _extract_tgz(archive_path, base_dir)
-  return True
+  extract_ok = False
+  try:
+    _extract_tgz(archive_path, base_dir)
+    extract_ok = True
+  finally:
+    if extract_ok:
+      try:
+        delete_file(archive_path, False)
+      except Exception:
+        pass
+      # remove any leftover .tar produced by 7z extraction
+      try:
+        for tar_file in find_files(base_dir, "*.tar"):
+          delete_file(tar_file, False)
+      except Exception:
+        pass
+  return extract_ok
 
 # common functions --------------------------------------
 def get_script_dir(file=""):
@@ -490,10 +511,37 @@ def _prepend_cmake_bin():
   if cmake_bin not in path.split(os.pathsep):
     os.environ["PATH"] = cmake_bin + os.pathsep + path
 
+def _prepend_node_bin():
+  if host_platform() != "windows":
+    return
+  path = os.environ.get("PATH", "")
+  candidates = []
+  pf = os.getenv("ProgramFiles", "")
+  pfx = os.getenv("ProgramFiles(x86)", "")
+  lad = os.getenv("LOCALAPPDATA", "")
+  if pf:
+    candidates.append(os.path.join(pf, "nodejs"))
+  if pfx:
+    candidates.append(os.path.join(pfx, "nodejs"))
+  if lad:
+    candidates.append(os.path.join(lad, "Programs", "nodejs"))
+  for c in candidates:
+    if c and os.path.isfile(os.path.join(c, "node.exe")):
+      if c not in path.split(os.pathsep):
+        path = c + os.pathsep + path
+        os.environ["PATH"] = path
+  # ensure npm global bin path
+  appdata = os.getenv("APPDATA", "")
+  if appdata:
+    npm_path = os.path.join(appdata, "npm")
+    if npm_path not in path.split(os.pathsep):
+      os.environ["PATH"] = npm_path + os.pathsep + os.environ["PATH"]
+
 def configure_common_apps(file=""):
   if ("windows" == host_platform()):
     os.environ["PATH"] = get_script_dir(file) + "/../tools/win/7z" + os.pathsep + get_script_dir(file) + "/../tools/win/curl" + os.pathsep + get_script_dir(file) + "/../tools/win/vswhere" + os.pathsep + os.environ["PATH"]
     _prepend_cmake_bin()
+    _prepend_node_bin()
   elif ("mac" == host_platform()):
     os.environ["PATH"] = get_script_dir(file) + "/../tools/mac" + os.pathsep + os.environ["PATH"]
   return
@@ -1999,7 +2047,7 @@ def copy_sdkjs_plugin(src_dir, dst_dir, name, is_name_as_guid=False, is_desktop_
     copy_dir_content(src_dir_path, dst_dir_path, "", ".git")
     if is_desktop_local:
       for file in glob.glob(dst_dir_path + "/*.html"):
-        replaceInFile(file, "https://github.com/Kitware/CMake/releases/download/v", "../")
+        replaceInFile(file, "https://univaultoffice.github.io/sdkjs-plugins/", "../")
     return
   if not is_file(src_dir_path + "/config.json"):
     return
@@ -2016,7 +2064,7 @@ def copy_sdkjs_plugin(src_dir, dst_dir, name, is_name_as_guid=False, is_desktop_
   copy_dir_content(src_dir_path, dst_dir_path, "", ".git")
   if is_desktop_local:
     for file in glob.glob(dst_dir_path + "/*.html"):
-      replaceInFile(file, "https://github.com/Kitware/CMake/releases/download/v", "../")
+      replaceInFile(file, "https://univaultoffice.github.io/sdkjs-plugins/", "../")
   dst_deploy_dir = dst_dir_path + "/deploy"
   if is_dir(dst_deploy_dir):
     delete_dir(dst_deploy_dir)
@@ -2028,7 +2076,7 @@ def copy_marketplace_plugin(dst_dir, is_name_as_guid=False, is_desktop_local=Fal
     # old version
     copy_sdkjs_plugin(git_dir + "/desktop-sdk/ChromiumBasedEditors/plugins", dst_dir, "manager", is_name_as_guid, is_desktop_local)
     return
-  src_dir_path = git_dir + "/https://github.com/Kitware/CMake/releases/download/v"
+  src_dir_path = git_dir + "/univaultoffice.github.io/store/plugin"
   name = "marketplace"
   if is_name_as_guid:
     name = "{AA2EA9B6-9EC2-415F-9762-634EE8D9A95E}"
@@ -2041,16 +2089,16 @@ def copy_marketplace_plugin(dst_dir, is_name_as_guid=False, is_desktop_local=Fal
   copy_dir_content(src_dir_path, dst_dir_path)
   if is_desktop_local:
     for file in glob.glob(dst_dir_path + "/*.html"):
-      replaceInFile(file, "https://github.com/Kitware/CMake/releases/download/v", "../")
+      replaceInFile(file, "https://univaultoffice.github.io/sdkjs-plugins/", "../")
 
   if is_store_copy:
-    copy_dir(git_dir + "/https://github.com/Kitware/CMake/releases/download/v", dst_dir_path + "/store")
+    copy_dir(git_dir + "/univaultoffice.github.io/store", dst_dir_path + "/store")
     delete_dir(dst_dir_path + "/store/plugin")
     delete_dir(dst_dir_path + "/store/plugin-dev")
   return
 
 def copy_sdkjs_plugins(dst_dir, is_name_as_guid=False, is_desktop_local=False, isXp=False):
-  plugins_dir = __file__script__path__ + "/../../https://github.com/Kitware/CMake/releases/download/v"
+  plugins_dir = __file__script__path__ + "/../../univaultoffice.github.io/sdkjs-plugins/content"
   plugins_list_config = config.option("sdkjs-plugin")
   if isXp:
     plugins_list_config="photoeditor, highlightcode, doc2md"
@@ -2062,7 +2110,7 @@ def copy_sdkjs_plugins(dst_dir, is_name_as_guid=False, is_desktop_local=False, i
   return
 
 def copy_sdkjs_plugins_server(dst_dir, is_name_as_guid=False, is_desktop_local=False):
-  plugins_dir = __file__script__path__ + "/../../https://github.com/Kitware/CMake/releases/download/v"
+  plugins_dir = __file__script__path__ + "/../../univaultoffice.github.io/sdkjs-plugins/content"
   plugins_list_config = config.option("sdkjs-plugin-server")
   if ("" == plugins_list_config):
     return
@@ -2074,9 +2122,9 @@ def copy_sdkjs_plugins_server(dst_dir, is_name_as_guid=False, is_desktop_local=F
 def support_old_versions_plugins(out_dir):
   if is_file(out_dir + "/pluginBase.js"):
     return
-  download("https://github.com/Kitware/CMake/releases/download/v", out_dir + "/plugins.js")
-  download("https://github.com/Kitware/CMake/releases/download/v", out_dir + "/plugins-ui.js")
-  download("https://github.com/Kitware/CMake/releases/download/v", out_dir + "/plugins.css")
+  download("https://univaultoffice.github.io/sdkjs-plugins/v1/plugins.js", out_dir + "/plugins.js")
+  download("https://univaultoffice.github.io/sdkjs-plugins/v1/plugins-ui.js", out_dir + "/plugins-ui.js")
+  download("https://univaultoffice.github.io/sdkjs-plugins/v1/plugins.css", out_dir + "/plugins.css")
   content_plugin_base = ""
   with open(get_path(out_dir + "/plugins.js"), "r") as file:
     content_plugin_base += file.read()
